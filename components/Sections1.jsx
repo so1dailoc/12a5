@@ -14,7 +14,7 @@ function About() {
             <div className="section-number">§ 01</div>
             <h2 className="section-title">Hai mươi năm<br/><em>một lời hẹn</em></h2>
             <p className="section-dek">
-              Lớp 12A5 Trường THPT Huỳnh Ngọc Huệ — 54 học sinh ra trường, toả đi khắp đất nước và thế giới. Năm nay, chúng ta về lại chốn xưa.
+              Lớp 12A5 Trường THPT Huỳnh Ngọc Huệ — 55 học sinh ra trường, toả đi khắp đất nước và thế giới. Năm nay, chúng ta về lại chốn xưa.
             </p>
           </div>
           <div className="about-right">
