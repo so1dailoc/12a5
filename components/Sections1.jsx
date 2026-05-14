@@ -4,36 +4,36 @@ function About() {
     <section id="about" className="about">
       <div className="page">
         <div className="index-bar">
-          <span>Â§ 01 â€” Giá»›i thiá»‡u</span>
-          <span>KhoÃ¡ 2006 Â· Pháº¡m PhÃº Thá»©</span>
+          <span>§ 01 — Giới thiệu</span>
+          <span>THPT Huỳnh Ngọc Huệ - Khóa 2003-2006</span>
           <span>trang 02</span>
         </div>
 
         <div className="about-grid">
           <div className="about-left">
-            <div className="section-number">Â§ 01</div>
-            <h2 className="section-title">Hai mÆ°Æ¡i nÄƒm<br/><em>má»™t lá»i háº¹n</em></h2>
+            <div className="section-number">§ 01</div>
+            <h2 className="section-title">Hai mươi năm<br/><em>một lời hẹn</em></h2>
             <p className="section-dek">
-              Lá»›p 12 khoÃ¡ 2006 â€” má»™t trÄƒm tÃ¡m mÆ°Æ¡i há»c sinh ra trÆ°á»ng, toáº£ Ä‘i kháº¯p Ä‘áº¥t nÆ°á»›c vÃ  tháº¿ giá»›i. NÄƒm nay, chÃºng ta vá» láº¡i chá»‘n xÆ°a.
+              Lớp 12A5 Trường THPT Huỳnh Ngọc Huệ — 54 học sinh ra trường, toả đi khắp đất nước và thế giới. Năm nay, chúng ta về lại chốn xưa.
             </p>
           </div>
           <div className="about-right">
             <div className="about-stats">
-              <Stat n="18" label="Lá»›p 12 khoÃ¡ 2003â€“2006"/>
-              <Stat n="482" label="Cá»±u há»c sinh toÃ n khoÃ¡"/>
-              <Stat n="36" label="Tháº§y cÃ´ giÃ¡o"/>
-              <Stat n="20" label="NÄƒm ká»ƒ tá»« ngÃ y ra trÆ°á»ng"/>
+              <Stat n="15" label="Lớp 12 khoá 2003–2006"/>
+              <Stat n=">500" label="Cựu học sinh toàn khoá"/>
+              <Stat n=">60" label="Thầy cô giáo"/>
+              <Stat n="20" label="Năm kể từ ngày ra trường"/>
             </div>
 
             <div className="about-story">
-              <p>NÄƒm 2003, chÃºng ta bÆ°á»›c vÃ o cá»•ng trÆ°á»ng vá»›i chiáº¿c cáº·p náº·ng trÄ©u sÃ¡ch vÃ  trÃ¡i tim nháº¹ tÃªnh. Ba nÄƒm sau, rá»i Ä‘i vá»›i táº¥m báº±ng tÃº tÃ i, vÃ i cuá»‘n lÆ°u bÃºt vÃ  má»™t lá»i háº¹n "sau nÃ y nhá»› gáº·p láº¡i".</p>
-              <p>Hai mÆ°Æ¡i nÄƒm sau, lá»i háº¹n áº¥y thÃ nh hÃ¬nh. DÃ¹ báº¡n Ä‘ang á»Ÿ ÄÃ  Náºµng, SÃ i GÃ²n, HÃ  Ná»™i hay bÃªn kia Ä‘áº¡i dÆ°Æ¡ng â€” chÃºng tÃ´i mong má»™t láº§n báº¡n quay vá».</p>
-              <p className="signoff mono caps">â€” Ban liÃªn láº¡c khoÃ¡ 2006</p>
+              <p>Năm 2003, chúng ta bước vào cổng trường với chiếc cặp nặng trĩu sách và trái tim nhẹ tênh. Ba năm sau, rời đi với tấm bằng tú tài, vài cuốn lưu bút và một lời hẹn "sau này nhớ gặp lại".</p>
+              <p>Hai mươi năm sau, lời hẹn ấy thành hình. Dù bạn đang ở Đà Nẵng, Sài Gòn, Hà Nội hay bên kia đại dương — chúng tôi mong một lần bạn quay về.</p>
+              <p className="signoff mono caps">Ban liên lạc Lớp 12A5</p>
             </div>
           </div>
         </div>
 
-        <div className="ornament">â‹   â‹   â‹</div>
+        <div className="ornament">❋   ❋   ❋</div>
       </div>
 
       <style>{`
@@ -96,15 +96,15 @@ function Schedule() {
     <section id="schedule" className="schedule">
       <div className="page">
         <div className="index-bar">
-          <span>Â§ 02 â€” ChÆ°Æ¡ng trÃ¬nh</span>
-          <span>Thá»© báº£y Â· 18.07.2026</span>
+          <span>§ 02 — Chương trình</span>
+          <span>Chủ nhật · 12.07.2026</span>
           <span>trang 03</span>
         </div>
 
         <div className="sched-head">
-          <div className="section-number">Â§ 02</div>
-          <h2 className="section-title">Má»™t ngÃ y<br/><em>trá»Ÿ vá»</em></h2>
-          <p className="section-dek">Báº£y cung báº­c cáº£m xÃºc â€” tá»« cÃ¡i báº¯t tay Ä‘áº§u tiÃªn Ä‘áº¿n bÃ i hÃ¡t cuá»‘i Ä‘Ãªm.</p>
+          <div className="section-number">§ 02</div>
+          <h2 className="section-title">Chạm lại<br/><em>Thanh Xuân</em></h2>
+          <p className="section-dek">Nhiều cung bậc cảm xúc — từ cái bắt tay đầu tiên đến bài hát cuối đêm.</p>
         </div>
 
         <div className="timeline">
@@ -115,18 +115,18 @@ function Schedule() {
                 <div className="tl-dot"/>
               </div>
               <div className="tl-content">
-                <div className="tl-num mono caps">Má»¥c {String(i+1).padStart(2, '0')}</div>
+                <div className="tl-num mono caps">Mục {String(i+1).padStart(2, '0')}</div>
                 <h3 className="tl-title display">{item.title}</h3>
                 <p className="tl-desc">{item.desc}</p>
               </div>
               <div className="tl-decor placeholder">
-                áº¢nh Â· {item.title.split(' ').slice(0, 2).join(' ')}
+                Ảnh · {item.title.split(' ').slice(0, 2).join(' ')}
               </div>
             </div>
           ))}
         </div>
 
-        <div className="ornament">â‹   â‹   â‹</div>
+        <div className="ornament">❋   ❋   ❋</div>
       </div>
 
       <style>{`
@@ -177,26 +177,26 @@ function Schedule() {
 
 function Gallery() {
   const photos = [
-    { then: "Lá»›p 12A1 Â· 2006", now: "Gáº·p láº¡i Â· 2026", caption: "Buá»•i tá»•ng káº¿t nÄƒm há»c cuá»‘i cáº¥p" },
-    { then: "SÃ¢n trÆ°á»ng Â· 2005", now: "SÃ¢n trÆ°á»ng Â· 2026", caption: "Giá» ra chÆ¡i, gá»‘c phÆ°á»£ng Ä‘áº§u hÃ nh lang" },
-    { then: "VÄƒn nghá»‡ Â· 2006", now: "Gala Â· 2026", caption: "ÄÃªm vÄƒn nghá»‡ chia tay khoÃ¡ 2006" },
-    { then: "Há»™i tráº¡i Â· 2005", now: "Picnic Â· 2026", caption: "Há»™i tráº¡i chÃ o má»«ng 26/3 nÄƒm cuá»‘i" },
-    { then: "Lá»›p 12A3 Â· 2006", now: "Mini reunion Â· 2024", caption: "NhÃ³m báº¡n 12A3 gáº·p láº¡i táº¡i ÄÃ  Náºµng" },
-    { then: "Tá»‘t nghiá»‡p Â· 2006", now: "Há»™i ngá»™ Â· 2026", caption: "áº¢nh táº­p thá»ƒ ngÃ y phÃ¡t báº±ng tá»‘t nghiá»‡p" }
+    { then: "Lớp 12A5 · 2006", now: "Gặp lại · 2026", caption: "Buổi tổng kết năm học cuối cấp cùng với thầy" },
+    { then: "Sân trường · 2006", now: "Sân trường · 2026", caption: "Giờ ra chơi, gốc phượng đầu hành lang" },
+    { then: "Văn nghệ · 2006", now: "Gặp lại · 2026", caption: "Đêm văn nghệ Mừng Đảng Đón Xuân năm 2006" },
+    { then: "Hội trại · 2005", now: "Gặp lại · 2026", caption: "Hội trại chào mừng 26/3" },
+    { then: "Lớp 12A5 · 2006", now: "Gặp lại · 2024", caption: "Nhóm bạn 12A5 gặp lại tại Đà Nẵng" },
+    { then: "Lớp 12A5 · 2006", now: "Gặp lại · 2024", caption: "Nhóm bạn 12A5 gặp lại tại Sài Gòn" }
   ];
   return (
     <section id="gallery" className="gallery">
       <div className="page">
         <div className="index-bar">
-          <span>Â§ 03 â€” Ká»· niá»‡m</span>
+          <span>§ 03 — Kỷ niệm</span>
           <span>Then & Now</span>
           <span>trang 04</span>
         </div>
 
         <div className="gal-head">
-          <div className="section-number">Â§ 03</div>
-          <h2 className="section-title">Rá»“i & <em>bÃ¢y giá»</em></h2>
-          <p className="section-dek">Di chuá»™t lÃªn má»—i bá»©c áº£nh Ä‘á»ƒ tháº¥y chÃºng ta cá»§a <em>hai mÆ°Æ¡i nÄƒm trÆ°á»›c</em> trá»Ÿ vá».</p>
+          <div className="section-number">§ 03</div>
+          <h2 className="section-title">Rồi & <em>bây giờ</em></h2>
+          <p className="section-dek">Di chuột lên mỗi bức ảnh để thấy chúng ta của <em>hai mươi năm trước</em> trở về.</p>
         </div>
 
         <div className="gal-grid">
@@ -222,14 +222,14 @@ function Gallery() {
         </div>
 
         <div className="gal-upload">
-          <h3 className="display" style={{fontSize: 32, marginBottom: 8}}>CÃ³ áº£nh cÅ© muá»‘n chia sáº»?</h3>
+          <h3 className="display" style={{fontSize: 32, marginBottom: 8}}>Có ảnh cũ muốn chia sẻ?</h3>
           <p style={{marginBottom: 20, color: 'var(--ink-soft)', fontStyle: 'italic'}}>
-            Album chung cá»§a chÃºng ta má»Ÿ cá»­a cho táº¥t cáº£ báº¡n cÃ¹ng khoÃ¡. Gá»­i áº£nh scan, áº£nh chá»¥p nhanh, áº£nh ká»· yáº¿u â€” báº¥t cá»© thá»© gÃ¬ báº¡n cÃ²n giá»¯.
+            Album chung của chúng ta mở cửa cho tất cả bạn cùng khoá. Gửi ảnh scan, ảnh chụp nhanh, ảnh kỷ yếu — bất cứ thứ gì bạn còn giữ.
           </p>
           <UploadBox/>
         </div>
 
-        <div className="ornament">â‹   â‹   â‹</div>
+        <div className="ornament">❋   ❋   ❋</div>
       </div>
 
       <style>{`
@@ -305,17 +305,17 @@ function UploadBox() {
         <input type="file" multiple accept="image/*" onChange={onPick} style={{display: 'none'}}/>
         <div className="upload-inner">
           <div className="upload-plus">+</div>
-          <div className="mono caps" style={{fontSize: 11, letterSpacing: '0.2em'}}>KÃ©o tháº£ hoáº·c chá»n áº£nh</div>
+          <div className="mono caps" style={{fontSize: 11, letterSpacing: '0.2em'}}>Kéo thả hoặc chọn ảnh</div>
           <div style={{fontStyle: 'italic', fontSize: 14, color: 'var(--ink-soft)', marginTop: 8}}>
-            JPG, PNG, HEIC â€” tá»‘i Ä‘a 20MB má»—i áº£nh
+            JPG, PNG, HEIC — tối đa 20MB mỗi ảnh
           </div>
         </div>
       </label>
       {files.length > 0 && (
         <div className="upload-list">
-          <div className="mono caps" style={{fontSize: 10, marginBottom: 8}}>ÄÃ£ chá»n {files.length} áº£nh</div>
-          {files.map((f, i) => <div key={i} className="upload-item">âœ“ {f}</div>)}
-          <button className="btn btn-accent" style={{marginTop: 16}} onClick={() => alert('Cáº£m Æ¡n! BTC sáº½ duyá»‡t vÃ  thÃªm vÃ o album chung.')}>Gá»­i áº£nh</button>
+          <div className="mono caps" style={{fontSize: 10, marginBottom: 8}}>Đã chọn {files.length} ảnh</div>
+          {files.map((f, i) => <div key={i} className="upload-item">✓ {f}</div>)}
+          <button className="btn btn-accent" style={{marginTop: 16}} onClick={() => alert('Cảm ơn! Ban liên lạc của Lớp sẽ duyệt và thêm vào album chung.')}>Gửi ảnh</button>
         </div>
       )}
       <style>{`
