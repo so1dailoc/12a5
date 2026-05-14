@@ -5,23 +5,23 @@ function Teachers() {
     <section id="teachers" className="teachers">
       <div className="page">
         <div className="index-bar">
-          <span>Â§ 04 â€” Tri Ã¢n</span>
-          <span>Tháº§y cÃ´ giÃ¡o</span>
+          <span>§ 04 — Tri ân</span>
+          <span>Thầy cô giáo</span>
           <span>trang 05</span>
         </div>
 
         <div className="t-head">
-          <div className="section-number">Â§ 04</div>
-          <h2 className="section-title">Nhá»¯ng ngÆ°á»i<br/><em>gieo chá»¯</em></h2>
+          <div className="section-number">§ 04</div>
+          <h2 className="section-title">Những người<br/><em>gieo chữ</em></h2>
           <p className="section-dek">
-            "Nháº¥t tá»± vi sÆ°, bÃ¡n tá»± vi sÆ°." â€” Hai mÆ°Æ¡i nÄƒm sau, báº£ng Ä‘en Ä‘Ã£ láº·ng, nhÆ°ng tá»«ng lá»i dáº¡y váº«n cÃ²n vang.
+            "Nhất tự vi sư, bán tự vi sư." — Hai mươi năm sau, bảng đen đã lặng, nhưng từng lời dạy vẫn còn vang.
           </p>
         </div>
 
         <div className="t-grid">
           {d.teachers.map((t, i) => (
             <article key={i} className="t-card reveal">
-              <div className="t-photo placeholder">ChÃ¢n dung<br/>{t.name.split(' ').slice(-2).join(' ')}</div>
+              <div className="t-photo placeholder">Chân dung<br/>{t.name.split(' ').slice(-2).join(' ')}</div>
               <div className="t-body">
                 <div className="mono caps" style={{fontSize: 9, color: 'var(--accent)', marginBottom: 6}}>{String(i+1).padStart(2, '0')}</div>
                 <h3 className="display" style={{fontSize: 22, marginBottom: 4}}>{t.name}</h3>
@@ -35,14 +35,14 @@ function Teachers() {
         <div className="t-tribute">
           <div className="quote-mark">"</div>
           <p>
-            Cáº£m Æ¡n tháº§y cÃ´ Ä‘Ã£ nÃ¢ng chÃºng em qua nhá»¯ng bÃ i toÃ¡n khÃ³, nhá»¯ng trang vÄƒn dÃ i, nhá»¯ng chiá»u thá»ƒ dá»¥c má»‡t nhoÃ i. HÃ´m nay chÃºng em Ä‘á»©ng Ä‘Ã¢y â€” nhá»¯ng ngÆ°á»i thá»£, tháº§y thuá»‘c, tháº§y giÃ¡o, ngÆ°á»i máº¹, ngÆ°á»i cha â€” Ä‘á»u mang trong mÃ¬nh má»™t pháº§n cá»§a tháº§y cÃ´.
+            Cảm ơn thầy cô đã nâng chúng em qua những bài toán khó, những trang văn dài, những chiều thể dục mệt nhoài. Hôm nay chúng em đứng đây — những người thợ, thầy thuốc, thầy giáo, người mẹ, người cha — đều mang trong mình một phần của thầy cô.
           </p>
           <div className="mono caps" style={{marginTop: 16, color: 'var(--ink-soft)', fontSize: 10}}>
-            â€” Thay máº·t khoÃ¡ 2006
+            — Thay mặt khoá 2006
           </div>
         </div>
 
-        <div className="ornament">â‹   â‹   â‹</div>
+        <div className="ornament">❋   ❋   ❋</div>
       </div>
 
       <style>{`
@@ -107,28 +107,28 @@ function Classmates() {
     <section id="classmates" className="classmates">
       <div className="page">
         <div className="index-bar">
-          <span>Â§ 05 â€” Danh báº¡</span>
-          <span>{confirmedCount}/{d.classmates.length} Ä‘Ã£ xÃ¡c nháº­n</span>
+          <span>§ 05 — Danh bạ</span>
+          <span>{confirmedCount}/{d.classmates.length} đã xác nhận</span>
           <span>trang 06</span>
         </div>
 
         <div className="c-head">
-          <div className="section-number">Â§ 05</div>
-          <h2 className="section-title">TÃ¬m láº¡i<br/><em>má»™t ngÆ°á»i báº¡n</em></h2>
-          <p className="section-dek">Danh sÃ¡ch cá»±u há»c sinh Ä‘ang cáº­p nháº­t. GÃµ tÃªn hoáº·c nghá» nghiá»‡p Ä‘á»ƒ tÃ¬m.</p>
+          <div className="section-number">§ 05</div>
+          <h2 className="section-title">Tìm lại<br/><em>một người bạn</em></h2>
+          <p className="section-dek">Danh sách cựu học sinh đang cập nhật. Gõ tên hoặc nghề nghiệp để tìm.</p>
         </div>
 
         <div className="c-tools">
           <div className="c-search">
-            <label>TÃ¬m kiáº¿m</label>
-            <input type="text" value={q} onChange={e => setQ(e.target.value)} placeholder="TÃªn, nghá», thÃ nh phá»‘â€¦"/>
+            <label>Tìm kiếm</label>
+            <input type="text" value={q} onChange={e => setQ(e.target.value)} placeholder="Tên, nghề, thành phố…"/>
           </div>
           <div className="c-filter">
-            <label>Lá»c theo lá»›p</label>
+            <label>Lọc theo lớp</label>
             <div className="c-chips">
               {classes.map(c => (
                 <button key={c} className={"c-chip" + (filterClass === c ? " on" : "")} onClick={() => setFilterClass(c)}>
-                  {c === 'all' ? 'Táº¥t cáº£' : c}
+                  {c === 'all' ? 'Tất cả' : c}
                 </button>
               ))}
             </div>
@@ -139,26 +139,26 @@ function Classmates() {
           {filtered.map((m, i) => (
             <div key={i} className="c-row">
               <div className="c-num mono">{String(i+1).padStart(3, '0')}</div>
-              <div className="c-avatar placeholder" style={{fontSize: 8}}>áº¢nh</div>
+              <div className="c-avatar placeholder" style={{fontSize: 8}}>Ảnh</div>
               <div className="c-name display">{m.name}</div>
               <div className="c-class mono caps">{m.class}</div>
               <div className="c-now italic">{m.now}</div>
               <div className="c-status">
                 {m.confirmed
-                  ? <span className="pill">ÄÃ£ xÃ¡c nháº­n</span>
-                  : <span className="mono caps" style={{color: 'var(--ink-faint)', fontSize: 9}}>Chá» liÃªn láº¡c</span>
+                  ? <span className="pill">Đã xác nhận</span>
+                  : <span className="mono caps" style={{color: 'var(--ink-faint)', fontSize: 9}}>Chờ liên lạc</span>
                 }
               </div>
             </div>
           ))}
           {filtered.length === 0 && (
             <div style={{padding: 40, textAlign: 'center', fontStyle: 'italic', color: 'var(--ink-soft)'}}>
-              KhÃ´ng tÃ¬m tháº¥y â€” cÃ³ thá»ƒ há» chÆ°a cáº­p nháº­t. LiÃªn há»‡ BTC Ä‘á»ƒ bá»• sung.
+              Không tìm thấy — có thể họ chưa cập nhật. Liên hệ Ban liên lạc để bổ sung.
             </div>
           )}
         </div>
 
-        <div className="ornament">â‹   â‹   â‹</div>
+        <div className="ornament">❋   ❋   ❋</div>
       </div>
 
       <style>{`
@@ -231,30 +231,30 @@ function RSVP() {
     <section id="rsvp" className="rsvp">
       <div className="page">
         <div className="index-bar">
-          <span>Â§ 06 â€” XÃ¡c nháº­n</span>
-          <span>RSVP Â· Háº¡n 30.06.2026</span>
+          <span>§ 06 — Xác nhận</span>
+          <span>RSVP · Hạn 30.06.2026</span>
           <span>trang 07</span>
         </div>
 
         <div className="r-grid">
           <div className="r-left">
-            <div className="section-number">Â§ 06</div>
-            <h2 className="section-title">ÄÄƒng kÃ½<br/><em>cÃ³ máº·t</em></h2>
+            <div className="section-number">§ 06</div>
+            <h2 className="section-title">Đăng ký<br/><em>có mặt</em></h2>
             <p className="section-dek">
-              Vui lÃ²ng xÃ¡c nháº­n trÆ°á»›c <strong>30.06.2026</strong> Ä‘á»ƒ BTC sáº¯p xáº¿p chá»— ngá»“i, in huy hiá»‡u vÃ  ká»· yáº¿u riÃªng cho báº¡n.
+              Vui lòng xác nhận trước <strong>30.06.2026</strong> để BTC sắp xếp chỗ ngồi, in huy hiệu và kỷ yếu riêng cho bạn.
             </p>
             <div className="r-info">
               <div className="r-info-row">
-                <div className="mono caps">PhÃ­ tham dá»±</div>
-                <div className="display" style={{fontSize: 28}}>800.000Ä‘<span style={{fontSize: 14, color: 'var(--ink-soft)', fontStyle: 'italic', marginLeft: 8}}>/ngÆ°á»i</span></div>
+                <div className="mono caps">Phí tham dự</div>
+                <div className="display" style={{fontSize: 28}}>800.000đ<span style={{fontSize: 14, color: 'var(--ink-soft)', fontStyle: 'italic', marginLeft: 8}}>/người</span></div>
               </div>
               <div className="r-info-row">
-                <div className="mono caps">Bao gá»“m</div>
-                <div style={{fontSize: 15}}>Tiá»‡c tá»‘i, ká»· yáº¿u, huy hiá»‡u, áº£nh ká»· niá»‡m</div>
+                <div className="mono caps">Bao gồm</div>
+                <div style={{fontSize: 15}}>Tiệc tối, kỷ yếu, huy hiệu, ảnh kỷ niệm</div>
               </div>
               <div className="r-info-row">
-                <div className="mono caps">Thanh toÃ¡n</div>
-                <div style={{fontSize: 15}}>Sau khi BTC xÃ¡c nháº­n RSVP qua email</div>
+                <div className="mono caps">Thanh toán</div>
+                <div style={{fontSize: 15}}>Sau khi BTC xác nhận RSVP qua email</div>
               </div>
             </div>
           </div>
@@ -262,29 +262,29 @@ function RSVP() {
           <div className="r-right">
             {submitted ? (
               <div className="r-success">
-                <div className="display" style={{fontSize: 64, color: 'var(--accent)'}}>âœ“</div>
-                <h3 className="display" style={{fontSize: 32, marginBottom: 12}}>Háº¹n gáº·p láº¡i, {form.name.split(' ').slice(-1)}!</h3>
+                <div className="display" style={{fontSize: 64, color: 'var(--accent)'}}>✓</div>
+                <h3 className="display" style={{fontSize: 32, marginBottom: 12}}>Hẹn gặp lại, {form.name.split(' ').slice(-1)}!</h3>
                 <p style={{fontStyle: 'italic', color: 'var(--ink-soft)', marginBottom: 24}}>
-                  BTC Ä‘Ã£ nháº­n Ä‘Äƒng kÃ½ cá»§a báº¡n. ChÃºng tÃ´i sáº½ gá»­i email xÃ¡c nháº­n kÃ¨m hÆ°á»›ng dáº«n thanh toÃ¡n trong vÃ²ng 48 giá».
+                  BTC đã nhận đăng ký của bạn. Chúng tôi sẽ gửi email xác nhận kèm hướng dẫn thanh toán trong vòng 48 giờ.
                 </p>
-                <button className="btn btn-ghost" onClick={() => setSubmitted(false)}>ÄÄƒng kÃ½ thÃªm ngÆ°á»i</button>
+                <button className="btn btn-ghost" onClick={() => setSubmitted(false)}>Đăng ký thêm người</button>
               </div>
             ) : (
               <form onSubmit={submit} className="r-form">
                 <div className="r-field">
-                  <label>Há» vÃ  tÃªn *</label>
+                  <label>Họ và tên *</label>
                   <input type="text" value={form.name} onChange={e => update('name', e.target.value)} required/>
                 </div>
                 <div className="r-row2">
                   <div className="r-field">
-                    <label>Lá»›p 12 *</label>
+                    <label>Lớp 12 *</label>
                     <select value={form.class} onChange={e => update('class', e.target.value)}>
-                      <option value="">â€” Chá»n lá»›p â€”</option>
+                      <option value="">— Chọn lớp —</option>
                       {['12A1','12A2','12A3','12A4','12A5','12A6','12A7','12A8'].map(c => <option key={c}>{c}</option>)}
                     </select>
                   </div>
                   <div className="r-field">
-                    <label>Sá»‘ Ä‘iá»‡n thoáº¡i *</label>
+                    <label>Số điện thoại *</label>
                     <input type="tel" value={form.phone} onChange={e => update('phone', e.target.value)} required/>
                   </div>
                 </div>
@@ -293,12 +293,12 @@ function RSVP() {
                   <input type="email" value={form.email} onChange={e => update('email', e.target.value)}/>
                 </div>
                 <div className="r-field">
-                  <label>Tham dá»±</label>
+                  <label>Tham dự</label>
                   <div className="r-radios">
                     {[
-                      {v: 'yes', l: 'CÃ³, tÃ´i sáº½ Ä‘áº¿n'},
-                      {v: 'maybe', l: 'Äang thu xáº¿p'},
-                      {v: 'no', l: 'KhÃ´ng thá»ƒ, gá»­i lá»i chÃºc'}
+                      {v: 'yes', l: 'Có, tôi sẽ đến'},
+                      {v: 'maybe', l: 'Đang thu xếp'},
+                      {v: 'no', l: 'Không thể, gửi lời chúc'}
                     ].map(opt => (
                       <label key={opt.v} className="r-radio">
                         <input type="radio" name="attend" checked={form.attend === opt.v} onChange={() => update('attend', opt.v)}/>
@@ -308,20 +308,20 @@ function RSVP() {
                   </div>
                 </div>
                 <div className="r-field">
-                  <label>Sá»‘ ngÆ°á»i Ä‘i cÃ¹ng (vá»£/chá»“ng/con)</label>
+                  <label>Số người đi cùng (vợ/chồng/con)</label>
                   <input type="number" min="0" max="6" value={form.guests} onChange={e => update('guests', e.target.value)}/>
                 </div>
                 <div className="r-field">
-                  <label>Lá»i nháº¯n cho BTC</label>
-                  <textarea value={form.message} onChange={e => update('message', e.target.value)} placeholder="Dá»‹ á»©ng thá»©c Äƒn, yÃªu cáº§u Ä‘áº·c biá»‡t, báº¡n mong gáº·p aiâ€¦"/>
+                  <label>Lời nhắn cho BTC</label>
+                  <textarea value={form.message} onChange={e => update('message', e.target.value)} placeholder="Dị ứng thức ăn, yêu cầu đặc biệt, bạn mong gặp ai…"/>
                 </div>
-                <button type="submit" className="btn btn-accent" style={{width: '100%', marginTop: 16}}>Gá»­i xÃ¡c nháº­n</button>
+                <button type="submit" className="btn btn-accent" style={{width: '100%', marginTop: 16}}>Gửi xác nhận</button>
               </form>
             )}
           </div>
         </div>
 
-        <div className="ornament">â‹   â‹   â‹</div>
+        <div className="ornament">❋   ❋   ❋</div>
       </div>
 
       <style>{`
