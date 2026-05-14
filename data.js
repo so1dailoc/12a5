@@ -11,7 +11,7 @@ window.REUNION_DATA = {
     { time: "8:00", title: "Khai mạc", desc: "Phát biểu khai mạc, Văn nghệ chào mừng" },
     { time: "9:00", title: "Tri ân thầy cô", desc: "Tặng hoa và kỷ vật cho thầy cô giáo cũ" },
     { time: "9:30", title: "Học bổng", desc: "Tặng học bổng cho Học sinh" },
-    { time: "10:30", title: "Văn nghệ", desc: "Những bài hát thời học trò, vòng tay bè bạn" }
+    { time: "10:30", title: "Văn nghệ", desc: "Những bài hát thời học trò, vòng tay bè bạn" },
     { time: "11:00", title: "Tham quan trường xưa", desc: "Đi lại hành lang, lớp học cũ, sân trường — nghe thầy cô kể chuyện" },
     { time: "11:30", title: "Chụp ảnh tập thể", desc: "Ảnh kỷ yếu phiên bản 2026 — toàn khoá và từng lớp" },
     { time: "12:00", title: "Tiệc", desc: "Dùng bữa, văn nghệ cây nhà lá vườn, trình chiếu video kỷ niệm" },
