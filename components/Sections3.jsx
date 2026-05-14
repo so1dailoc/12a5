@@ -33,7 +33,7 @@ function Fund() {
               </div>
             </div>
             <div className="f-bar">
-              <div className="f-bar-fill" style={{width: pct + '.'}}/>
+              <div className="f-bar-fill" style={{width: pct + '%'}}/>
               <div className="f-bar-label mono caps">{pct}% — cảm ơn các bạn</div>
             </div>
             <div className="f-allocs">
