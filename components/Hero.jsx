@@ -31,81 +31,81 @@ function Hero() {
                 <path id="arcTop" d="M 10,60 A 50,50 0 0,1 110,60" fill="none"/>
                 <path id="arcBot" d="M 10,60 A 50,50 0 0,0 110,60" fill="none"/>
                 <text fontFamily="var(--font-mono)" fontSize="7" letterSpacing="2" fill="currentColor">
-                  <textPath href="#arcTop" startOffset="50%" textAnchor="middle">PHáº M PHÃš THá»¨ Â· ÄÃ€ Náº´NG</textPath>
+                  <textPath href="#arcTop" startOffset="50%" textAnchor="middle">THPT HUỲNH NGỌC HUỆ</textPath>
                 </text>
                 <text fontFamily="var(--font-mono)" fontSize="7" letterSpacing="2" fill="currentColor">
-                  <textPath href="#arcBot" startOffset="50%" textAnchor="middle">KHOÃ 2006 â€” 2026</textPath>
+                  <textPath href="#arcBot" startOffset="50%" textAnchor="middle">KHOÁ 2003-2006</textPath>
                 </text>
-                <text x="60" y="55" fontFamily="var(--font-display)" fontSize="28" fontWeight="700" textAnchor="middle" fill="currentColor" fontStyle="italic">XX</text>
-                <text x="60" y="72" fontFamily="var(--font-mono)" fontSize="6" letterSpacing="3" textAnchor="middle" fill="currentColor">NÄ‚M</text>
+                <text x="60" y="55" fontFamily="var(--font-display)" fontSize="28" fontWeight="700" textAnchor="middle" fill="currentColor" fontStyle="italic">20</text>
+                <text x="60" y="72" fontFamily="var(--font-mono)" fontSize="6" letterSpacing="3" textAnchor="middle" fill="currentColor">NĂM</text>
               </svg>
             </div>
           </div>
           <div className="hero-meta">
-            <div className="mono caps" style={{color: 'var(--ink-soft)'}}>Ká»· yáº¿u bá» tÃºi Â· Sá»‘ Ä‘áº·c biá»‡t</div>
-            <div className="mono caps" style={{color: 'var(--accent)', marginTop: 4}}>Táº­p XX Â· áº¤n báº£n 2026</div>
+            <div className="mono caps" style={{color: 'var(--ink-soft)'}}>Kỷ yếu bỏ túi · Số đặc biệt</div>
+            <div className="mono caps" style={{color: 'var(--accent)', marginTop: 4}}>Tập 20 · Ấn bản 2026</div>
           </div>
         </div>
 
         <h1 className="hero-title display">
-          <span className="hero-line-1">Há»™i ngá»™</span>
-          <span className="hero-line-2"><em>hai mÆ°Æ¡i</em> nÄƒm</span>
+          <span className="hero-line-1">Hội ngộ</span>
+          <span className="hero-line-2"><em>hai mươi</em> năm</span>
         </h1>
 
         <div className="hero-grid">
           <div className="hero-left">
             <div className="hero-serif-block">
               <p className="drop-cap">
-                <span className="dc">M</span>á»™t buá»•i chiá»u thÃ¡ng báº£y, chÃºng ta láº¡i gáº·p nhau dÆ°á»›i mÃ¡i trÆ°á»ng Pháº¡m PhÃº Thá»© â€” nÆ¡i Ä‘Ã£ giá»¯ nhá»¯ng tiáº¿ng cÆ°á»i, nhá»¯ng trang vá»Ÿ, nhá»¯ng lá»i háº¹n cÃ²n dang dá»Ÿ cá»§a tuá»•i mÆ°á»i tÃ¡m. Hai mÆ°Æ¡i nÄƒm Ä‘á»§ dÃ i Ä‘á»ƒ tÃ³c pha sÆ°Æ¡ng, nhÆ°ng chÆ°a bao giá» Ä‘á»§ Ä‘á»ƒ quÃªn nhau.
+                <span className="dc">M</span>ột buổi chiều tháng bảy, chúng ta lại gặp nhau dưới mái trường THPT Huỳnh Ngọc Huệ nơi đã giữ những tiếng cười, những trang vở, những lời hẹn còn dang dở của tuổi mười tám. Hai mươi năm đủ dài để tóc pha sương, nhưng chưa bao giờ đủ để quên nhau.
               </p>
               <div className="hero-byline">
-                <span className="mono caps">Ban Tá»• Chá»©c â€” KhoÃ¡ 2006</span>
+                <span className="mono caps">Ban Tổ Chức Hội Khóa</span>
               </div>
             </div>
           </div>
 
           <div className="hero-right">
             <div className="hero-photo placeholder" style={{aspectRatio: '3/4'}}>
-              áº¢nh ká»· yáº¿u<br/>toÃ n khoÃ¡ 2006
+              Ảnh kỷ yếu<br/>toàn khoá 2006
             </div>
-            <div className="hero-caption mono caps">Fig. 01 Â· SÃ¢n trÆ°á»ng, thÃ¡ng 5/2006</div>
+            <div className="hero-caption mono caps">Fig. 01 · Sân trường, tháng 5/2006</div>
           </div>
         </div>
 
         <div className="hero-info-bar">
           <div className="info-cell">
-            <div className="mono caps info-label">Thá»i gian</div>
-            <div className="display info-value">18 Â· 07 Â· 2026</div>
-            <div className="serif info-sub">Thá»© báº£y Â· 15:00</div>
+            <div className="mono caps info-label">Thời gian</div>
+            <div className="display info-value">12 · 07 · 2026</div>
+            <div className="serif info-sub">Chủ nhật · 7:00</div>
           </div>
           <div className="info-cell">
-            <div className="mono caps info-label">Äá»‹a Ä‘iá»ƒm</div>
-            <div className="display info-value">ÄÃ  Náºµng</div>
-            <div className="serif info-sub">THPT Pháº¡m PhÃº Thá»©</div>
+            <div className="mono caps info-label">Địa điểm</div>
+            <div className="display info-value">Trường THPT Huỳnh Ngọc Huệ</div>
+            <div className="serif info-sub">Đà Nẵng</div>
           </div>
           <div className="info-cell">
-            <div className="mono caps info-label">Dress code</div>
-            <div className="display info-value">Tráº¯ng & Gala</div>
-            <div className="serif info-sub">SÆ¡ mi â†’ Smart casual</div>
+            <div className="mono caps info-label">Hội Khóa</div>
+            <div className="display info-value">Chạm vào thanh xuân</div>
+            <div className="serif info-sub">Chương trình</div>
           </div>
         </div>
 
         <div className="countdown">
-          <div className="mono caps cd-label">CÃ²n láº¡i Ä‘áº¿n ngÃ y há»™i ngá»™</div>
+          <div className="mono caps cd-label">Còn lại đến ngày hội ngộ</div>
           <div className="cd-grid">
-            <CDUnit value={c.days} label="NgÃ y"/>
+            <CDUnit value={c.days} label="Ngày"/>
             <span className="cd-sep">:</span>
-            <CDUnit value={c.hours} label="Giá»"/>
+            <CDUnit value={c.hours} label="Giờ"/>
             <span className="cd-sep">:</span>
-            <CDUnit value={c.mins} label="PhÃºt"/>
+            <CDUnit value={c.mins} label="Phút"/>
             <span className="cd-sep">:</span>
-            <CDUnit value={c.secs} label="GiÃ¢y"/>
+            <CDUnit value={c.secs} label="Giây"/>
           </div>
         </div>
 
         <div className="hero-cta">
-          <a href="#rsvp" className="btn btn-accent">ÄÄƒng kÃ½ tham dá»±</a>
-          <a href="#schedule" className="btn btn-ghost">Xem chÆ°Æ¡ng trÃ¬nh</a>
+          <a href="#rsvp" className="btn btn-accent">Đăng ký tham dự</a>
+          <a href="#schedule" className="btn btn-ghost">Xem chương trình</a>
         </div>
       </div>
 
