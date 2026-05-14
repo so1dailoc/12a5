@@ -55,7 +55,7 @@ window.REUNION_DATA = {
   ],
 
   organizers: [
-    { name: "Võ Hồng Phúc", role: "Lớp Trưởng", phone: "0905 xxx 001", email: "---- },
+    { name: "Võ Hồng Phúc", role: "Lớp Trưởng", phone: "0905 xxx 001", email: "----" },
     { name: "Trần Thị Kim Dung", role: "Bí thư", phone: "0905 xxx 002", email: "----" },
     { name: "Huỳnh Thị Minh Nguyệt", role: "Thủ quỹ", phone: "0905 xxx 003", email: "----" },
     { name: "Cao Tấn Tuy", role: "Tiếp rượu", phone: "0905 xxx 003", email: "----" },
