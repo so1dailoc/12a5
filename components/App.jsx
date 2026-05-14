@@ -12,8 +12,8 @@ function TopNav() {
     { id: 'about', l: 'Giới thiệu' },
     { id: 'schedule', l: 'Chương trình' },
     { id: 'gallery', l: 'Kỷ niệm' },
-    { id: 'teachers', l: 'Thầy Cô' },
-    { id: 'classmates', l: 'Bạn bè¨' },
+    { id: 'teachers', l: 'Thầy cô' },
+    { id: 'classmates', l: 'Bạn bè' },
     { id: 'rsvp', l: 'Đăng ký' },
     { id: 'fund', l: 'Quỹ lớp' },
     { id: 'messages', l: 'Lời nhắn' },
@@ -24,8 +24,8 @@ function TopNav() {
     <nav className={"topnav" + (scrolled ? " is-scrolled" : "")}>
       <div className="page tn-inner">
         <a href="#top" className="tn-mark">
-          <span className="display">12A5 Huỳnh Ngọc Huệ </span>
-          <span className="mono caps" style={{fontSize: 9, marginLeft: 8}}>2003-2006</span>
+          <span className="display">12A5 Huỳnh Ngọc Huệ</span>
+          <span className="mono caps" style={{fontSize: 9, marginLeft: 8}}>2006 · 2026</span>
         </a>
         <div className="tn-links">
           {links.map(l => <a key={l.id} href={"#" + l.id}>{l.l}</a>)}
@@ -91,11 +91,11 @@ function TweakPanel({ defaults, onChange }) {
   if (!open) return null;
 
   const palettes = [
-    { k: 'paper', name: 'Giáº¥y ngÃ  Â· Äá» gáº¡ch', paper: '#f4ecd8', ink: '#2a2420', accent: '#b8472a', paperDark: '#e8dcc0' },
-    { k: 'linen', name: 'Váº£i lanh Â· Xanh rÃªu', paper: '#efe8d5', ink: '#1e2a1c', accent: '#5c6b4a', paperDark: '#e0d8bf' },
-    { k: 'sepia', name: 'Sepia Â· NÃ¢u Ä‘áº¥t', paper: '#ede0c8', ink: '#3a2819', accent: '#8b4513', paperDark: '#ddcfb4' },
-    { k: 'bone', name: 'XÆ°Æ¡ng tráº¯ng Â· Navy', paper: '#f5f0e4', ink: '#14213d', accent: '#d62828', paperDark: '#e5dfd0' },
-    { k: 'night', name: 'ÄÃªm Â· VÃ ng bÆ¡', paper: '#1a1815', ink: '#f5ead1', accent: '#e9b44c', paperDark: '#2a2622' }
+    { k: 'paper', name: 'Giấy ngà · Đỏ gạch', paper: '#f4ecd8', ink: '#2a2420', accent: '#b8472a', paperDark: '#e8dcc0' },
+    { k: 'linen', name: 'Vải lanh · Xanh rêu', paper: '#efe8d5', ink: '#1e2a1c', accent: '#5c6b4a', paperDark: '#e0d8bf' },
+    { k: 'sepia', name: 'Sepia · Nâu đất', paper: '#ede0c8', ink: '#3a2819', accent: '#8b4513', paperDark: '#ddcfb4' },
+    { k: 'bone', name: 'Xương trắng · Navy', paper: '#f5f0e4', ink: '#14213d', accent: '#d62828', paperDark: '#e5dfd0' },
+    { k: 'night', name: 'Đêm · Vàng bơ', paper: '#1a1815', ink: '#f5ead1', accent: '#e9b44c', paperDark: '#2a2622' }
   ];
   const fonts = [
     { k: 'playfair', name: 'Playfair + EB Garamond', display: '"Playfair Display", serif', serif: '"EB Garamond", serif' },
@@ -107,10 +107,10 @@ function TweakPanel({ defaults, onChange }) {
   return (
     <div className="tweaks-panel">
       <h3>Tweaks</h3>
-      <div style={{fontSize: 12, fontStyle: 'italic', color: 'var(--ink-soft)'}}>Tuá»³ chá»‰nh diá»‡n máº¡o cá»§a trang.</div>
+      <div style={{fontSize: 12, fontStyle: 'italic', color: 'var(--ink-soft)'}}>Tuỳ chỉnh diện mạo của trang.</div>
 
       <div className="tweak-row">
-        <label>Báº£ng mÃ u</label>
+        <label>Bảng màu</label>
         <div className="swatches">
           {palettes.map(p => (
             <div
@@ -128,18 +128,18 @@ function TweakPanel({ defaults, onChange }) {
       </div>
 
       <div className="tweak-row">
-        <label>Font chá»¯</label>
+        <label>Font chữ</label>
         <select value={vals.font} onChange={e => update('font', e.target.value)} style={{width: '100%'}}>
           {fonts.map(f => <option key={f.k} value={f.k}>{f.name}</option>)}
         </select>
       </div>
 
       <div className="tweak-row">
-        <label>Hiá»‡u á»©ng giáº¥y</label>
+        <label>Hiệu ứng giấy</label>
         <select value={vals.grain} onChange={e => update('grain', e.target.value)} style={{width: '100%'}}>
-          <option value="on">CÃ³ â€” vintage</option>
-          <option value="soft">Nháº¹</option>
-          <option value="off">KhÃ´ng â€” sáº¡ch</option>
+          <option value="on">Có — vintage</option>
+          <option value="soft">Nhẹ</option>
+          <option value="off">Không — sạch</option>
         </select>
       </div>
     </div>
