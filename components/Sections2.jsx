@@ -258,7 +258,7 @@ function RSVP() {
               </div>
               <div className="r-info-row">
                 <div className="mono caps">Thanh toán</div>
-                <div style={{fontSize: 15}}>Chuyển khoản về Ban liên lạc để Ban liên lạc Lớp 12A5 tổng hợp chuyển về cho BTC Hội khóa</div>
+                <div style={{fontSize: 15}}>Chuyển khoản về Ban liên lạc Lớp 12A5, sau đó sẽ tổng hợp chuyển về cho BTC Hội khóa</div>
               </div>
             </div>
           </div>
