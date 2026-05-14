@@ -9,28 +9,28 @@ function TopNav() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
   const links = [
-    { id: 'about', l: 'Giá»›i thiá»‡u' },
-    { id: 'schedule', l: 'ChÆ°Æ¡ng trÃ¬nh' },
-    { id: 'gallery', l: 'Ká»· niá»‡m' },
-    { id: 'teachers', l: 'Tháº§y cÃ´' },
-    { id: 'classmates', l: 'Báº¡n bÃ¨' },
-    { id: 'rsvp', l: 'ÄÄƒng kÃ½' },
-    { id: 'fund', l: 'Quá»¹ lá»›p' },
-    { id: 'messages', l: 'Lá»i nháº¯n' },
-    { id: 'contact', l: 'LiÃªn há»‡' },
+    { id: 'about', l: 'Giới thiệu' },
+    { id: 'schedule', l: 'Chương trình' },
+    { id: 'gallery', l: 'Kỷ niệm' },
+    { id: 'teachers', l: 'Thầy Cô' },
+    { id: 'classmates', l: 'Bạn bè¨' },
+    { id: 'rsvp', l: 'Đăng ký' },
+    { id: 'fund', l: 'Quỹ lớp' },
+    { id: 'messages', l: 'Lời nhắn' },
+    { id: 'contact', l: 'Liên hệ' },
     { id: 'faq', l: 'FAQ' }
   ];
   return (
     <nav className={"topnav" + (scrolled ? " is-scrolled" : "")}>
       <div className="page tn-inner">
         <a href="#top" className="tn-mark">
-          <span className="display">XX</span>
-          <span className="mono caps" style={{fontSize: 9, marginLeft: 8}}>2006 Â· 2026</span>
+          <span className="display">12A5 Huỳnh Ngọc Huệ </span>
+          <span className="mono caps" style={{fontSize: 9, marginLeft: 8}}>2003-2006</span>
         </a>
         <div className="tn-links">
           {links.map(l => <a key={l.id} href={"#" + l.id}>{l.l}</a>)}
         </div>
-        <a href="#rsvp" className="tn-rsvp">RSVP â†’</a>
+        <a href="#rsvp" className="tn-rsvp">Hội khóa →</a>
       </div>
       <style>{`
         .topnav {
