@@ -37,9 +37,9 @@ function Fund() {
               <div className="f-bar-label mono caps">{pct}% — cảm ơn các bạn</div>
             </div>
             <div className="f-allocs">
-              <Alloc label="Mỗi lớp phải đóng" pct={6TR} color="var(--accent)"/>
-              <Alloc label="Mỗi bạn phải đóng" pct={600K} color="var(--moss)"/>
-              <Alloc label="Quỹ Lớp" pct={Còn lại} color="var(--ink)"/>
+                <Alloc label="Mỗi lớp phải đóng" pct="6.000.000đ" color="var(--accent)"/>
+                <Alloc label="Mỗi bạn phải đóng" pct="600.000đ" color="var(--moss)"/>
+                <Alloc label="Quỹ Lớp" pct="Còn lại" color="var(--ink)"/>
             </div>
             <div className="f-bank">
               <div className="mono caps" style={{fontSize: 10, marginBottom: 8, color: 'var(--ink-soft)'}}>Chuyển khoản</div>
