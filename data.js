@@ -15,13 +15,13 @@ window.REUNION_DATA = {
     { time: "11:00", title: "Tham quan trường xưa", desc: "Đi lại hành lang, lớp học cũ, sân trường — nghe thầy cô kể chuyện" },
     { time: "11:30", title: "Chụp ảnh tập thể", desc: "Ảnh kỷ yếu phiên bản 2026 — toàn khoá và từng lớp" },
     { time: "12:00", title: "Tiệc", desc: "Dùng bữa, văn nghệ cây nhà lá vườn, trình chiếu video kỷ niệm" },
-    { time: "12:30", title: "Giao lưu & chia sẻ", desc: "Mỗi người một câu chuyện 20 năm — mic mở cho ai muốn nói" },
+    { time: "12:30", title: "Giao lưu & chia sẻ", desc: "Mỗi người một câu chuyện 20 năm — mic mở cho ai muốn nói" }
   ],
 
   teachers: [
     { name: "Thầy Hoàng", role: "Chủ nhiệm 10B11", years: "2003–2004" },
     { name: "Thầy Hồng Sinh", role: "Chủ nhiệm 11A5", years: "2004-2005" },
-    { name: "Thầy Nguyễn Văn Cấp", role: "Chủ nhiệm 12A5", years: "2005-2006" },
+    { name: "Thầy Nguyễn Văn Cấp", role: "Chủ nhiệm 12A5", years: "2005-2006" }
   ],
 
   classmates: [
