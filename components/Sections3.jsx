@@ -2,57 +2,57 @@
 function Fund() {
   const d = window.REUNION_DATA;
   const pct = Math.round((d.fundRaised / d.fundGoal) * 100);
-  const fmt = (n) => n.toLocaleString('vi-VN') + 'Ä‘';
+  const fmt = (n) => n.toLocaleString('vi-VN') + 'đ';
   return (
     <section id="fund" className="fund">
       <div className="page">
         <div className="index-bar">
-          <span>Â§ 07 â€” Quá»¹ lá»›p</span>
-          <span>Tri Ã¢n tháº§y cÃ´ Â· Há»c bá»•ng</span>
+          <span>§ 07 — Quỹ lớp</span>
+          <span>Hội khóa và Hoạt động thường niên của Lớp</span>
           <span>trang 08</span>
         </div>
 
         <div className="f-grid">
           <div>
-            <div className="section-number">Â§ 07</div>
-            <h2 className="section-title">Má»™t pháº§n<br/><em>nhá» bÃ©</em></h2>
+            <div className="section-number">§ 07</div>
+            <h2 className="section-title">Một phần<br/><em>nhỏ bé</em></h2>
             <p className="section-dek">
-              Quá»¹ lá»›p nÄƒm nay dÃ nh cho ba má»¥c Ä‘Ã­ch: tri Ã¢n tháº§y cÃ´, há»c bá»•ng há»c sinh khÃ³ khÄƒn táº¡i trÆ°á»ng, vÃ  chi phÃ­ tá»• chá»©c há»™i ngá»™.
+              Quỹ lớp sẽ dùngc ho Hội khóa, thăm viếng Thầy cô và các Bậc phụ huynh, các hoàn cảnh khó khăn - hoàn cảnh đặc biệt của lớp chúng ta.
             </p>
           </div>
 
           <div className="f-meter">
             <div className="f-meter-head">
               <div>
-                <div className="mono caps" style={{fontSize: 10, color: 'var(--ink-soft)'}}>ÄÃ£ gÃ¢y quá»¹</div>
+                <div className="mono caps" style={{fontSize: 10, color: 'var(--ink-soft)'}}>Đã gây quỹ</div>
                 <div className="display" style={{fontSize: 44, color: 'var(--accent)', fontWeight: 900}}>{fmt(d.fundRaised)}</div>
               </div>
               <div style={{textAlign: 'right'}}>
-                <div className="mono caps" style={{fontSize: 10, color: 'var(--ink-soft)'}}>Má»¥c tiÃªu</div>
+                <div className="mono caps" style={{fontSize: 10, color: 'var(--ink-soft)'}}>Mục tiêu</div>
                 <div className="display" style={{fontSize: 28}}>{fmt(d.fundGoal)}</div>
               </div>
             </div>
             <div className="f-bar">
-              <div className="f-bar-fill" style={{width: pct + '%'}}/>
-              <div className="f-bar-label mono caps">{pct}% â€” cáº£m Æ¡n cÃ¡c báº¡n</div>
+              <div className="f-bar-fill" style={{width: pct + '.'}}/>
+              <div className="f-bar-label mono caps">{pct}% — cảm ơn các bạn</div>
             </div>
             <div className="f-allocs">
-              <Alloc label="Tri Ã¢n tháº§y cÃ´" pct={40} color="var(--accent)"/>
-              <Alloc label="Há»c bá»•ng HS" pct={35} color="var(--moss)"/>
-              <Alloc label="Tá»• chá»©c sá»± kiá»‡n" pct={25} color="var(--ink)"/>
+              <Alloc label="Mỗi lớp phải đóng" pct={6TR} color="var(--accent)"/>
+              <Alloc label="Mỗi bạn phải đóng" pct={600K} color="var(--moss)"/>
+              <Alloc label="Quỹ Lớp" pct={Còn lại} color="var(--ink)"/>
             </div>
             <div className="f-bank">
-              <div className="mono caps" style={{fontSize: 10, marginBottom: 8, color: 'var(--ink-soft)'}}>Chuyá»ƒn khoáº£n</div>
+              <div className="mono caps" style={{fontSize: 10, marginBottom: 8, color: 'var(--ink-soft)'}}>Chuyển khoản</div>
               <div className="mono" style={{fontSize: 14, lineHeight: 1.8}}>
-                Vietcombank Â· 0123 4567 8901<br/>
-                HOI KHOA 2006 PPT<br/>
-                <span style={{color: 'var(--ink-soft)'}}>Ná»™i dung: [TÃªn] [Lá»›p] [SÄT]</span>
+                Vietcombank · 7775664346<br/>
+                HUỲNH THỊ MINH NGUYỆT<br/>
+                <span style={{color: 'var(--ink-soft)'}}>Nội dung: [Nop tien Hoi Khoa] hoặc [Nop tien Tien Quy]</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="ornament">â‹   â‹   â‹</div>
+        <div className="ornament">❋   ❋   ❋</div>
       </div>
 
       <style>{`
@@ -121,17 +121,17 @@ function Alloc({ label, pct, color }) {
 
 function Messages() {
   const [msgs, setMsgs] = useState([
-    { name: 'Nguyá»…n Minh Anh', class: '12A1', text: 'KhÃ´ng thá»ƒ tin 20 nÄƒm Ä‘Ã£ trÃ´i. Mong gáº·p láº¡i táº¥t cáº£ má»i ngÆ°á»i!', date: '12 Â· 04 Â· 2026' },
-    { name: 'Tráº§n Thá»‹ BÃ­ch', class: '12A1', text: 'Gá»­i lá»i chÃ o thÃ¢n thÆ°Æ¡ng Ä‘áº¿n tháº§y cÃ´. Con sáº½ vá»!', date: '10 Â· 04 Â· 2026' },
-    { name: 'HoÃ ng VÄƒn Em', class: '12A2', text: 'CÃ²n nhá»› chiá»u mÆ°a cuá»‘i cáº¥p Ä‘á»©ng á»Ÿ hÃ nh lang nhÃ¬n sÃ¢n trÆ°á»ng ngáº­p. Háº¹n gáº·p láº¡i cÃ¡c báº¡n.', date: '08 Â· 04 Â· 2026' },
-    { name: 'Äinh Quang Nam', class: '12A5', text: 'Sáº½ mang mÃ¡y áº£nh vá» ghi láº¡i cáº£ ngÃ y cho má»i ngÆ°á»i. Bao nhiÃªu nÄƒm rá»“i khÃ´ng chá»¥p Ä‘Æ°á»£c áº£nh cá»§a khoÃ¡ mÃ¬nh.', date: '05 Â· 04 Â· 2026' }
+    { name: 'Văn Dương Phúc Thịnh', class: '12A5', text: 'Về đi tụi bây! :D', date: '12 · 05 · 2026' },
+    { name: 'Võ Hồng Phúc', class: '12A5', text: '20 NĂM CHỈ 1 LẦN. TÔI KHÔNG CẦN LÍ DO. TÔI CHỈ CẦN ĐƯỢC GẶP & THẤY BẠN...', date: '12 · 05 · 2026' },
+    { name: 'Trần Thị Kim Dung', class: '12A5', text: 'Hẹn gặp lại các bạn.', date: '13 · 05 · 2026' },
+    { name: 'Lê Quốc Việt', class: '12A5', text: 'Tao sẽ về sớm nhất.', date: '13 · 05 · 2026' }
   ]);
   const [form, setForm] = useState({ name: '', class: '', text: '' });
   const post = (e) => {
     e.preventDefault();
     if (!form.name || !form.text) return;
     const now = new Date();
-    const date = `${String(now.getDate()).padStart(2,'0')} Â· ${String(now.getMonth()+1).padStart(2,'0')} Â· ${now.getFullYear()}`;
+    const date = `${String(now.getDate()).padStart(2,'0')} · ${String(now.getMonth()+1).padStart(2,'0')} · ${now.getFullYear()}`;
     setMsgs([{ ...form, date }, ...msgs]);
     setForm({ name: '', class: '', text: '' });
   };
@@ -139,25 +139,25 @@ function Messages() {
     <section id="messages" className="messages">
       <div className="page">
         <div className="index-bar">
-          <span>Â§ 08 â€” LÆ°u bÃºt</span>
-          <span>Lá»i nháº¯n cá»§a cÃ¡c báº¡n</span>
+          <span>§ 08 — Lưu bút</span>
+          <span>Lời nhắn của các bạn</span>
           <span>trang 09</span>
         </div>
 
         <div className="m-head">
-          <div className="section-number">Â§ 08</div>
-          <h2 className="section-title">Sá»• <em>lÆ°u bÃºt</em><br/>áº¥n báº£n 2026</h2>
-          <p className="section-dek">Äá»ƒ láº¡i má»™t dÃ²ng â€” cho báº£n thÃ¢n, cho báº¡n cÅ©, cho tháº§y cÃ´. Ai cÅ©ng sáº½ Ä‘á»c Ä‘Æ°á»£c.</p>
+          <div className="section-number">§ 08</div>
+          <h2 className="section-title">Sổ <em>lưu bút</em><br/>ấn bản 2026</h2>
+          <p className="section-dek">Để lại một dòng — cho bản thân, cho bạn cũ, cho thầy cô. Ai cũng sẽ đọc được.</p>
         </div>
 
         <div className="m-compose">
           <form onSubmit={post}>
             <div className="m-compose-row">
-              <input type="text" placeholder="TÃªn cá»§a báº¡n" value={form.name} onChange={e => setForm({...form, name: e.target.value})}/>
-              <input type="text" placeholder="Lá»›p (VD 12A1)" value={form.class} onChange={e => setForm({...form, class: e.target.value})} style={{maxWidth: 160}}/>
+              <input type="text" placeholder="Tên của bạn" value={form.name} onChange={e => setForm({...form, name: e.target.value})}/>
+              <input type="text" placeholder="Lớp (VD 12A1)" value={form.class} onChange={e => setForm({...form, class: e.target.value})} style={{maxWidth: 160}}/>
             </div>
-            <textarea placeholder="Viáº¿t má»™t lá»i nháº¯nâ€¦" value={form.text} onChange={e => setForm({...form, text: e.target.value})} rows={3}/>
-            <button type="submit" className="btn btn-accent" style={{marginTop: 12}}>Äá»ƒ láº¡i lá»i nháº¯n</button>
+            <textarea placeholder="Viết một lời nhắn…" value={form.text} onChange={e => setForm({...form, text: e.target.value})} rows={3}/>
+            <button type="submit" className="btn btn-accent" style={{marginTop: 12}}>Để lại lời nhắn</button>
           </form>
         </div>
 
@@ -176,7 +176,7 @@ function Messages() {
           ))}
         </div>
 
-        <div className="ornament">â‹   â‹   â‹</div>
+        <div className="ornament">❋   ❋   ❋</div>
       </div>
 
       <style>{`
@@ -223,32 +223,32 @@ function Contact() {
     <section id="contact" className="contact">
       <div className="page">
         <div className="index-bar">
-          <span>Â§ 09 â€” Ban Tá»• Chá»©c</span>
-          <span>LiÃªn há»‡</span>
+          <span>§ 09 — Ban Liên lạc</span>
+          <span>Liên hệ</span>
           <span>trang 10</span>
         </div>
 
         <div className="ct-head">
-          <div className="section-number">Â§ 09</div>
-          <h2 className="section-title">Ban <em>liÃªn láº¡c</em></h2>
-          <p className="section-dek">CÃ³ tháº¯c máº¯c, gÃ³p Ã½, hoáº·c muá»‘n giÃºp má»™t tay? Gá»i ngay.</p>
+          <div className="section-number">§ 09</div>
+          <h2 className="section-title">Ban <em>liên lạc</em></h2>
+          <p className="section-dek">Có thắc mắc, góp ý, hoặc muốn giúp một tay? Gọi ngay.</p>
         </div>
 
         <div className="ct-grid">
           {d.organizers.map((o, i) => (
             <div key={i} className="ct-card">
-              <div className="ct-num mono caps">â„– {String(i+1).padStart(2, '0')}</div>
+              <div className="ct-num mono caps">№ {String(i+1).padStart(2, '0')}</div>
               <h3 className="display" style={{fontSize: 24, marginBottom: 4}}>{o.name}</h3>
               <div style={{fontStyle: 'italic', color: 'var(--ink-soft)', marginBottom: 16}}>{o.role}</div>
               <div className="mono" style={{fontSize: 13, lineHeight: 1.9}}>
-                ðŸ“ž {o.phone}<br/>
-                âœ‰ {o.email}
+                📞 {o.phone}<br/>
+                ✉ {o.email}
               </div>
             </div>
           ))}
         </div>
 
-        <div className="ornament">â‹   â‹   â‹</div>
+        <div className="ornament">❋   ❋   ❋</div>
       </div>
 
       <style>{`
@@ -286,14 +286,14 @@ function FAQ() {
     <section id="faq" className="faq">
       <div className="page">
         <div className="index-bar">
-          <span>Â§ 10 â€” FAQ</span>
-          <span>ThÆ°á»ng gáº·p</span>
+          <span>§ 10 — FAQ</span>
+          <span>Thường gặp</span>
           <span>trang 11</span>
         </div>
 
         <div className="fq-head">
-          <div className="section-number">Â§ 10</div>
-          <h2 className="section-title">Há»i & <em>Ä‘Ã¡p</em></h2>
+          <div className="section-number">§ 10</div>
+          <h2 className="section-title">Hỏi & <em>đáp</em></h2>
         </div>
 
         <div className="fq-list">
@@ -302,7 +302,7 @@ function FAQ() {
               <button className="fq-q" onClick={() => setOpen(open === i ? -1 : i)}>
                 <span className="mono caps" style={{color: 'var(--accent)', marginRight: 16, fontSize: 11}}>Q{String(i+1).padStart(2, '0')}</span>
                 <span className="display" style={{fontSize: 22}}>{f.q}</span>
-                <span className="fq-mark">{open === i ? 'âˆ’' : '+'}</span>
+                <span className="fq-mark">{open === i ? '−' : '+'}</span>
               </button>
               <div className="fq-a">
                 <p>{f.a}</p>
@@ -364,16 +364,16 @@ function Footer() {
       <div className="page">
         <div className="fo-top">
           <div>
-            <div className="display" style={{fontSize: 48, lineHeight: 0.95}}>Há»™i Ngá»™<br/><em style={{color: 'var(--accent)'}}>20 NÄƒm</em></div>
-            <div className="mono caps" style={{marginTop: 16, color: 'var(--ink-soft)', fontSize: 10}}>KhoÃ¡ 2006 â€” THPT Pháº¡m PhÃº Thá»© â€” ÄÃ  Náºµng</div>
+            <div className="display" style={{fontSize: 48, lineHeight: 0.95}}>Hội Ngộ<br/><em style={{color: 'var(--accent)'}}>20 Năm</em></div>
+            <div className="mono caps" style={{marginTop: 16, color: 'var(--ink-soft)', fontSize: 10}}>Khoá 2006 — THPT Huỳnh Ngọc Huệ - Đại Lộc - Đà Nẵng</div>
           </div>
           <div className="fo-nav">
-            <a href="#top">Trá»Ÿ láº¡i Ä‘áº§u trang â†‘</a>
+            <a href="#top">Trở lại đầu trang ↑</a>
           </div>
         </div>
         <div className="fo-bottom">
-          <div className="mono" style={{fontSize: 11}}>Â© 2026 Â· Ban liÃªn láº¡c khoÃ¡ 2006</div>
-          <div className="mono caps" style={{fontSize: 10, color: 'var(--ink-faint)'}}>In áº¥n pháº©m sá»‘ â€” áº¥n báº£n giá»›i háº¡n</div>
+          <div className="mono" style={{fontSize: 11}}>© 2026 · vanduongphucthinh </div>
+          <div className="mono caps" style={{fontSize: 10, color: 'var(--ink-faint)'}}>Ban liên lạc Lớp 12A5 Huỳnh Ngọc Huệ</div>
         </div>
       </div>
 
