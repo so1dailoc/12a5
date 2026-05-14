@@ -113,7 +113,7 @@ function Fund() {
 function Alloc({ label, pct, color }) {
   return (
     <div className="alloc">
-      <div className="alloc-pct" style={{color}}>{pct}%</div>
+      <div className="alloc-pct" style={{color}}>{pct}</div>
       <div className="alloc-label">{label}</div>
     </div>
   );
@@ -154,7 +154,7 @@ function Messages() {
           <form onSubmit={post}>
             <div className="m-compose-row">
               <input type="text" placeholder="Tên của bạn" value={form.name} onChange={e => setForm({...form, name: e.target.value})}/>
-              <input type="text" placeholder="Lớp (VD 12A1)" value={form.class} onChange={e => setForm({...form, class: e.target.value})} style={{maxWidth: 160}}/>
+              <input type="text" placeholder="Lớp (VD 12A5)" value={form.class} onChange={e => setForm({...form, class: e.target.value})} style={{maxWidth: 160}}/>
             </div>
             <textarea placeholder="Viết một lời nhắn…" value={form.text} onChange={e => setForm({...form, text: e.target.value})} rows={3}/>
             <button type="submit" className="btn btn-accent" style={{marginTop: 12}}>Để lại lời nhắn</button>
