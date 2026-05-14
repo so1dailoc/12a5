@@ -59,14 +59,14 @@ function Hero() {
                 <span className="dc">M</span>ột buổi chiều tháng bảy, chúng ta lại gặp nhau dưới mái trường THPT Huỳnh Ngọc Huệ nơi đã giữ những tiếng cười, những trang vở, những lời hẹn còn dang dở của tuổi mười tám. Hai mươi năm đủ dài để tóc pha sương, nhưng chưa bao giờ đủ để quên nhau.
               </p>
               <div className="hero-byline">
-                <span className="mono caps">Ban Tổ Chức Hội Khóa</span>
+                <span className="mono caps">Tập thể Lớp 12A5</span>
               </div>
             </div>
           </div>
 
           <div className="hero-right">
             <div className="hero-photo placeholder" style={{aspectRatio: '3/4'}}>
-              Ảnh kỷ yếu<br/>toàn khoá 2006
+              Ảnh kỷ yếu<br/>lớp 12A5 năm 2006
             </div>
             <div className="hero-caption mono caps">Fig. 01 · Sân trường, tháng 5/2006</div>
           </div>
@@ -81,11 +81,11 @@ function Hero() {
           <div className="info-cell">
             <div className="mono caps info-label">Địa điểm</div>
             <div className="display info-value">Trường THPT Huỳnh Ngọc Huệ</div>
-            <div className="serif info-sub">Đà Nẵng</div>
+            <div className="serif info-sub">Đại Lộc-Đà Nẵng</div>
           </div>
           <div className="info-cell">
             <div className="mono caps info-label">Hội Khóa</div>
-            <div className="display info-value">Chạm vào thanh xuân</div>
+            <div className="display info-value">Chạm lại Thanh Xuân</div>
             <div className="serif info-sub">Chương trình</div>
           </div>
         </div>
