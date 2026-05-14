@@ -25,7 +25,7 @@ function TopNav() {
       <div className="page tn-inner">
         <a href="#top" className="tn-mark">
           <span className="display">12A5 Huỳnh Ngọc Huệ</span>
-          <span className="mono caps" style={{fontSize: 9, marginLeft: 8}}>2006 · 2026</span>
+          <span className="mono caps" style={{fontSize: 9, marginLeft: 8}}>2003 · 2006</span>
         </a>
         <div className="tn-links">
           {links.map(l => <a key={l.id} href={"#" + l.id}>{l.l}</a>)}
