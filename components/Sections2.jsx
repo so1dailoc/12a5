@@ -232,7 +232,7 @@ function RSVP() {
       <div className="page">
         <div className="index-bar">
           <span>§ 06 — Xác nhận</span>
-          <span>RSVP · Hạn 01.06.2026</span>
+          <span>RSVP · Hạn 30.06.2026</span>
           <span>trang 07</span>
         </div>
 
@@ -241,20 +241,20 @@ function RSVP() {
             <div className="section-number">§ 06</div>
             <h2 className="section-title">Đăng ký<br/><em>có mặt</em></h2>
             <p className="section-dek">
-              Vui lòng xác nhận trước <strong>01.06.2026</strong> để BTC sắp xếp chỗ ngồi, in áo huy hiệu và kỷ yếu riêng cho bạn.
+              Vui lòng xác nhận trước <strong>30.06.2026</strong> để BTC sắp xếp chỗ ngồi, in huy hiệu và kỷ yếu riêng cho bạn.
             </p>
             <div className="r-info">
               <div className="r-info-row">
                 <div className="mono caps">Phí tham dự</div>
-                <div className="display" style={{fontSize: 28}}>600.000đ<span style={{fontSize: 14, color: 'var(--ink-soft)', fontStyle: 'italic', marginLeft: 8}}>/người</span></div>
+                <div className="display" style={{fontSize: 28}}>800.000đ<span style={{fontSize: 14, color: 'var(--ink-soft)', fontStyle: 'italic', marginLeft: 8}}>/người</span></div>
               </div>
               <div className="r-info-row">
                 <div className="mono caps">Bao gồm</div>
-                <div style={{fontSize: 15}}>Tiệc, áo Hội khóa, kỷ yếu, huy hiệu, ảnh kỷ niệm</div>
+                <div style={{fontSize: 15}}>Tiệc tối, kỷ yếu, huy hiệu, ảnh kỷ niệm</div>
               </div>
               <div className="r-info-row">
                 <div className="mono caps">Thanh toán</div>
-                <div style={{fontSize: 15}}>Chuyển khoản về Ban Liên lạc của lớp 12A5</div>
+                <div style={{fontSize: 15}}>Sau khi BTC xác nhận RSVP qua email</div>
               </div>
             </div>
           </div>
@@ -280,7 +280,7 @@ function RSVP() {
                     <label>Lớp 12 *</label>
                     <select value={form.class} onChange={e => update('class', e.target.value)}>
                       <option value="">— Chọn lớp —</option>
-                      {[12A5'].map(c => <option key={c}>{c}</option>)}
+                      {['12A1','12A2','12A3','12A4','12A5','12A6','12A7','12A8'].map(c => <option key={c}>{c}</option>)}
                     </select>
                   </div>
                   <div className="r-field">
