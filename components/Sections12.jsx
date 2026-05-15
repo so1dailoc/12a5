@@ -176,48 +176,114 @@ function Schedule() {
 }
 
 function Gallery() {
-  const d = window.REUNION_DATA; // Lấy dữ liệu từ data.js
+  const photos = [
+    { then: "Lớp 12A5 · 2006", now: "Gặp lại · 2026", caption: "Buổi tổng kết năm học cuối cấp cùng với thầy" },
+    { then: "Sân trường · 2006", now: "Sân trường · 2026", caption: "Giờ ra chơi, gốc phượng đầu hành lang" },
+    { then: "Văn nghệ · 2006", now: "Gặp lại · 2026", caption: "Đêm văn nghệ Mừng Đảng Đón Xuân năm 2006" },
+    { then: "Hội trại · 2005", now: "Gặp lại · 2026", caption: "Hội trại chào mừng 26/3" },
+    { then: "Lớp 12A5 · 2006", now: "Gặp lại · 2024", caption: "Nhóm bạn 12A5 gặp lại tại Đà Nẵng" },
+    { then: "Lớp 12A5 · 2006", now: "Gặp lại · 2024", caption: "Nhóm bạn 12A5 gặp lại tại Sài Gòn" }
+  ];
   return (
     <section id="gallery" className="gallery">
       <div className="page">
         <div className="index-bar">
           <span>§ 03 — Kỷ niệm</span>
-          <span>Hình ảnh lớp 12A5</span>
+          <span>Then & Now</span>
           <span>trang 04</span>
         </div>
 
-        <div className="g-head">
+        <div className="gal-head">
           <div className="section-number">§ 03</div>
-          <h2 className="section-title">Những thước phim<br/><em>thanh xuân</em></h2>
+          <h2 className="section-title">Rồi & <em>bây giờ</em></h2>
+          <p className="section-dek">Di chuột lên mỗi bức ảnh để thấy chúng ta của <em>hai mươi năm trước</em> trở về.</p>
         </div>
 
-        {/* Đoạn quan trọng nhất: Tự động lặp qua danh sách ảnh trong data.js */}
-        <div className="g-body">
-          {d.gallery && d.gallery.map((item, i) => (
-            <article key={i} className="g-item reveal">
-              <div className="g-photo">
-                <img 
-                  src={item.url} 
-                  alt={item.caption} 
-                  style={{ width: '100%', display: 'block', borderRadius: '2px' }} 
-                  onError={(e) => { e.target.src = 'https://via.placeholder.com/400x300?text=Loi+Anh'; }}
-                />
-              </div>
-              <div className="g-info">
-                <div className="mono" style={{fontSize: 10, color: 'var(--accent)', marginBottom: 4}}>
-                  {String(i + 1).padStart(2, '0')}
+        <div className="gal-grid">
+          {photos.map((p, i) => (
+            <div key={i} className={"gal-item reveal" + (i % 3 === 1 ? " tall" : "")}>
+              <div className="gal-flipper">
+                <div className="gal-face gal-then placeholder">
+                  {p.then}
                 </div>
-                <p style={{fontSize: 14, fontStyle: 'italic', lineHeight: 1.4}}>{item.caption}</p>
+                <div className="gal-face gal-now placeholder" style={{background: 'var(--paper-dark)'}}>
+                  <div>
+                    <span className="pill" style={{marginBottom: 8, display: 'inline-block'}}>Now</span><br/>
+                    {p.now}
+                  </div>
+                </div>
               </div>
-            </article>
+              <div className="gal-caption">
+                <span className="mono caps" style={{color: 'var(--ink-faint)', fontSize: 9}}>Fig. {String(i+2).padStart(2, '0')}</span>
+                <span className="italic">{p.caption}</span>
+              </div>
+            </div>
           ))}
         </div>
-        
-        <UploadZone />
+
+        <div className="gal-upload">
+          <h3 className="display" style={{fontSize: 32, marginBottom: 8}}>Có ảnh cũ muốn chia sẻ?</h3>
+          <p style={{marginBottom: 20, color: 'var(--ink-soft)', fontStyle: 'italic'}}>
+            Album chung của chúng ta mở cửa cho tất cả bạn cùng khoá. Gửi ảnh scan, ảnh chụp nhanh, ảnh kỷ yếu — bất cứ thứ gì bạn còn giữ.
+          </p>
+          <UploadBox/>
+        </div>
+
+        <div className="ornament">❋   ❋   ❋</div>
       </div>
+
+      <style>{`
+        .gallery { padding: 60px 0; }
+        .gal-head { padding: 40px 0 32px; }
+        .gal-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 24px;
+          margin-bottom: 64px;
+        }
+        .gal-item { display: flex; flex-direction: column; gap: 8px; }
+        .gal-item.tall .gal-flipper { aspect-ratio: 3/4; }
+        .gal-flipper {
+          aspect-ratio: 4/3;
+          position: relative;
+          perspective: 1200px;
+          cursor: pointer;
+        }
+        .gal-face {
+          position: absolute;
+          inset: 0;
+          backface-visibility: hidden;
+          transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gal-then { transform: rotateY(0); }
+        .gal-now { transform: rotateY(180deg); }
+        .gal-item:hover .gal-then { transform: rotateY(-180deg); }
+        .gal-item:hover .gal-now { transform: rotateY(0); }
+        .gal-caption {
+          display: flex;
+          gap: 12px;
+          font-size: 13px;
+          color: var(--ink-soft);
+          align-items: baseline;
+        }
+        .gal-upload {
+          border-top: 2px solid var(--ink);
+          padding-top: 40px;
+          text-align: center;
+          max-width: 640px;
+          margin: 0 auto;
+        }
+        @media (max-width: 860px) {
+          .gal-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 520px) {
+          .gal-grid { grid-template-columns: 1fr; }
+        }
+      `}</style>
     </section>
   );
 }
+
 function UploadBox() {
   const [files, setFiles] = useState([]);
   const onDrop = (e) => {
