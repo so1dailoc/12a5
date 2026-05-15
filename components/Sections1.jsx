@@ -284,32 +284,6 @@ function Gallery() {
   );
 }
 
-function Gallery2() {
-  const d = window.REUNION_DATA;
-  // Kiểm tra nếu không có dữ liệu gallery2 thì không hiện gì cả để tránh lỗi trang
-  if (!d.gallery2) return null;
-
-  return (
-    <section id="gallery2" className="gallery" style={{borderTop: '2px dashed red', marginTop: '50px'}}>
-      <div className="page">
-        <h2 className="display" style={{color: 'red', fontSize: '20px'}}>SÂN CHƠI THỬ NGHIỆM (GALLERY 2)</h2>
-        <div className="g-grid">
-          {d.gallery2.map((img, i) => (
-            <div key={i} className="g-item reveal">
-              <img 
-                src={img.url} 
-                alt={img.caption} 
-                style={{ width: '100%', height: '250px', objectFit: 'cover' }}
-                onError={(e) => { e.target.src = 'https://via.placeholder.com/300x200?text=Loi-Link-Anh'; }} 
-              />
-              <div className="g-caption" style={{ textAlign: 'center' }}>{img.caption}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function UploadBox() {
   const [files, setFiles] = useState([]);
@@ -367,6 +341,33 @@ function UploadBox() {
         .upload-item { font-family: var(--font-mono); font-size: 13px; color: var(--moss); padding: 4px 0; }
       `}</style>
     </div>
+  );
+}
+
+function Gallery2() {
+  const d = window.REUNION_DATA;
+  // Kiểm tra nếu không có dữ liệu gallery2 thì không hiện gì cả để tránh lỗi trang
+  if (!d.gallery2) return null;
+
+  return (
+    <section id="gallery2" className="gallery" style={{borderTop: '2px dashed red', marginTop: '50px'}}>
+      <div className="page">
+        <h2 className="display" style={{color: 'red', fontSize: '20px'}}>SÂN CHƠI THỬ NGHIỆM (GALLERY 2)</h2>
+        <div className="g-grid">
+          {d.gallery2.map((img, i) => (
+            <div key={i} className="g-item reveal">
+              <img 
+                src={img.url} 
+                alt={img.caption} 
+                style={{ width: '100%', height: '250px', objectFit: 'cover' }}
+                onError={(e) => { e.target.src = 'https://via.placeholder.com/300x200?text=Loi-Link-Anh'; }} 
+              />
+              <div className="g-caption" style={{ textAlign: 'center' }}>{img.caption}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
