@@ -87,18 +87,19 @@ window.REUNION_DATA = {
   faqs: [
     { q: "Sự kiện diễn ra ở đâu?", a: "Địa điểm chính: Khuôn viên trường THPT Huỳnh Ngọc Huệ." },
     { q: "Tôi có cần đóng phí tham dự không?", a: "Có — phí tham dự 600.000đ/người (đã bao gồm tiệc, áo, kỷ yếu, huy hiệu và ảnh kỷ niệm). Trẻ em dưới 10 tuổi miễn phí. Bạn có thể đóng góp thêm vào Quỹ." },
-    { q: "Tôi có thể dẫn theo vợ/chồng/con không?", a: "Rất hoan nghênh! Khi đăng ký RSVP, vui lòng điền số lượng người đi cùng và độ tuổi trẻ em (nếu có) để BTC sắp xếp chỗ ngồi." },
-    { q: "Nếu tôi ở xa, có hỗ trợ chỗ ở không?", a: "Lớp chúng mình sẽ không bỏ ai ở lại, các bạn hãy liên hệ trực tiếp với Ban liên lạc của lớp, liên hệ số hotline: 0935229992" },
+    { q: "Tôi có thể dẫn theo vợ/chồng/con không?", a: "Rất hoan nghênh! Khi đăng ký Hội khóa, vui lòng điền số lượng người đi cùng và độ tuổi trẻ em (nếu có) để BTC sắp xếp chỗ ngồi." },
+    { q: "Nếu tôi ở xa, có hỗ trợ chỗ ở không?", a: "Lớp chúng mình sẽ không bỏ ai ở lại, chúng mình đã sắp xếp hơn 10 phòng Khách sạn gần Trường, các bạn hãy liên hệ trực tiếp với Ban liên lạc của Lớp, liên hệ số hotline: 0935229992" },
+    { q: "Nếu tôi ở xa, có hỗ trợ phương tiện di chuyển về không?", a: "Chắc chắn là có rồi! Các bạn nhanh tay liên hệ với Bạn liên lạc để hỗ trợ xe (còn xăng thì tụi mình chưa chắc ^^, các bạn hãy liên hệ trực tiếp với Ban liên lạc của Lớp, liên hệ số hotline: 0935229992" },
     { q: "Dress code là gì?", a: "Buổi sáng: áo sơ mi/áo dài trắng (gợi nhớ đồng phục học sinh). Buổi tiệc trưa: smart casual hoặc lịch sự. BTC Hội khóa sẽ phát áo và huy hiệu khoá để đeo suốt sự kiện." },
-    { q: "Tôi muốn đóng góp nhưng không tham dự được?", a: "Cảm ơn bạn rất nhiều. Bạn có thể chuyển khoản vào tài khoản quỹ lớp (xem mục 'Liên hệ Ban liên lạc của Lớp') và ghi rõ tên. Danh sách đóng góp sẽ được công bố minh bạch trên trang này và Zalo nhóm lớp." }
+    { q: "Tôi muốn đóng góp nhưng không tham dự được?", a: "Cảm ơn bạn rất nhiều! Bạn chắc chắn sẽ nhận được tận tay những phần quà (Áo, huy hiệu, ấn phẩm kỷ niệm của Trường và Lớp...). Bạn có thể chuyển khoản vào tài khoản quỹ lớp (xem mục 'Liên hệ Ban liên lạc của Lớp') và ghi rõ tên. Danh sách đóng góp sẽ được công bố minh bạch trên trang này và Zalo nhóm lớp." }
   ],
 
   organizers: [
-    { name: "Võ Hồng Phúc", role: "Lớp Trưởng", phone: "0905 xxx 001", email: "----" },
-    { name: "Trần Thị Kim Dung", role: "Bí thư", phone: "0905 xxx 002", email: "----" },
-    { name: "Huỳnh Thị Minh Nguyệt", role: "Thủ quỹ", phone: "0905 xxx 003", email: "----" },
-    { name: "Cao Tấn Tuy", role: "Tiếp rượu", phone: "0905 xxx 003", email: "----" },
-    { name: "Lê Quốc Việt", role: "Pháp chế", phone: "0905 xxx 003", email: "----" },
+    { name: "Võ Hồng Phúc", role: "Lớp Trưởng", phone: "Đã che", email: "----" },
+    { name: "Trần Thị Kim Dung", role: "Bí thư", phone: "Đã che", email: "----" },
+    { name: "Huỳnh Thị Minh Nguyệt", role: "Thủ quỹ", phone: "Đã che", email: "----" },
+    { name: "Cao Tấn Tuy", role: "Tiếp rượu", phone: "Đã che", email: "----" },
+    { name: "Lê Quốc Việt", role: "Pháp chế", phone: "Đã che", email: "----" },
     { name: "Văn Dương Phúc Thịnh", role: "Truyền thông & Gallery", phone: "0935229992", email: "13.phucthinh@gmail.com" }
   ],
 
