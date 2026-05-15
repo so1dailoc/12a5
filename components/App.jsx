@@ -11,7 +11,7 @@ function TopNav() {
   const links = [
     { id: 'about', l: 'Giới thiệu' },
     { id: 'schedule', l: 'Chương trình' },
-    { id: 'gallery', l: 'Kỷ niệm' },
+    { id: 'gallery2', l: 'Kỷ niệm' },
     { id: 'teachers', l: 'Thầy cô' },
     { id: 'classmates', l: 'Bạn bè' },
     { id: 'rsvp', l: 'Đăng ký' },
@@ -196,7 +196,6 @@ function App() {
       <window.Hero/>
       <window.About/>
       <window.Schedule/>
-      <window.Gallery/>
       <window.Gallery2/>
       <window.Teachers/>
       <window.Classmates/>
