@@ -99,7 +99,15 @@ window.REUNION_DATA = {
     { name: "Lê Quốc Việt", role: "Pháp chế", phone: "0905 xxx 003", email: "----" },
     { name: "Văn Dương Phúc Thịnh", role: "Truyền thông & Gallery", phone: "0935229992", email: "13.phucthinh@gmail.com" }
   ],
-
+  
+  gallery: [
+    {  url: "images/kn1.jpg", caption: "Đêm văn nghệ Mừng Đảng Đón Xuân năm 2006"  },
+    {  url: "images/kn2.jpg", caption: "Hội trại chào mừng 26/3"  },
+    {  url: "images/kn3.jpg",  caption: "Nhóm bạn 12A5 gặp lại tại Đà Nẵng" },
+    {  url: "images/kn4.jpg", caption: "Nhóm bạn 12A5 gặp lại tại Sài Gòn" 
+    }
+  ],
+  
   fundGoal: 150000000, // 150 triệu
   fundRaised: 27900000 // đã gây quỹ
 };
