@@ -1,4 +1,5 @@
 // Teachers, Classmates, RSVP, Fund, Messages, Contact, FAQ
+const { useState } = React; // Đảm bảo có dòng này ở đầu file
 function Teachers() {
   const d = window.REUNION_DATA;
   return (
@@ -217,6 +218,7 @@ function Classmates() {
 }
 
 function RSVP() {
+  const [formData, setFormData] = useState({ name: '', attendance: 'yes' });
   const [form, setForm] = useState({
     name: '', class: '', phone: '', email: '', guests: 0, message: '', attend: 'yes'
   });
