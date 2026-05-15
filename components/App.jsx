@@ -193,6 +193,7 @@ function App() {
   return (
     <>
       <TopNav/>
+      <TweaksPanel tweaks={tweaks} setTweaks={setTweaks} />
       <window.Hero/>
       <window.About/>
       <window.Schedule/>
