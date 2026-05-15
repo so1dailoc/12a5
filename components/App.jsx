@@ -180,11 +180,10 @@ function applyTweaks(vals) {
 }
 
 function App() {
-  const [tweaks, setTweaks] = _useState(window.__INITIAL_TWEAKS);
+  const [tweaks, setTweaks] = _useState(window.__INITIAL_TWEAKS || {});
 
   _useEffect(() => {
     applyTweaks(tweaks);
-    // reveal on scroll
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
     }, { threshold: 0.1 });
@@ -193,22 +192,21 @@ function App() {
   }, [tweaks]);
 
   return (
-    <>
-      <TopNav/>
-      <window.Hero/>
-      <window.About/>
-      <window.Schedule/>
-      <window.Gallery/>
-      <window.Teachers/>
-      <window.Classmates/>
-      <window.RSVP/>
-      <window.Fund/>
-      <window.Messages/>
-      <window.Contact/>
-      <window.FAQ/>
-      <window.Footer/>
-      <TweakPanel defaults={tweaks} onChange={setTweaks}/>
-    </>
+    <div className="app-container">
+      <TopNav />
+      <main>
+        <About />
+        <Schedule />
+        <Gallery />
+        <Teachers />
+        <RSVP />
+        <Fund />
+        <Messages />
+        <Contact />
+        <FAQ />
+      </main>
+      <Footer />
+    </div>
   );
 }
 
