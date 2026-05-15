@@ -17,8 +17,9 @@ function Fund() {
             <div className="section-number">§ 07</div>
             <h2 className="section-title">Một phần<br/><em>nhỏ bé</em></h2>
             <p className="section-dek">
-              Quỹ lớp sẽ dùng cho Hội khóa, thăm viếng Thầy cô và các Bậc phụ huynh, các hoàn cảnh khó khăn - hoàn cảnh đặc biệt của lớp chúng ta.
-            </p>
+             - Phần Nội dung Chuyển khoản [Nop tien Hoi Khoa] sẽ được tổng hợp và chuyển khoản về Quỹ Hội Khóa 20 của Trường.
+             - Phần Nội dung Chuyển khoản [Nop tien Quy] sẽ được lưu ở Quỹ lớp và sử dụng vào Mục đích CHI đã thông qua (Thăm viếng Thầy cô và các Bậc phụ huynh, các hoàn cảnh khó khăn - hoàn cảnh đặc biệt của lớp chúng ta...)`
+ `           </p>
           </div>
 
           <div className="f-meter">
