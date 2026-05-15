@@ -4,11 +4,12 @@ function Gallery2() {
   const d = window.REUNION_DATA;
   const [selectedImg, setSelectedImg] = _useState2(null);
   const [shuffledImages, setShuffledImages] = _useState2([]);
+  // Trạng thái quản lý số lượng hình đang hiển thị (mặc định là 6)
+  const [visibleCount, setVisibleCount] = _useState2(6);
 
-  // Bước 1: Trộn ảnh ngẫu nhiên khi tải trang
+  // 1. Xử lý trộn ảnh ngẫu nhiên khi tải trang
   _useEffect2(() => {
     if (d.gallery2 && d.gallery2.length > 0) {
-      // Thuật toán tráo bài để tạo sự nghệ thuật ngẫu hứng
       const images = [...d.gallery2].sort(() => Math.random() - 0.5);
       setShuffledImages(images);
     }
@@ -16,23 +17,28 @@ function Gallery2() {
 
   if (!d.gallery2 || shuffledImages.length === 0) return null;
 
+  // 2. Hàm xử lý khi nhấn nút "Xem thêm"
+  const showMore = () => {
+    setVisibleCount(prev => prev + 6);
+  };
+
   return (
     <section id="gallery2" className="gallery-pro">
       <div className="page">
         <div className="index-bar">
-          <span>§ 03 — Kỷ Niệm</span>
-          <span>Những giây phút phút bên nhau</span>
+          <span>§ 03 — Ký ức - Kỷ niệm</span>
+          <span>Sắp xếp ngẫu hứng & Nghệ thuật</span>
           <span>trang 04</span>
         </div>
 
         <div className="g-header" style={{marginBottom: '40px'}}>
-          <div className="section-number">§ 03</div>
+          <div className="section-number">§ 03.2</div>
           <h2 className="section-title">Ký ức<br/><em>kỷ niệm</em></h2>
         </div>
 
-        {/* Bước 2: Lưới ảnh Masonry (Ảnh không bị cắt, cao thấp tự nhiên) */}
+        {/* Lưới ảnh Masonry - Chỉ hiện số lượng theo visibleCount */}
         <div className="masonry-grid">
-          {shuffledImages.map((img, i) => (
+          {shuffledImages.slice(0, visibleCount).map((img, i) => (
             <div 
               key={i} 
               className="masonry-item reveal in" 
@@ -44,6 +50,7 @@ function Gallery2() {
                   alt={img.caption} 
                   loading="lazy"
                   style={{ display: 'block', width: '100%' }}
+                  onError={(e) => { e.target.src = 'https://placehold.co/600x400?text=Loi+anh'; }}
                 />
                 <div className="masonry-overlay">
                   <span>PHÓNG LỚN</span>
@@ -51,36 +58,44 @@ function Gallery2() {
               </div>
               <div className="masonry-meta">
                 <p className="m-caption">{img.caption}</p>
-                <p className="m-date mono">{img.date || 'NIÊN KHÓA 2003-2006'}</p>
+                {img.date && <p className="m-date mono">{img.date}</p>}
               </div>
             </div>
           ))}
         </div>
+
+        {/* Nút Xem thêm: Chỉ hiện khi còn hình ẩn bên dưới */}
+        {visibleCount < shuffledImages.length && (
+          <div style={{ textAlign: 'center', marginTop: '50px' }}>
+            <button className="load-more-btn display" onClick={showMore}>
+              Xem thêm hình ảnh ↑
+            </button>
+          </div>
+        )}
       </div>
 
-      {/* Bước 3: Lightbox xem ảnh đầy đủ và nút [x] */}
+      {/* Lightbox - Xem ảnh đầy đủ */}
       {selectedImg && (
         <div className="lb-overlay" onClick={() => setSelectedImg(null)}>
-          {/* Nút đóng [x] thiết kế to, dễ bấm */}
           <button className="lb-close" onClick={() => setSelectedImg(null)}>&times;</button>
           
           <div className="lb-container" onClick={(e) => e.stopPropagation()}>
             <img src={selectedImg.url} alt={selectedImg.caption} />
             <div className="lb-info">
               <h3 className="display">{selectedImg.caption}</h3>
-              <p className="mono caps">{selectedImg.date}</p>
+              <p className="mono caps">{selectedImg.date || 'Kỷ niệm 12A5'}</p>
             </div>
           </div>
         </div>
       )}
 
       <style>{`
-        .gallery-pro { padding: 80px 0; background: var(--paper); }
+        .gallery-pro { padding: 80px 0; background: var(--paper); border-top: 1px solid var(--ink-faint); }
         
-        /* Masonry Layout */
         .masonry-grid {
           column-count: 3;
           column-gap: 30px;
+          width: 100%;
         }
 
         .masonry-item {
@@ -91,8 +106,8 @@ function Gallery2() {
           cursor: pointer;
           background: var(--paper-dark);
           padding: 10px;
-          border: 0.5px solid var(--ink-faint);
-          box-shadow: 6px 6px 0 rgba(42, 36, 32, 0.05);
+          border: 1px solid var(--ink-faint);
+          box-shadow: 4px 4px 0 rgba(0,0,0,0.05);
           transition: all 0.3s ease;
         }
 
@@ -101,28 +116,46 @@ function Gallery2() {
           box-shadow: 12px 12px 0 rgba(42, 36, 32, 0.1);
         }
 
-        .masonry-content { position: relative; overflow: hidden; border: 1px solid var(--ink); }
-        .masonry-content img { transition: 0.6s ease; filter: sepia(0.1); }
-        .masonry-item:hover img { transform: scale(1.05); filter: sepia(0); }
+        .masonry-content { position: relative; overflow: hidden; border: 1px solid var(--ink); background: #eee; }
+        .masonry-content img { transition: 0.6s ease; }
+        .masonry-item:hover img { transform: scale(1.08); }
 
         .masonry-overlay {
           position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-          background: rgba(184, 71, 42, 0.5);
+          background: rgba(184, 71, 42, 0.4);
           display: flex; align-items: center; justify-content: center;
           opacity: 0; transition: 0.3s;
         }
         .masonry-item:hover .masonry-overlay { opacity: 1; }
-        .masonry-overlay span { color: white; border: 1px solid white; padding: 6px 12px; font-size: 10px; letter-spacing: 0.1em; }
+        .masonry-overlay span { color: white; border: 1px solid white; padding: 4px 10px; font-size: 10px; letter-spacing: 0.1em; }
 
         .masonry-meta { margin-top: 12px; text-align: center; }
-        .m-caption { font-family: var(--font-serif); font-style: italic; font-size: 15px; color: var(--ink); margin: 0; }
+        .m-caption { font-family: var(--font-serif); font-style: italic; font-size: 15px; color: var(--ink); }
         .m-date { font-size: 9px; color: var(--ink-soft); margin-top: 4px; }
 
-        /* Lightbox - Xem ảnh lớn */
+        /* Nút Xem thêm */
+        .load-more-btn {
+          background: transparent;
+          border: 1px solid var(--ink);
+          color: var(--ink);
+          padding: 12px 40px;
+          font-size: 20px;
+          cursor: pointer;
+          transition: all 0.3s;
+          box-shadow: 5px 5px 0 var(--ink);
+        }
+        .load-more-btn:hover {
+          background: var(--ink);
+          color: var(--paper);
+          box-shadow: 0px 0px 0 var(--ink);
+          transform: translate(3px, 3px);
+        }
+
+        /* Lightbox CSS */
         .lb-overlay {
           position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-          background: rgba(26, 22, 20, 0.98);
-          z-index: 9999; display: flex; align-items: center; justify-content: center;
+          background: rgba(20, 18, 16, 0.97);
+          z-index: 10000; display: flex; align-items: center; justify-content: center;
           cursor: zoom-out; animation: fadeIn 0.3s ease;
         }
 
@@ -134,8 +167,8 @@ function Gallery2() {
 
         .lb-container img {
           max-width: 100%; max-height: 75vh;
-          border: 5px solid white;
-          box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+          border: 6px solid white;
+          box-shadow: 0 30px 60px rgba(0,0,0,0.5);
           object-fit: contain;
         }
 
@@ -143,17 +176,15 @@ function Gallery2() {
           position: absolute; top: 20px; right: 30px;
           background: none; border: none;
           color: white; font-size: 60px; font-weight: 200;
-          cursor: pointer; line-height: 1;
-          transition: color 0.2s;
+          cursor: pointer; line-height: 1; z-index: 10001;
         }
         .lb-close:hover { color: var(--accent); }
 
         .lb-info { color: white; text-align: center; margin-top: 20px; }
-        .lb-info h3 { font-size: 24px; margin-bottom: 5px; }
+        .lb-info h3 { font-size: 24px; }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* Responsive */
         @media (max-width: 900px) { .masonry-grid { column-count: 2; } }
         @media (max-width: 600px) { 
           .masonry-grid { column-count: 1; } 
