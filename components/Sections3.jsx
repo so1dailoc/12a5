@@ -46,8 +46,8 @@ function Fund() {
               <div className="mono caps" style={{fontSize: 10, marginBottom: 8, color: 'var(--ink-soft)'}}>Chuyển khoản</div>
               <div className="mono" style={{fontSize: 14, lineHeight: 1.8}}>
                 Vietcombank · 7775664346<br/>
-                HUỲNH THỊ MINH NGUYỆT<br/>
-                <span style={{color: 'var(--ink-soft)'}}>Nội dung: [Nop tien Hoi Khoa] hoặc [Nop tien Tien Quy]</span>
+                HUYNH THI MINH NGUYET<br/>
+                <span style={{color: 'var(--ink-soft)'}}>Nội dung: [Ten]+[Nop tien Hoi Khoa] hoặc [Ten]+[Nop tien Quy]</span>
               </div>
             </div>
           </div>
