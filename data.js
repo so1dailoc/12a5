@@ -19,7 +19,7 @@ window.REUNION_DATA = {
       url: "images/anh2.jpg", 
       caption: "Hội trại xuân Huỳnh Ngọc Huệ",
       date: "Tháng 03/2005",
-      tag: "Sự kiện
+      tag: "Sự kiện"
     }
   ],
 
