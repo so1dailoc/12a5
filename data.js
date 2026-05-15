@@ -7,6 +7,7 @@ window.REUNION_DATA = {
   city: "TP. Đà Nẵng",
   fundGoal: 125000000, // 125 triệu
   fundRaised: 27900000, // đã gây quỹ
+  heroPhoto: "images/cuoinam12.jpg",
   
   schedule: [
     { time: "7:00", title: "Đón tiếp & check-in", desc: "Nhận kỷ yếu, huy hiệu, chụp ảnh lưu niệm tại khu welcome" },
