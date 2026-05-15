@@ -1,99 +1,162 @@
 // About + Schedule + Gallery sections
 function Gallery2() {
   const d = window.REUNION_DATA;
-  if (!d.gallery2) return null;
+  const [selectedImg, setSelectedImg] = _useState2(null);
+  const [shuffledImages, setShuffledImages] = _useState2([]);
+
+  // Bước 1: Trộn ảnh ngẫu nhiên khi tải trang
+  _useEffect2(() => {
+    if (d.gallery2 && d.gallery2.length > 0) {
+      // Thuật toán tráo bài để tạo sự nghệ thuật ngẫu hứng
+      const images = [...d.gallery2].sort(() => Math.random() - 0.5);
+      setShuffledImages(images);
+    }
+  }, [d.gallery2]);
+
+  if (!d.gallery2 || shuffledImages.length === 0) return null;
 
   return (
     <section id="gallery2" className="gallery-pro">
       <div className="page">
         <div className="index-bar">
           <span>§ 03.2 — Kho tư liệu</span>
-          <span>Hình ảnh mới cập nhật</span>
+          <span>Sắp xếp ngẫu hứng & Nghệ thuật</span>
           <span>trang 04</span>
         </div>
 
-        <div className="g-header">
-          <div className="section-number">§ 03</div>
-          <h2 className="section-title">Những thước phim<br/><em>mới tìm thấy</em></h2>
+        <div className="g-header" style={{marginBottom: '40px'}}>
+          <div className="section-number">§ 03.2</div>
+          <h2 className="section-title">Những thước phim<br/><em>ngẫu nhiên</em></h2>
         </div>
 
-        <div className="g-grid-pro">
-          {d.gallery2.map((img, i) => (
-            <div key={i} className="g-card reveal">
-              <div className="g-photo-wrapper">
+        {/* Bước 2: Lưới ảnh Masonry (Ảnh không bị cắt, cao thấp tự nhiên) */}
+        <div className="masonry-grid">
+          {shuffledImages.map((img, i) => (
+            <div 
+              key={i} 
+              className="masonry-item reveal in" 
+              onClick={() => setSelectedImg(img)}
+            >
+              <div className="masonry-content">
                 <img 
                   src={img.url} 
-                  alt={img.caption}
+                  alt={img.caption} 
                   loading="lazy"
-                  onError={(e) => { e.target.src = 'https://placehold.co/600x400/e8dcc0/2a2420?text=Hình+ảnh+12A5'; }}
+                  style={{ display: 'block', width: '100%' }}
                 />
-                {img.tag && <span className="g-tag mono caps">{img.tag}</span>}
+                <div className="masonry-overlay">
+                  <span>PHÓNG LỚN</span>
+                </div>
               </div>
-              <div className="g-info">
-                <h3 className="display">{img.caption}</h3>
-                <p className="mono caps">{img.date || 'Niên khóa 2003-2006'}</p>
+              <div className="masonry-meta">
+                <p className="m-caption">{img.caption}</p>
+                <p className="m-date mono">{img.date || 'NIÊN KHÓA 2003-2006'}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
 
+      {/* Bước 3: Lightbox xem ảnh đầy đủ và nút [x] */}
+      {selectedImg && (
+        <div className="lb-overlay" onClick={() => setSelectedImg(null)}>
+          {/* Nút đóng [x] thiết kế to, dễ bấm */}
+          <button className="lb-close" onClick={() => setSelectedImg(null)}>&times;</button>
+          
+          <div className="lb-container" onClick={(e) => e.stopPropagation()}>
+            <img src={selectedImg.url} alt={selectedImg.caption} />
+            <div className="lb-info">
+              <h3 className="display">{selectedImg.caption}</h3>
+              <p className="mono caps">{selectedImg.date}</p>
+            </div>
+          </div>
+        </div>
+      )}
+
       <style>{`
         .gallery-pro { padding: 80px 0; background: var(--paper); }
-        .g-header { margin-bottom: 48px; }
         
-        .g-grid-pro {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-          gap: 40px;
+        /* Masonry Layout */
+        .masonry-grid {
+          column-count: 3;
+          column-gap: 30px;
         }
 
-        .g-card {
-          background: var(--paper-dark);
-          padding: 12px;
-          border: 0.5px solid var(--ink-faint);
-          box-shadow: var(--shadow);
-          transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        .g-card:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 12px 24px rgba(42, 36, 32, 0.15);
-        }
-
-        .g-photo-wrapper {
-          position: relative;
-          overflow: hidden;
-          height: 240px;
-          border: 1px solid var(--ink);
-        }
-
-        .g-photo-wrapper img {
+        .masonry-item {
+          break-inside: avoid;
+          display: inline-block;
           width: 100%;
-          height: 100%;
-          object-fit: cover;
-          filter: sepia(0.2) contrast(1.1); /* Tạo hiệu ứng ảnh cũ nhẹ */
-          transition: transform 0.6s ease;
+          margin-bottom: 30px;
+          cursor: pointer;
+          background: var(--paper-dark);
+          padding: 10px;
+          border: 0.5px solid var(--ink-faint);
+          box-shadow: 6px 6px 0 rgba(42, 36, 32, 0.05);
+          transition: all 0.3s ease;
         }
 
-        .g-card:hover img { transform: scale(1.08); filter: sepia(0); }
-
-        .g-tag {
-          position: absolute;
-          top: 12px;
-          right: 12px;
-          background: var(--accent);
-          color: white;
-          padding: 4px 8px;
-          font-size: 9px;
+        .masonry-item:hover {
+          transform: translateY(-5px);
+          box-shadow: 12px 12px 0 rgba(42, 36, 32, 0.1);
         }
 
-        .g-info { padding: 16px 4px 8px; }
-        .g-info h3 { fontSize: 18px; margin-bottom: 4px; color: var(--ink); }
-        .g-info p { font-size: 10px; color: var(--ink-soft); letter-spacing: 0.05em; }
+        .masonry-content { position: relative; overflow: hidden; border: 1px solid var(--ink); }
+        .masonry-content img { transition: 0.6s ease; filter: sepia(0.1); }
+        .masonry-item:hover img { transform: scale(1.05); filter: sepia(0); }
 
-        @media (max-width: 600px) {
-          .g-grid-pro { grid-template-columns: 1fr; }
+        .masonry-overlay {
+          position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+          background: rgba(184, 71, 42, 0.5);
+          display: flex; align-items: center; justify-content: center;
+          opacity: 0; transition: 0.3s;
+        }
+        .masonry-item:hover .masonry-overlay { opacity: 1; }
+        .masonry-overlay span { color: white; border: 1px solid white; padding: 6px 12px; font-size: 10px; letter-spacing: 0.1em; }
+
+        .masonry-meta { margin-top: 12px; text-align: center; }
+        .m-caption { font-family: var(--font-serif); font-style: italic; font-size: 15px; color: var(--ink); margin: 0; }
+        .m-date { font-size: 9px; color: var(--ink-soft); margin-top: 4px; }
+
+        /* Lightbox - Xem ảnh lớn */
+        .lb-overlay {
+          position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+          background: rgba(26, 22, 20, 0.98);
+          z-index: 9999; display: flex; align-items: center; justify-content: center;
+          cursor: zoom-out; animation: fadeIn 0.3s ease;
+        }
+
+        .lb-container {
+          position: relative; max-width: 90%; max-height: 90vh;
+          display: flex; flex-direction: column; align-items: center;
+          cursor: default;
+        }
+
+        .lb-container img {
+          max-width: 100%; max-height: 75vh;
+          border: 5px solid white;
+          box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+          object-fit: contain;
+        }
+
+        .lb-close {
+          position: absolute; top: 20px; right: 30px;
+          background: none; border: none;
+          color: white; font-size: 60px; font-weight: 200;
+          cursor: pointer; line-height: 1;
+          transition: color 0.2s;
+        }
+        .lb-close:hover { color: var(--accent); }
+
+        .lb-info { color: white; text-align: center; margin-top: 20px; }
+        .lb-info h3 { font-size: 24px; margin-bottom: 5px; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Responsive */
+        @media (max-width: 900px) { .masonry-grid { column-count: 2; } }
+        @media (max-width: 600px) { 
+          .masonry-grid { column-count: 1; } 
+          .lb-close { top: 10px; right: 20px; font-size: 50px; }
         }
       `}</style>
     </section>
