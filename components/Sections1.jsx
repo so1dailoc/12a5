@@ -1,27 +1,101 @@
 // About + Schedule + Gallery sections
 function Gallery2() {
   const d = window.REUNION_DATA;
-  // Kiểm tra nếu không có dữ liệu gallery2 thì không hiện gì cả để tránh lỗi trang
   if (!d.gallery2) return null;
 
   return (
-    <section id="gallery2" className="gallery" style={{borderTop: '2px dashed red', marginTop: '50px'}}>
+    <section id="gallery2" className="gallery-pro">
       <div className="page">
-        <h2 className="display" style={{color: 'red', fontSize: '20px'}}>SÂN CHƠI THỬ NGHIỆM (GALLERY 2)</h2>
-        <div className="g-grid">
+        <div className="index-bar">
+          <span>§ 03.2 — Kho tư liệu</span>
+          <span>Hình ảnh mới cập nhật</span>
+          <span>trang 04</span>
+        </div>
+
+        <div className="g-header">
+          <div className="section-number">§ 03</div>
+          <h2 className="section-title">Những thước phim<br/><em>mới tìm thấy</em></h2>
+        </div>
+
+        <div className="g-grid-pro">
           {d.gallery2.map((img, i) => (
-            <div key={i} className="g-item reveal">
-              <img 
-                src={img.url} 
-                alt={img.caption} 
-                style={{ width: '100%', height: '250px', objectFit: 'cover' }}
-                onError={(e) => { e.target.src = 'https://via.placeholder.com/300x200?text=Loi-Link-Anh'; }} 
-              />
-              <div className="g-caption" style={{ textAlign: 'center' }}>{img.caption}</div>
+            <div key={i} className="g-card reveal">
+              <div className="g-photo-wrapper">
+                <img 
+                  src={img.url} 
+                  alt={img.caption}
+                  loading="lazy"
+                  onError={(e) => { e.target.src = 'https://placehold.co/600x400/e8dcc0/2a2420?text=Hình+ảnh+12A5'; }}
+                />
+                {img.tag && <span className="g-tag mono caps">{img.tag}</span>}
+              </div>
+              <div className="g-info">
+                <h3 className="display">{img.caption}</h3>
+                <p className="mono caps">{img.date || 'Niên khóa 2003-2006'}</p>
+              </div>
             </div>
           ))}
         </div>
       </div>
+
+      <style>{`
+        .gallery-pro { padding: 80px 0; background: var(--paper); }
+        .g-header { margin-bottom: 48px; }
+        
+        .g-grid-pro {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+          gap: 40px;
+        }
+
+        .g-card {
+          background: var(--paper-dark);
+          padding: 12px;
+          border: 0.5px solid var(--ink-faint);
+          box-shadow: var(--shadow);
+          transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .g-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 12px 24px rgba(42, 36, 32, 0.15);
+        }
+
+        .g-photo-wrapper {
+          position: relative;
+          overflow: hidden;
+          height: 240px;
+          border: 1px solid var(--ink);
+        }
+
+        .g-photo-wrapper img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          filter: sepia(0.2) contrast(1.1); /* Tạo hiệu ứng ảnh cũ nhẹ */
+          transition: transform 0.6s ease;
+        }
+
+        .g-card:hover img { transform: scale(1.08); filter: sepia(0); }
+
+        .g-tag {
+          position: absolute;
+          top: 12px;
+          right: 12px;
+          background: var(--accent);
+          color: white;
+          padding: 4px 8px;
+          font-size: 9px;
+        }
+
+        .g-info { padding: 16px 4px 8px; }
+        .g-info h3 { fontSize: 18px; margin-bottom: 4px; color: var(--ink); }
+        .g-info p { font-size: 10px; color: var(--ink-soft); letter-spacing: 0.05em; }
+
+        @media (max-width: 600px) {
+          .g-grid-pro { grid-template-columns: 1fr; }
+        }
+      `}</style>
     </section>
   );
 }
