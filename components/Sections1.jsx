@@ -350,7 +350,6 @@ function Gallery2() {
   const [selectedImg, setSelectedImg] = _useState2(null);
   const [shuffledImages, setShuffledImages] = _useState2([]);
 
-  // Xử lý trộn ảnh ngẫu nhiên
   _useEffect2(() => {
     if (d.gallery2 && d.gallery2.length > 0) {
       const images = [...d.gallery2].sort(() => Math.random() - 0.5);
@@ -365,125 +364,50 @@ function Gallery2() {
       <div className="page">
         <div className="index-bar">
           <span>§ 03.2 — Kho tư liệu</span>
-          <span>Sắp xếp ngẫu hứng & Nghệ thuật</span>
+          <span>Sắp xếp ngẫu hứng</span>
           <span>trang 04</span>
         </div>
 
-        <div className="g-header" style={{marginBottom: '40px'}}>
-          <div className="section-number">§ 03.2</div>
-          <h2 className="section-title">Góc nhìn<br/><em>ngẫu nhiên</em></h2>
-        </div>
-
-        {/* Lưới ảnh Masonry - Đã sửa lỗi hiển thị ảnh nhỏ */}
         <div className="masonry-grid">
           {shuffledImages.map((img, i) => (
-            <div 
-              key={i} 
-              className="masonry-item reveal in" // Thêm class 'in' để hiện ngay
-              onClick={() => setSelectedImg(img)}
-            >
+            <div key={i} className="masonry-item reveal in" onClick={() => setSelectedImg(img)}>
               <div className="masonry-content">
-                <img 
-                  src={img.url} 
-                  alt={img.caption} 
-                  style={{ display: 'block', width: '100%' }}
-                  onError={(e) => { e.target.src = 'https://placehold.co/600x400?text=Loi+anh'; }}
-                />
-                <div className="masonry-overlay">
-                  <span className="mono caps">Phóng lớn</span>
-                </div>
+                <img src={img.url} alt={img.caption} style={{ display: 'block', width: '100%' }} />
+                <div className="masonry-overlay"><span>Phóng lớn</span></div>
               </div>
-              <div className="masonry-meta">
-                <p className="m-caption">{img.caption}</p>
-              </div>
+              <div className="masonry-meta"><p className="m-caption">{img.caption}</p></div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Lightbox - Sửa lỗi nút đóng [x] */}
       {selectedImg && (
-        <div className="lightbox-overlay" onClick={() => setSelectedImg(null)}>
-          <button className="lightbox-close-btn">&times;</button>
-          
-          <div className="lightbox-container" onClick={(e) => e.stopPropagation()}>
+        <div className="lb-overlay" onClick={() => setSelectedImg(null)}>
+          <button className="lb-close">&times;</button>
+          <div className="lb-container" onClick={(e) => e.stopPropagation()}>
             <img src={selectedImg.url} alt={selectedImg.caption} />
-            <div className="lightbox-caption-box">
+            <div className="lb-caption">
               <h3 className="display">{selectedImg.caption}</h3>
-              <p className="mono caps">{selectedImg.date || 'Kỷ niệm 12A5'}</p>
             </div>
           </div>
         </div>
       )}
 
       <style>{`
-        .gallery-pro { padding: 80px 0; background: var(--paper); }
-        
-        .masonry-grid {
-          column-count: 3;
-          column-gap: 30px;
-          width: 100%;
-        }
-
-        .masonry-item {
-          break-inside: avoid;
-          display: inline-block; /* Giúp ảnh nhỏ hiện ổn định hơn trong column-layout */
-          width: 100%;
-          margin-bottom: 30px;
-          cursor: pointer;
-          background: var(--paper-dark);
-          padding: 8px;
-          border: 1px solid var(--ink-faint);
-          box-shadow: 4px 4px 0 rgba(0,0,0,0.05);
-        }
-
-        .masonry-content { position: relative; overflow: hidden; background: #ccc; }
-        .masonry-content img { transition: 0.5s ease; }
-        .masonry-item:hover img { transform: scale(1.05); }
-
-        .masonry-overlay {
-          position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-          background: rgba(184, 71, 42, 0.4);
-          display: flex; align-items: center; justify-content: center;
-          opacity: 0; transition: 0.3s;
-        }
+        .gallery-pro { padding: 60px 0; background: var(--paper); }
+        .masonry-grid { column-count: 3; column-gap: 30px; }
+        .masonry-item { break-inside: avoid; display: inline-block; width: 100%; margin-bottom: 30px; cursor: pointer; background: var(--paper-dark); padding: 8px; border: 1px solid var(--ink-faint); }
+        .masonry-content { position: relative; overflow: hidden; }
+        .masonry-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(184, 71, 42, 0.4); display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; }
         .masonry-item:hover .masonry-overlay { opacity: 1; }
         .masonry-overlay span { color: white; border: 1px solid white; padding: 4px 10px; font-size: 10px; }
-
-        .masonry-meta { margin-top: 10px; text-align: center; }
-        .m-caption { font-family: var(--font-serif); font-style: italic; font-size: 14px; }
-
-        /* Lightbox Fix */
-        .lightbox-overlay {
-          position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-          background: rgba(0, 0, 0, 0.9);
-          z-index: 9999; display: flex; align-items: center; justify-content: center;
-          cursor: zoom-out;
-        }
-
-        .lightbox-container {
-          position: relative; max-width: 90%; max-height: 90vh;
-          display: flex; flex-direction: column; align-items: center;
-        }
-
-        .lightbox-container img {
-          max-width: 100%; max-height: 75vh;
-          border: 4px solid white; outline: 1px solid var(--ink);
-          object-fit: contain;
-        }
-
-        .lightbox-close-btn {
-          position: absolute; top: 20px; right: 30px;
-          background: none; border: none;
-          color: white; font-size: 60px; font-weight: 200;
-          cursor: pointer; z-index: 10001;
-          line-height: 1;
-        }
-        .lightbox-close-btn:hover { color: var(--accent); }
-
-        .lightbox-caption-box {
-          color: white; text-align: center; margin-top: 15px;
-        }
+        .m-caption { font-family: var(--font-serif); font-style: italic; font-size: 14px; text-align: center; margin-top: 8px; }
+        
+        .lb-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 9999; display: flex; align-items: center; justify-content: center; cursor: zoom-out; }
+        .lb-container { position: relative; max-width: 90%; max-height: 90vh; }
+        .lb-container img { max-width: 100%; max-height: 80vh; border: 4px solid white; }
+        .lb-close { position: absolute; top: -60px; right: 0; background: none; border: none; color: white; font-size: 60px; cursor: pointer; }
+        .lb-caption { color: white; text-align: center; margin-top: 15px; }
 
         @media (max-width: 900px) { .masonry-grid { column-count: 2; } }
         @media (max-width: 600px) { .masonry-grid { column-count: 1; } }
