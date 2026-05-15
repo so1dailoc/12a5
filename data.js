@@ -5,8 +5,20 @@ window.REUNION_DATA = {
   classYear: "Khoá 2003-2006",
   school: "Trường THPT Huỳnh Ngọc Huệ",
   city: "TP. Đà Nẵng",
-  fundGoal: 150000000, // 150 triệu
+  fundGoal: 125000000, // 125 triệu
   fundRaised: 27900000, // đã gây quỹ
+
+  gallery2: [
+    { 
+      url: "https://vidu.com/anh-moi-1.jpg", 
+      caption: "Ảnh thử nghiệm 1" 
+    },
+    { 
+      url: "https://vidu.com/anh-moi-2.jpg", 
+      caption: "Ảnh thử nghiệm 2" 
+    }
+  ],
+};
 
   schedule: [
     { time: "7:00", title: "Đón tiếp & check-in", desc: "Nhận kỷ yếu, huy hiệu, chụp ảnh lưu niệm tại khu welcome" },
