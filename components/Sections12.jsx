@@ -1,4 +1,4 @@
-// About + Schedule + Gallery sections
+const { useState } = React; // About + Schedule + Gallery sections
 function About() {
   return (
     <section id="about" className="about">
@@ -176,110 +176,46 @@ function Schedule() {
 }
 
 function Gallery() {
+  // 1. Khai báo state để lưu ảnh đang được chọn
+  const [selectedImg, setSelectedImg] = useState(null);
+
   const photos = [
-    { then: "Lớp 12A5 · 2006", now: "Gặp lại · 2026", caption: "Buổi tổng kết năm học cuối cấp cùng với thầy" },
-    { then: "Sân trường · 2006", now: "Sân trường · 2026", caption: "Giờ ra chơi, gốc phượng đầu hành lang" },
-    { then: "Văn nghệ · 2006", now: "Gặp lại · 2026", caption: "Đêm văn nghệ Mừng Đảng Đón Xuân năm 2006" },
-    { then: "Hội trại · 2005", now: "Gặp lại · 2026", caption: "Hội trại chào mừng 26/3" },
-    { then: "Lớp 12A5 · 2006", now: "Gặp lại · 2024", caption: "Nhóm bạn 12A5 gặp lại tại Đà Nẵng" },
-    { then: "Lớp 12A5 · 2006", now: "Gặp lại · 2024", caption: "Nhóm bạn 12A5 gặp lại tại Sài Gòn" }
+    { url: "images/kyniem1.jpg", caption: "Tiết học cuối cùng năm 2006" },
+    { url: "images/kyniem2.jpg", caption: "Đội bóng đá lớp 12A5" },
+    // ... thêm các ảnh khác của bạn vào đây
   ];
+
   return (
     <section id="gallery" className="gallery">
       <div className="page">
-        <div className="index-bar">
-          <span>§ 03 — Kỷ niệm</span>
-          <span>Then & Now</span>
-          <span>trang 04</span>
-        </div>
-
-        <div className="gal-head">
-          <div className="section-number">§ 03</div>
-          <h2 className="section-title">Rồi & <em>bây giờ</em></h2>
-          <p className="section-dek">Di chuột lên mỗi bức ảnh để thấy chúng ta của <em>hai mươi năm trước</em> trở về.</p>
-        </div>
-
-        <div className="gal-grid">
+        {/* ... giữ nguyên phần tiêu đề của bạn ... */}
+        
+        <div className="gallery-grid">
           {photos.map((p, i) => (
-            <div key={i} className={"gal-item reveal" + (i % 3 === 1 ? " tall" : "")}>
-              <div className="gal-flipper">
-                <div className="gal-face gal-then placeholder">
-                  {p.then}
-                </div>
-                <div className="gal-face gal-now placeholder" style={{background: 'var(--paper-dark)'}}>
-                  <div>
-                    <span className="pill" style={{marginBottom: 8, display: 'inline-block'}}>Now</span><br/>
-                    {p.now}
-                  </div>
-                </div>
-              </div>
-              <div className="gal-caption">
-                <span className="mono caps" style={{color: 'var(--ink-faint)', fontSize: 9}}>Fig. {String(i+2).padStart(2, '0')}</span>
-                <span className="italic">{p.caption}</span>
-              </div>
+            <div 
+              key={i} 
+              className="gallery-item" 
+              onClick={() => setSelectedImg(p)} // 2. Khi click thì lưu ảnh vào state
+            >
+              <img src={p.url} alt={p.caption} />
+              <div className="gallery-caption mono">{p.caption}</div>
             </div>
           ))}
         </div>
-
-        <div className="gal-upload">
-          <h3 className="display" style={{fontSize: 32, marginBottom: 8}}>Có ảnh cũ muốn chia sẻ?</h3>
-          <p style={{marginBottom: 20, color: 'var(--ink-soft)', fontStyle: 'italic'}}>
-            Album chung của chúng ta mở cửa cho tất cả bạn cùng khoá. Gửi ảnh scan, ảnh chụp nhanh, ảnh kỷ yếu — bất cứ thứ gì bạn còn giữ.
-          </p>
-          <UploadBox/>
-        </div>
-
-        <div className="ornament">❋   ❋   ❋</div>
       </div>
 
-      <style>{`
-        .gallery { padding: 60px 0; }
-        .gal-head { padding: 40px 0 32px; }
-        .gal-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 24px;
-          margin-bottom: 64px;
-        }
-        .gal-item { display: flex; flex-direction: column; gap: 8px; }
-        .gal-item.tall .gal-flipper { aspect-ratio: 3/4; }
-        .gal-flipper {
-          aspect-ratio: 4/3;
-          position: relative;
-          perspective: 1200px;
-          cursor: pointer;
-        }
-        .gal-face {
-          position: absolute;
-          inset: 0;
-          backface-visibility: hidden;
-          transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .gal-then { transform: rotateY(0); }
-        .gal-now { transform: rotateY(180deg); }
-        .gal-item:hover .gal-then { transform: rotateY(-180deg); }
-        .gal-item:hover .gal-now { transform: rotateY(0); }
-        .gal-caption {
-          display: flex;
-          gap: 12px;
-          font-size: 13px;
-          color: var(--ink-soft);
-          align-items: baseline;
-        }
-        .gal-upload {
-          border-top: 2px solid var(--ink);
-          padding-top: 40px;
-          text-align: center;
-          max-width: 640px;
-          margin: 0 auto;
-        }
-        @media (max-width: 860px) {
-          .gal-grid { grid-template-columns: 1fr 1fr; }
-        }
-        @media (max-width: 520px) {
-          .gal-grid { grid-template-columns: 1fr; }
-        }
-      `}</style>
+      {/* 3. Thành phần Lightbox - Chỉ hiển thị khi có ảnh được chọn */}
+      {selectedImg && (
+        <div className="lightbox" onClick={() => setSelectedImg(null)}>
+          <div className="lightbox-content" onClick={e => e.stopPropagation()}>
+            <img src={selectedImg.url} alt={selectedImg.caption} />
+            <div className="lightbox-desc">
+              <p className="display">{selectedImg.caption}</p>
+              <button className="mono caps" onClick={() => setSelectedImg(null)}>Đóng [x]</button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
