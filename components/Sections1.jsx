@@ -1,5 +1,4 @@
 // About + Schedule + Gallery sections
-const { useState: _useState2, useEffect: _useEffect2 } = React;
 function About() {
   return (
     <section id="about" className="about">
