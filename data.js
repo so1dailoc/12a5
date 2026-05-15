@@ -14,7 +14,7 @@ window.REUNION_DATA = {
       caption: "Ảnh thử nghiệm 1" 
     },
     { 
-      url: "mages/anh2.jpg", 
+      url: "images/anh2.jpg", 
       caption: "Ảnh thử nghiệm 2" 
     }
   ],
