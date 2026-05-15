@@ -95,7 +95,7 @@ function TweakPanel({ defaults, onChange }) {
     { k: 'linen', name: 'Vải lanh · Xanh rêu', paper: '#efe8d5', ink: '#1e2a1c', accent: '#5c6b4a', paperDark: '#e0d8bf' },
     { k: 'sepia', name: 'Sepia · Nâu đất', paper: '#ede0c8', ink: '#3a2819', accent: '#8b4513', paperDark: '#ddcfb4' },
     { k: 'bone', name: 'Xương trắng · Navy', paper: '#f5f0e4', ink: '#14213d', accent: '#d62828', paperDark: '#e5dfd0' },
-    { k: 'moi', name: 'moi', paper: '#fffcf6', ink: '#c4aa79', accent: '#9b6b47', paperDark: '#e5dfd0' },
+    { k: 'moi', name: 'moi', paper: '#fffcf6', ink: '#c4aa79', accent: '#9b6b47', paperDark: '#fefcf6' },
     { k: 'night', name: 'Đêm · Vàng bơ', paper: '#1a1815', ink: '#f5ead1', accent: '#e9b44c', paperDark: '#2a2622' }
   ];
   const fonts = [
