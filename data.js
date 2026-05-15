@@ -5,6 +5,8 @@ window.REUNION_DATA = {
   classYear: "Khoá 2003-2006",
   school: "Trường THPT Huỳnh Ngọc Huệ",
   city: "TP. Đà Nẵng",
+  fundGoal: 150000000, // 150 triệu
+  fundRaised: 27900000, // đã gây quỹ
 
   schedule: [
     { time: "7:00", title: "Đón tiếp & check-in", desc: "Nhận kỷ yếu, huy hiệu, chụp ảnh lưu niệm tại khu welcome" },
@@ -100,6 +102,4 @@ window.REUNION_DATA = {
     { name: "Văn Dương Phúc Thịnh", role: "Truyền thông & Gallery", phone: "0935229992", email: "13.phucthinh@gmail.com" }
   ],
 
-  fundGoal: 150000000, // 150 triệu
-  fundRaised: 27900000 // đã gây quỹ
 };
