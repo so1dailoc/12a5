@@ -10,11 +10,11 @@ window.REUNION_DATA = {
 
   gallery2: [
     { 
-      url: "https://vidu.com/anh-moi-1.jpg", 
+      url: "images/anh1.jpg", 
       caption: "Ảnh thử nghiệm 1" 
     },
     { 
-      url: "https://vidu.com/anh-moi-2.jpg", 
+      url: "mages/anh2.jpg", 
       caption: "Ảnh thử nghiệm 2" 
     }
   ],
