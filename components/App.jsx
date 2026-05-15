@@ -197,7 +197,6 @@ function App() {
       <window.About/>
       <window.Schedule/>
       <window.Gallery/>
-      <window.Gallery2/>
       <window.Teachers/>
       <window.Classmates/>
       <window.RSVP/>
