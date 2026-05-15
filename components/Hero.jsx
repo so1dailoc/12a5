@@ -64,16 +64,13 @@ function Hero() {
             </div>
           </div>
           
-<div className="hero-right">
-  <div className="hero-photo" style={{ aspectRatio: '3/4', overflow: 'hidden', border: '1.5px solid var(--ink)' }}>
-    <img 
-      src={d.heroPhoto || "https://placehold.co/600x800?text=12A5"} 
-      alt="Ảnh kỷ yếu lớp 12A5" 
-      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-    />
-  </div>
-  <div className="hero-caption mono caps">Fig. 01 · Sân trường, tháng 5/2006</div>
-</div>
+        <div className="hero-right">
+            <div className="hero-photo placeholder" style={{aspectRatio: '3/4'}}>
+              Ảnh kỷ yếu<br/>lớp 12A5 năm 2006
+            </div>
+            <div className="hero-caption mono caps">Fig. 01 · Sân trường, tháng 5/2006</div>
+          </div>
+        </div>
 
         <div className="hero-info-bar">
           <div className="info-cell">
