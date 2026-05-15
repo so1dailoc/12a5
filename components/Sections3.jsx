@@ -17,7 +17,7 @@ function Fund() {
             <div className="section-number">§ 07</div>
             <h2 className="section-title">Một phần<br/><em>nhỏ bé</em></h2>
             <p className="section-dek">
-              Quỹ lớp sẽ dùngc ho Hội khóa, thăm viếng Thầy cô và các Bậc phụ huynh, các hoàn cảnh khó khăn - hoàn cảnh đặc biệt của lớp chúng ta.
+              Quỹ lớp sẽ dùng cho Hội khóa, thăm viếng Thầy cô và các Bậc phụ huynh, các hoàn cảnh khó khăn - hoàn cảnh đặc biệt của lớp chúng ta.
             </p>
           </div>
 
