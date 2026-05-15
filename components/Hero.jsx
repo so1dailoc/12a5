@@ -65,9 +65,9 @@ function Hero() {
           </div>
           
 <div className="hero-right">
-  <div className="hero-photo" style={{ aspectRatio: '4/3', overflow: 'hidden', border: '1.5px solid var(--ink)' }}>
+  <div className="hero-photo" style={{ aspectRatio: '3/4', overflow: 'hidden', border: '1.5px solid var(--ink)' }}>
     <img 
-      src={d.heroPhoto || "https://placehold.co/800x600?text=12A5"} 
+      src={d.heroPhoto || "https://placehold.co/600x800?text=12A5"} 
       alt="Ảnh kỷ yếu lớp 12A5" 
       style={{ width: '100%', height: '100%', objectFit: 'cover' }}
     />
