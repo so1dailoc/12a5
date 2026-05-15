@@ -95,7 +95,6 @@ function TweakPanel({ defaults, onChange }) {
     { k: 'linen', name: 'Vải lanh · Xanh rêu', paper: '#efe8d5', ink: '#1e2a1c', accent: '#5c6b4a', paperDark: '#e0d8bf' },
     { k: 'sepia', name: 'Sepia · Nâu đất', paper: '#ede0c8', ink: '#3a2819', accent: '#8b4513', paperDark: '#ddcfb4' },
     { k: 'bone', name: 'Xương trắng · Navy', paper: '#f5f0e4', ink: '#14213d', accent: '#d62828', paperDark: '#e5dfd0' },
-    { k: 'moi', name: 'moi', paper: '#fffcf6', ink: '#c4aa79', accent: '#9b6b47', paperDark: '#fefcf6' },
     { k: 'night', name: 'Đêm · Vàng bơ', paper: '#1a1815', ink: '#f5ead1', accent: '#e9b44c', paperDark: '#2a2622' }
   ];
   const fonts = [
@@ -153,7 +152,6 @@ function applyTweaks(vals) {
     linen: { paper: '#efe8d5', ink: '#1e2a1c', accent: '#5c6b4a', accentDark: '#3e4a30', paperDark: '#e0d8bf', inkSoft: '#4a5544', inkFaint: '#7a8373' },
     sepia: { paper: '#ede0c8', ink: '#3a2819', accent: '#8b4513', accentDark: '#5c2e0c', paperDark: '#ddcfb4', inkSoft: '#6b4a2e', inkFaint: '#9a7d55' },
     bone: { paper: '#f5f0e4', ink: '#14213d', accent: '#d62828', accentDark: '#9a1818', paperDark: '#e5dfd0', inkSoft: '#3d4862', inkFaint: '#6a7385' },
-    moi: { paper: '#fefdfb', ink: '#9b6b47', accent: '#492a15', accentDark: '#9a1818', paperDark: '#f1e9d5', inkSoft: '#3d4862', inkFaint: '#7b8599' },
     night: { paper: '#1a1815', ink: '#f5ead1', accent: '#e9b44c', accentDark: '#c89224', paperDark: '#2a2622', inkSoft: '#c9bc9a', inkFaint: '#8a7f65' }
   };
   const p = palettes[vals.palette] || palettes.paper;
@@ -180,10 +178,11 @@ function applyTweaks(vals) {
 }
 
 function App() {
-  const [tweaks, setTweaks] = _useState(window.__INITIAL_TWEAKS || {});
+  const [tweaks, setTweaks] = _useState(window.__INITIAL_TWEAKS);
 
   _useEffect(() => {
     applyTweaks(tweaks);
+    // reveal on scroll
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
     }, { threshold: 0.1 });
@@ -192,21 +191,22 @@ function App() {
   }, [tweaks]);
 
   return (
-    <div className="app-container">
-      <TopNav />
-      <main>
-        <About />
-        <Schedule />
-        <Gallery />
-        <Teachers />
-        <RSVP />
-        <Fund />
-        <Messages />
-        <Contact />
-        <FAQ />
-      </main>
-      <Footer />
-    </div>
+    <>
+      <TopNav/>
+      <window.Hero/>
+      <window.About/>
+      <window.Schedule/>
+      <window.Gallery/>
+      <window.Teachers/>
+      <window.Classmates/>
+      <window.RSVP/>
+      <window.Fund/>
+      <window.Messages/>
+      <window.Contact/>
+      <window.FAQ/>
+      <window.Footer/>
+      <TweakPanel defaults={tweaks} onChange={setTweaks}/>
+    </>
   );
 }
 

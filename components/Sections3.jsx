@@ -1,5 +1,4 @@
 // Fund, Messages, Contact, FAQ, Footer
-const { useState } = React;
 function Fund() {
   const d = window.REUNION_DATA;
   const pct = Math.round((d.fundRaised / d.fundGoal) * 100);
@@ -119,7 +118,7 @@ function Alloc({ label, pct, color }) {
     </div>
   );
 }
-  
+
 function Messages() {
   const [msgs, setMsgs] = useState([
     { name: 'Văn Dương Phúc Thịnh', class: '12A5', text: 'Về đi tụi bây! :D', date: '12 · 05 · 2026' },
