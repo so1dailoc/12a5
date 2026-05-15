@@ -20,14 +20,14 @@ function Gallery2() {
     <section id="gallery2" className="gallery-pro">
       <div className="page">
         <div className="index-bar">
-          <span>§ 03.2 — Kho tư liệu</span>
-          <span>Sắp xếp ngẫu hứng & Nghệ thuật</span>
+          <span>§ 03 — Kỷ Niệm</span>
+          <span>Những giây phút phút bên nhau</span>
           <span>trang 04</span>
         </div>
 
         <div className="g-header" style={{marginBottom: '40px'}}>
-          <div className="section-number">§ 03.2</div>
-          <h2 className="section-title">Những thước phim<br/><em>ngẫu nhiên</em></h2>
+          <div className="section-number">§ 03</div>
+          <h2 className="section-title">Ký ức<br/><em>kỷ niệm</em></h2>
         </div>
 
         {/* Bước 2: Lưới ảnh Masonry (Ảnh không bị cắt, cao thấp tự nhiên) */}
