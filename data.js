@@ -105,14 +105,146 @@ window.REUNION_DATA = {
   
     gallery2: [
   { 
-    url: "images/anh1.jpg", 
-    caption: "Kỷ niệm dưới gốc phượng vĩ",
+    url: "images/vannghe.jpg", 
+    caption: "Văn nghệ Lời ca dâng Đảng",
+    date: "Tháng 02/2006",
+    tag: "Sự kiện" 
+  },
+   { 
+    url: "images/ht1.jpg", 
+    caption: "Hội trại 26/3 Lớp 11 năm 2005",
+    date: "Tháng 02/2006",
+    tag: "Sự kiện" 
+  },
+   { 
+    url: "images/ht2.jpg", 
+    caption: "Hội trại 26/3 Lớp 11 năm 2005",
+    date: "Tháng 03/2005",
+    tag: "Sự kiện" 
+  },
+   { 
+    url: "images/ht3.jpg", 
+    caption: "Hội trại 26/3 Lớp 11 năm 2005",
+    date: "Tháng 03/2006",
+    tag: "Sự kiện" 
+  },
+   { 
+    url: "images/ht4.jpg", 
+    caption: "Hội trại 26/3 Lớp 11 năm 2005",
+    date: "Tháng 03/2006",
+    tag: "Sự kiện" 
+  },
+   { 
+    url: "images/ht5.jpg", 
+    caption: "Hội trại 26/3 Lớp 11 năm 2005",
+    date: "Tháng 03/2006",
+    tag: "Sự kiện" 
+  },
+   { 
+    url: "images/kn4.jpg", 
+    caption: "Hội trại 26/3 Lớp 11 năm 2005",
+    date: "Tháng 03/2006",
+    tag: "Sự kiện" 
+  },
+   { 
+    url: "images/kn8.jpg", 
+    caption: "Hội trại 26/3 Lớp 11 năm 2005",
+    date: "Tháng 03/2006",
+    tag: "Sự kiện" 
+  },
+   { 
+    url: "images/cuoinam12.jpg", 
+    caption: "Tổng kết năm học 2006",
     date: "Tháng 05/2006",
+    tag: "Sự kiện" 
+  },
+   { 
+    url: "images/11.jpg", 
+    caption: "Liên hoan lớp 10 tại nhà Tuy",
+    date: "Tháng 05/2004",
+    tag: "Sự kiện" 
+  },
+   { 
+    url: "images/kn1.jpg", 
+    caption: "Kỷ niệm Lớp 12",
+    date: "Tháng 03/2006",
+    tag: "Kỷ niệm" 
+  },  
+   { 
+    url: "images/kn1.jpg", 
+    caption: "Kỷ niệm Lớp 12",
+    date: "Tháng 03/2006",
+    tag: "Kỷ niệm" 
+  },
+   { 
+    url: "images/kn2.jpg", 
+    caption: "Kỷ niệm Lớp 12",
+    date: "Tháng 03/2006",
+    tag: "Kỷ niệm" 
+  },
+   { 
+    url: "images/kn3.jpg", 
+    caption: "Kỷ niệm Lớp 12",
+    date: "Tháng 03/2006",
+    tag: "Kỷ niệm" 
+  },
+   { 
+    url: "images/kn5.jpg", 
+    caption: "Kỷ niệm Lớp 12",
+    date: "Tháng 03/2006",
+    tag: "Kỷ niệm" 
+  },
+   { 
+    url: "images/kn6.jpg", 
+    caption: "Kỷ niệm Lớp 12",
+    date: "Tháng 03/2006",
+    tag: "Kỷ niệm" 
+  },
+   { 
+    url: "images/kn7.jpg", 
+    caption: "Kỷ niệm Lớp 12",
+    date: "Tháng 03/2006",
+    tag: "Kỷ niệm" 
+  },
+   { 
+    url: "images/kn8.jpg", 
+    caption: "Kỷ niệm Lớp 12",
+    date: "Tháng 03/2006",
+    tag: "Kỷ niệm" 
+  },
+   { 
+    url: "images/kn9.jpg", 
+    caption: "Gặp mặt tại Sài Gòn",
+    date: "Tháng 02/2024",
+    tag: "Kỷ niệm" 
+  },
+   { 
+    url: "images/kn10.jpg", 
+    caption: "Gặp mặt tại Đà Nẵng",
+    date: "Tháng 01/2026",
+    tag: "Kỷ niệm" 
+  },
+   { 
+    url: "images/lop1.jpg", 
+    caption: "Kỷ niệm Lớp 12",
+    date: "Tháng 03/2006",
+    tag: "Kỷ niệm" 
+  },
+   { 
+    url: "images/lop2.jpg", 
+    caption: "Kỷ niệm Lớp 12",
+    date: "Tháng 03/2006",
+    tag: "Kỷ niệm" 
+  },
+   { 
+    url: "images/kn3.jpg", 
+    caption: "Kỷ niệm Lớp 12",
+    date: "Tháng 03/2006",
     tag: "Kỷ niệm" 
   },
   { 
-    url: "images/anh2.jpg", 
-    caption: "Hội trại xuân Huỳnh Ngọc Huệ",
+    url: "images/thihat.jpg", 
+    caption: "Dung và Ly cùng Thi Giọng hát hay Lớp 11",
     date: "Tháng 03/2005",
     tag: "Sự kiện"
   }
