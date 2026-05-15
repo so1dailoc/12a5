@@ -1,4 +1,5 @@
 // About + Schedule + Gallery sections
+const { useState: _useState2, useEffect: _useEffect2 } = React;
 function Gallery2() {
   const d = window.REUNION_DATA;
   const [selectedImg, setSelectedImg] = _useState2(null);
