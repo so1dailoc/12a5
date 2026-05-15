@@ -18,7 +18,6 @@ window.REUNION_DATA = {
       caption: "Ảnh thử nghiệm 2" 
     }
   ],
-};
 
   schedule: [
     { time: "7:00", title: "Đón tiếp & check-in", desc: "Nhận kỷ yếu, huy hiệu, chụp ảnh lưu niệm tại khu welcome" },
