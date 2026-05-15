@@ -8,6 +8,21 @@ window.REUNION_DATA = {
   fundGoal: 125000000, // 125 triệu
   fundRaised: 27900000, // đã gây quỹ
 
+  gallery2: [
+  { 
+    url: "images/anh1.jpg", 
+    caption: "Kỷ niệm dưới gốc phượng vĩ",
+    date: "Tháng 05/2006",
+    tag: "Kỷ niệm" 
+  },
+  { 
+    url: "images/anh2.jpg", 
+    caption: "Hội trại xuân Huỳnh Ngọc Huệ",
+    date: "Tháng 03/2005",
+    tag: "Sự kiện"
+  }
+]
+    
   schedule: [
     { time: "7:00", title: "Đón tiếp & check-in", desc: "Nhận kỷ yếu, huy hiệu, chụp ảnh lưu niệm tại khu welcome" },
     { time: "8:00", title: "Khai mạc", desc: "Phát biểu khai mạc, Văn nghệ chào mừng" },
