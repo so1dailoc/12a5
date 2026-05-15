@@ -207,12 +207,6 @@ window.REUNION_DATA = {
     tag: "Kỷ niệm" 
   },
    { 
-    url: "images/kn8.jpg", 
-    caption: "Kỷ niệm Lớp 12",
-    date: "Tháng 03/2006",
-    tag: "Kỷ niệm" 
-  },
-   { 
     url: "images/kn9.jpg", 
     caption: "Gặp mặt tại Sài Gòn",
     date: "Tháng 02/2024",
