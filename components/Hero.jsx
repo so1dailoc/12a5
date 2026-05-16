@@ -28,7 +28,7 @@ function Hero() {
               <svg viewBox="0 0 120 120" width="120" height="120">
                 <circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" strokeWidth="0.75"/>
                 <circle cx="60" cy="60" r="52" fill="none" stroke="currentColor" strokeWidth="0.5"/>
-                <path id="arcTop" d="M 20,50 A 50,50 0 0,1 110,60" fill="none"/>
+                <path id="arcTop" d="M 15,55 A 50,50 0 0,1 110,60" fill="none"/>
                 <path id="arcBot" d="M 10,60 A 50,50 0 0,0 110,60" fill="none"/>
                 <text fontFamily="var(--font-mono)" fontSize="10" letterSpacing="2" fill="currentColor">
                   <textPath href="#arcTop" startOffset="50%" textAnchor="middle">THPT HUỲNH NGỌC HUỆ</textPath>
