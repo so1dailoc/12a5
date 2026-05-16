@@ -98,17 +98,6 @@ function Gallery2() {
             </div>
           </div>
         </div>
-      
-        <div className="t-tribute">
-          <div className="quote-mark">"</div>
-          <p>
-            Bạn có ảnh muốn chia sẻ?
-      <br>Vui lòng gởi cho Ban liên lạc của lớp để mình cập nhật!</br>
-          </p>
-          <div className="mono caps" style={{marginTop: 16, color: 'var(--ink-soft)', fontSize: 10}}>
-            Tập thể lớp 10B11 - 11A5 - 12A5
-          </div>
-        </div>
 
       )}
 
