@@ -35,7 +35,15 @@ function Gallery2() {
           <div className="section-number">§ 03.2</div>
           <h2 className="section-title">Ký ức<br/><em>kỷ niệm</em></h2>
         </div>
-
+        
+        {/* Khối lời nhắn gửi thành viên chia sẻ hình ảnh */}
+        <div className="g-notice">
+          <p>
+            Bạn có ảnh cũ muốn chia sẻ? 
+            Vui lòng gởi cho <strong>Ban liên lạc Lớp</strong>!
+          </p>
+        </div>
+        
         {/* Lưới ảnh Masonry - Chỉ hiện số lượng theo visibleCount */}
         <div className="masonry-grid">
           {shuffledImages.slice(0, visibleCount).map((img, i) => (
