@@ -37,15 +37,7 @@ function Gallery2() {
           <p className="section-dek">
               "Có những bức ảnh, giá trị của nó không nằm ở màu sắc hay độ nét, mà ở chỗ nó giữ lại được một khoảng thời gian mà chúng ta chẳng thể quay về."
           </p>          
-        </div>
-        
-        {/* Khối lời nhắn gửi thành viên chia sẻ hình ảnh */}
-        <div className="g-notice">
-          <p>
-            Bạn có ảnh cũ muốn chia sẻ? 
-            Vui lòng gởi cho <strong>Ban liên lạc Lớp</strong>!
-          </p>
-        </div>
+        </div>    
         
         {/* Lưới ảnh Masonry - Chỉ hiện số lượng theo visibleCount */}
         <div className="masonry-grid">
@@ -84,11 +76,11 @@ function Gallery2() {
           </div>
         )}
          
-        <div className="t-tribute">
-          <div className="quote-mark">"</div>
+        {/* Khối lời nhắn gửi thành viên chia sẻ hình ảnh */}
+        <div className="quote-mark">
           <p>
-            Bạn có ảnh muốn chia sẻ?
-      <br>Vui lòng gởi cho Ban liên lạc của lớp để được cập nhật!</br>
+            Bạn có ảnh cũ muốn chia sẻ? 
+            Vui lòng gởi cho <strong>Ban liên lạc Lớp</strong>!
           </p>
         </div>
         
