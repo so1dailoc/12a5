@@ -149,20 +149,31 @@ function Gallery2() {
 
         /* Nút Xem thêm */
         .load-more-btn {
-          background: transparent;
-          border: 1px solid var(--ink);
-          color: var(--ink);
-          padding: 12px 40px;
-          font-size: 20px;
-          cursor: pointer;
-          transition: all 0.3s;
-          box-shadow: 5px 5px 0 var(--ink);
-        }
-        .load-more-btn:hover {
-          background: var(--ink);
+          background: var(--accent);
           color: var(--paper);
-          box-shadow: 0px 0px 0 var(--ink);
-          transform: translate(3px, 3px);
+          border: 1px solid var(--ink);
+          padding: 12px 32px;
+          font-family: var(--font-display);
+          font-size: 16px;
+          font-weight: bold;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          box-shadow: 4px 4px 0 var(--ink);
+          display: inline-block;
+        }
+
+        .load-more-btn:hover {
+          background: var(--paper);
+          color: var(--ink);
+          transform: translate(-2px, -2px);
+          box-shadow: 6px 6px 0 var(--ink);
+        }
+
+        .load-more-btn:active {
+          transform: translate(2px, 2px);
+          box-shadow: 2px 2px 0 var(--ink);
         }
 
         /* Lightbox CSS */
