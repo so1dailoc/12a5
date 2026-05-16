@@ -83,6 +83,15 @@ function Gallery2() {
             </button>
           </div>
         )}
+         
+        <div className="t-tribute">
+          <div className="quote-mark">"</div>
+          <p>
+            Bạn có ảnh muốn chia sẻ?
+      <br>Vui lòng gởi cho Ban liên lạc của lớp để được cập nhật!</br>
+          </p>
+        </div>
+        
       </div>
 
       {/* Lightbox - Xem ảnh đầy đủ */}
