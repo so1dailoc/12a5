@@ -77,11 +77,11 @@ function Gallery2() {
         )}
          
         {/* Khối lời nhắn gửi thành viên chia sẻ hình ảnh */}
-        </br>
+        
         <div className="t-tribute">
           <p>
             <strong>Bạn có ảnh cũ muốn chia sẻ? </strong>
-            <br/>Vui lòng gởi cho Ban liên lạc Lớp!
+            Vui lòng gởi cho Ban liên lạc Lớp!
           </p>
         </div>
         
