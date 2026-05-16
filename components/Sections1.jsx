@@ -34,6 +34,9 @@ function Gallery2() {
         <div className="g-header" style={{marginBottom: '40px'}}>
           <div className="section-number">§ 03.2</div>
           <h2 className="section-title">Ký ức<br/><em>kỷ niệm</em></h2>
+          <p className="section-dek">
+              "Có những bức ảnh, giá trị của nó không nằm ở màu sắc hay độ nét, mà ở chỗ nó giữ lại được một khoảng thời gian mà chúng ta chẳng thể quay về."
+          </p>          
         </div>
         
         {/* Khối lời nhắn gửi thành viên chia sẻ hình ảnh */}
@@ -95,6 +98,18 @@ function Gallery2() {
             </div>
           </div>
         </div>
+      
+        <div className="t-tribute">
+          <div className="quote-mark">"</div>
+          <p>
+            Bạn có ảnh muốn chia sẻ?
+      <br>Vui lòng gởi cho Ban liên lạc của lớp để mình cập nhật!</br>
+          </p>
+          <div className="mono caps" style={{marginTop: 16, color: 'var(--ink-soft)', fontSize: 10}}>
+            Tập thể lớp 10B11 - 11A5 - 12A5
+          </div>
+        </div>
+
       )}
 
       <style>{`
