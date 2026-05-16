@@ -89,8 +89,8 @@ window.REUNION_DATA = {
     { q: "Tôi có cần đóng phí tham dự không?", a: "Có — phí tham dự 600.000đ/người (đã bao gồm tiệc, áo, kỷ yếu, huy hiệu và ảnh kỷ niệm). Trẻ em dưới 10 tuổi miễn phí. Bạn có thể đóng góp thêm vào Quỹ." },
     { q: "Tôi có thể dẫn theo vợ/chồng/con không?", a: "Rất hoan nghênh! Khi đăng ký Hội khóa, vui lòng điền số lượng người đi cùng và độ tuổi trẻ em (nếu có) để BTC sắp xếp chỗ ngồi." },
     { q: "Nếu tôi ở xa, có hỗ trợ chỗ ở không?", a: "Lớp chúng mình sẽ không bỏ ai ở lại, chúng mình đã sắp xếp hơn 10 phòng Khách sạn gần Trường, các bạn hãy liên hệ trực tiếp với Ban liên lạc của Lớp, liên hệ số hotline: 0935229992" },
-    { q: "Nếu tôi ở xa, có hỗ trợ phương tiện di chuyển về không?", a: "Chắc chắn là có rồi! Các bạn nhanh tay liên hệ với Bạn liên lạc để hỗ trợ xe (còn xăng thì tụi mình chưa chắc ^^, các bạn hãy liên hệ trực tiếp với Ban liên lạc của Lớp, liên hệ số hotline: 0935229992" },
-    { q: "Dress code là gì?", a: "Buổi sáng: áo sơ mi/áo dài trắng (gợi nhớ đồng phục học sinh). Buổi tiệc trưa: smart casual hoặc lịch sự. BTC Hội khóa sẽ phát áo và huy hiệu khoá để đeo suốt sự kiện." },
+    { q: "Nếu tôi ở xa, có hỗ trợ phương tiện di chuyển về không?", a: "Chắc chắn là có rồi! Các bạn nhanh tay liên hệ với Bạn liên lạc để hỗ trợ xe (còn xăng thì tụi mình chưa chắc ^`^), các bạn hãy liên hệ trực tiếp với Ban liên lạc của Lớp, liên hệ số hotline: 0935229992" },
+    { q: "Dress code là gì?", a: "Buổi sáng: áo sơ mi/áo dài trắng (gợi nhớ đồng phục học sinh). Buổi tiệc trưa: Áo in Hội Khóa. BTC Hội khóa sẽ phát áo và huy hiệu khoá để đeo suốt sự kiện." },
     { q: "Tôi muốn đóng góp nhưng không tham dự được?", a: "Cảm ơn bạn rất nhiều! Bạn chắc chắn sẽ nhận được tận tay những phần quà (Áo, huy hiệu, ấn phẩm kỷ niệm của Trường và Lớp...). Bạn có thể chuyển khoản vào tài khoản quỹ lớp (xem mục 'Liên hệ Ban liên lạc của Lớp') và ghi rõ tên. Danh sách đóng góp sẽ được công bố minh bạch trên trang này và Zalo nhóm lớp." }
   ],
 
@@ -104,144 +104,28 @@ window.REUNION_DATA = {
   ],
   
     gallery2: [
-  { 
-    url: "images/vannghe.jpg", 
-    caption: "Văn nghệ Lời ca dâng Đảng",
-    date: "Tháng 02/2006",
-    tag: "Sự kiện" 
-  },
-   { 
-    url: "images/ht1.jpg", 
-    caption: "Hội trại 26/3 Lớp 11 năm 2005",
-    date: "Tháng 02/2006",
-    tag: "Sự kiện" 
-  },
-   { 
-    url: "images/ht2.jpg", 
-    caption: "Hội trại 26/3 Lớp 11 năm 2005",
-    date: "Tháng 03/2005",
-    tag: "Sự kiện" 
-  },
-   { 
-    url: "images/ht3.jpg", 
-    caption: "Hội trại 26/3 Lớp 11 năm 2005",
-    date: "Tháng 03/2006",
-    tag: "Sự kiện" 
-  },
-   { 
-    url: "images/ht4.jpg", 
-    caption: "Hội trại 26/3 Lớp 11 năm 2005",
-    date: "Tháng 03/2006",
-    tag: "Sự kiện" 
-  },
-   { 
-    url: "images/ht5.jpg", 
-    caption: "Hội trại 26/3 Lớp 11 năm 2005",
-    date: "Tháng 03/2006",
-    tag: "Sự kiện" 
-  },
-   { 
-    url: "images/kn4.jpg", 
-    caption: "Hội trại 26/3 Lớp 11 năm 2005",
-    date: "Tháng 03/2006",
-    tag: "Sự kiện" 
-  },
-   { 
-    url: "images/kn8.jpg", 
-    caption: "Hội trại 26/3 Lớp 11 năm 2005",
-    date: "Tháng 03/2006",
-    tag: "Sự kiện" 
-  },
-   { 
-    url: "images/cuoinam12.jpg", 
-    caption: "Tổng kết năm học 2006",
-    date: "Tháng 05/2006",
-    tag: "Sự kiện" 
-  },
-   { 
-    url: "images/11.jpg", 
-    caption: "Liên hoan lớp 10 tại nhà Tuy",
-    date: "Tháng 05/2004",
-    tag: "Sự kiện" 
-  },
-   { 
-    url: "images/kn1.jpg", 
-    caption: "Kỷ niệm Lớp 12",
-    date: "Tháng 03/2006",
-    tag: "Kỷ niệm" 
-  },  
-   { 
-    url: "images/kn1.jpg", 
-    caption: "Kỷ niệm Lớp 12",
-    date: "Tháng 03/2006",
-    tag: "Kỷ niệm" 
-  },
-   { 
-    url: "images/kn2.jpg", 
-    caption: "Kỷ niệm Lớp 12",
-    date: "Tháng 03/2006",
-    tag: "Kỷ niệm" 
-  },
-   { 
-    url: "images/kn3.jpg", 
-    caption: "Kỷ niệm Lớp 12",
-    date: "Tháng 03/2006",
-    tag: "Kỷ niệm" 
-  },
-   { 
-    url: "images/kn5.jpg", 
-    caption: "Kỷ niệm Lớp 12",
-    date: "Tháng 03/2006",
-    tag: "Kỷ niệm" 
-  },
-   { 
-    url: "images/kn6.jpg", 
-    caption: "Kỷ niệm Lớp 12",
-    date: "Tháng 03/2006",
-    tag: "Kỷ niệm" 
-  },
-   { 
-    url: "images/kn7.jpg", 
-    caption: "Kỷ niệm Lớp 12",
-    date: "Tháng 03/2006",
-    tag: "Kỷ niệm" 
-  },
-   { 
-    url: "images/kn9.jpg", 
-    caption: "Gặp mặt tại Sài Gòn",
-    date: "Tháng 02/2024",
-    tag: "Kỷ niệm" 
-  },
-   { 
-    url: "images/kn10.jpg", 
-    caption: "Gặp mặt tại Đà Nẵng",
-    date: "Tháng 01/2026",
-    tag: "Kỷ niệm" 
-  },
-   { 
-    url: "images/lop1.jpg", 
-    caption: "Kỷ niệm Lớp 12",
-    date: "Tháng 03/2006",
-    tag: "Kỷ niệm" 
-  },
-   { 
-    url: "images/lop2.jpg", 
-    caption: "Kỷ niệm Lớp 12",
-    date: "Tháng 03/2006",
-    tag: "Kỷ niệm" 
-  },
-   { 
-    url: "images/kn3.jpg", 
-    caption: "Kỷ niệm Lớp 12",
-    date: "Tháng 03/2006",
-    tag: "Kỷ niệm" 
-  },
-  { 
-    url: "images/thihat.jpg", 
-    caption: "Dung và Ly cùng Thi Giọng hát hay Lớp 11",
-    date: "Tháng 03/2005",
-    tag: "Sự kiện"
-  }
+   { url: "images/vannghe.jpg", caption: "Văn nghệ Lời ca dâng Đảng", date: "Tháng 02/2006", tag: "Sự kiện" },
+   { url: "images/ht1.jpg", caption: "Hội trại 26/3 Lớp 11 năm 2005", date: "Tháng 02/2006", tag: "Sự kiện" },
+   { url: "images/ht2.jpg", caption: "Hội trại 26/3 Lớp 11 năm 2005", date: "Tháng 03/2005", tag: "Sự kiện" },
+   { url: "images/ht3.jpg", caption: "Hội trại 26/3 Lớp 11 năm 2005", date: "Tháng 03/2006", tag: "Sự kiện" },
+   { url: "images/ht4.jpg", caption: "Hội trại 26/3 Lớp 11 năm 2005", date: "Tháng 03/2006", tag: "Sự kiện" },
+   { url: "images/ht5.jpg", caption: "Hội trại 26/3 Lớp 11 năm 2005", date: "Tháng 03/2006", tag: "Sự kiện" },
+   { url: "images/kn4.jpg", caption: "Hội trại 26/3 Lớp 11 năm 2005", date: "Tháng 03/2006", tag: "Sự kiện" },
+   { url: "images/kn8.jpg", caption: "Hội trại 26/3 Lớp 11 năm 2005", date: "Tháng 03/2006", tag: "Sự kiện" },
+   { url: "images/cuoinam12.jpg", caption: "Tổng kết năm học 2006", date: "Tháng 05/2006", tag: "Sự kiện" },
+   { url: "images/11.jpg", caption: "Liên hoan lớp 10 tại nhà Tuy", date: "Tháng 05/2004", tag: "Sự kiện" },
+   { url: "images/k1.jpg", caption: "Kỷ niệm Lớp 12", date: "Tháng 03/2006", tag: "Kỷ niệm" },  
+   { url: "images/lop3.jpg", caption: "Kỷ niệm Lớp 12", date: "Tháng 03/2006", tag: "Kỷ niệm" },
+   { url: "images/kn2.jpg", caption: "Kỷ niệm Lớp 12", date: "Tháng 03/2006", tag: "Kỷ niệm" },
+   { url: "images/kn3.jpg", caption: "Kỷ niệm Lớp 12", date: "Tháng 03/2006", tag: "Kỷ niệm" },
+   { url: "images/kn5.jpg", caption: "Kỷ niệm Lớp 12", date: "Tháng 03/2006", tag: "Kỷ niệm" },
+   { url: "images/kn6.jpg", caption: "Kỷ niệm Lớp 12", date: "Tháng 03/2006", tag: "Kỷ niệm" },
+   { url: "images/kn7.jpg", caption: "Kỷ niệm Lớp 12", date: "Tháng 03/2006", tag: "Kỷ niệm" },
+   { url: "images/kn9.jpg", caption: "Gặp mặt tại Sài Gòn", date: "Tháng 02/2024", tag: "Kỷ niệm" },
+   { url: "images/kn10.jpg", caption: "Gặp mặt tại Đà Nẵng", date: "Tháng 01/2026", tag: "Kỷ niệm" },
+   { url: "images/lop1.jpg", caption: "Kỷ niệm Lớp 11", date: "Tháng 02/2005", tag: "Kỷ niệm" },
+   { url: "images/lop2.jpg", caption: "Kỷ niệm Lớp 11", date: "Tháng 02/2005", tag: "Kỷ niệm" },
+   { url: "images/thihat.jpg", caption: "Dung và Ly cùng Thi Giọng hát hay Lớp 12", date: "Tháng 03/2006", tag: "Sự kiện" }
 ],
 
 };
