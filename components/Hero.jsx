@@ -64,24 +64,13 @@ function Hero() {
             </div>
           </div>
           
-  <div className="hero-photo" style={{ aspectRatio: '3/4', overflow: 'hidden', border: '1.5px solid var(--ink)' }}>
-    <img 
-      src="images/cuoinam12.jpg" 
-      alt="Ảnh kỷ yếu lớp 12A5 năm 2006" 
-      style={{
-        width: '100%',
-        height: '100%',
-        objectFit: 'cover',
-        display: 'block',
-        filter: 'sepia(0.2) contrast(1.1)' // Tạo hiệu ứng ảnh cũ đồng bộ với web
-      }}
-      onError={(e) => { e.target.src = 'https://placehold.co/600x800/e8dcc0/2a2420?text=12A5+Huỳnh+Ngọc+Huệ'; }}
-    />
-  </div>
-  <div className="hero-caption mono caps">Sân trường, tháng 5/2006</div>
-</div>
-        
-        </div>  
+        <div className="hero-right">
+            <div className="hero-photo placeholder" style={{aspectRatio: '3/4'}}>
+              Ảnh kỷ yếu<br/>lớp 12A5 năm 2006
+            </div>
+            <div className="hero-caption mono caps">Fig. 01 · Sân trường, tháng 5/2006</div>
+          </div>
+        </div> 
         
         <div className="hero-info-bar">
           <div className="info-cell">
