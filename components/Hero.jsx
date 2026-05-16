@@ -30,14 +30,14 @@ function Hero() {
                 <circle cx="60" cy="60" r="52" fill="none" stroke="currentColor" strokeWidth="0.5"/>
                 <path id="arcTop" d="M 10,60 A 50,50 0 0,1 110,60" fill="none"/>
                 <path id="arcBot" d="M 10,60 A 50,50 0 0,0 110,60" fill="none"/>
-                <text fontFamily="var(--font-mono)" fontSize="7" letterSpacing="2" fill="currentColor">
+                <text fontFamily="var(--font-mono)" fontSize="10" letterSpacing="2" fill="currentColor">
                   <textPath href="#arcTop" startOffset="50%" textAnchor="middle">THPT HUỲNH NGỌC HUỆ</textPath>
                 </text>
                 <text fontFamily="var(--font-mono)" fontSize="7" letterSpacing="2" fill="currentColor">
                   <textPath href="#arcBot" startOffset="50%" textAnchor="middle">KHOÁ 2003-2006</textPath>
                 </text>
-                <text x="60" y="55" fontFamily="var(--font-display)" fontSize="28" fontWeight="700" textAnchor="middle" fill="currentColor" fontStyle="italic">20</text>
-                <text x="60" y="72" fontFamily="var(--font-mono)" fontSize="6" letterSpacing="3" textAnchor="middle" fill="currentColor">NĂM</text>
+                <text x="60" y="55" fontFamily="var(--font-display)" fontSize="33" fontWeight="700" textAnchor="middle" fill="currentColor" fontStyle="italic">20</text>
+                <text x="60" y="72" fontFamily="var(--font-mono)" fontSize="10" letterSpacing="3" textAnchor="middle" fill="currentColor">NĂM</text>
               </svg>
             </div>
           </div>
@@ -78,7 +78,7 @@ function Hero() {
       onError={(e) => { e.target.src = 'https://placehold.co/600x800/e8dcc0/2a2420?text=12A5+Huỳnh+Ngọc+Huệ'; }}
     />
             </div>
-            <div className="hero-caption mono caps">Fig. 01 · Sân trường, tháng 5/2006</div>
+            <div className="hero-caption mono caps">Sân trường, tháng 5/2006</div>
           </div>
         </div> 
         
@@ -94,9 +94,9 @@ function Hero() {
             <div className="serif info-sub">Đại Lộc-Đà Nẵng</div>
           </div>
           <div className="info-cell">
-            <div className="mono caps info-label">Hội Khóa</div>
+            <div className="mono caps info-label">Chương trình</div>
             <div className="display info-value">Chạm lại Thanh Xuân</div>
-            <div className="serif info-sub">Chương trình</div>
+            <div className="serif info-sub">Hội Khóa</div>
           </div>
         </div>
 
