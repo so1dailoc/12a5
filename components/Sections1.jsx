@@ -77,7 +77,7 @@ function Gallery2() {
         )}
          
         {/* Khối lời nhắn gửi thành viên chia sẻ hình ảnh */}
-        <div className="quote-mark">
+        <div className="t-tribute">
           <p>
             Bạn có ảnh cũ muốn chia sẻ? 
             Vui lòng gởi cho <strong>Ban liên lạc Lớp</strong>!
