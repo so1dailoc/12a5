@@ -70,7 +70,7 @@ function Gallery2() {
         {/* Nút Xem thêm: Chỉ hiện khi còn hình ẩn bên dưới */}
         {visibleCount < shuffledImages.length && (
           <div style={{ textAlign: 'center', marginTop: '50px' }}>
-            <button className="load-more-btn display" onClick={showMore}>
+            <button type="submit" className="btn btn-accent" onClick={showMore} style={{width: '100%', marginTop: 16}}>
               Xem thêm hình ảnh ↑
             </button>
           </div>
@@ -81,7 +81,7 @@ function Gallery2() {
         <div className="t-tribute">
           <p>
             <strong>Bạn có ảnh cũ muốn chia sẻ? </strong>
-            Vui lòng gởi cho Ban liên lạc Lớp!
+            <br>Vui lòng gởi cho Ban liên lạc Lớp!</br>
           </p>
         </div>
         
