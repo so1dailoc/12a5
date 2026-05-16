@@ -81,7 +81,7 @@ function Gallery2() {
         <div className="t-tribute">
           <p>
             <strong>Bạn có ảnh cũ muốn chia sẻ? </strong>
-            Vui lòng gởi cho Ban liên lạc Lớp!
+            <br />Vui lòng gởi cho Ban liên lạc Lớp!
           </p>
         </div>
         
