@@ -27,7 +27,7 @@ function Gallery2() {
       <div className="page">
         <div className="index-bar">
           <span>§ 03 — Ký ức - Kỷ niệm</span>
-          <span>Sắp xếp ngẫu hứng & Nghệ thuật</span>
+          <span>Những khung hình cũ</span>
           <span>trang 04</span>
         </div>
 
@@ -106,6 +106,24 @@ function Gallery2() {
       <style>{`
         .gallery-pro { padding: 80px 0; background: var(--paper); border-top: 1px solid var(--ink-faint); }
         
+        .g-notice {
+          background: var(--paper-dark);
+          border: 1px dashed var(--ink-soft);
+          padding: 18px 24px;
+          text-align: center;
+          font-family: var(--font-serif);
+          font-style: italic;
+          font-size: 16px;
+          color: var(--ink-soft);
+          line-height: 1.6;
+        }
+        .g-notice strong {
+          color: var(--accent);
+          font-family: var(--font-sans);
+          font-style: normal;
+          letter-spacing: 0.05em;
+        }
+
         .masonry-grid {
           column-count: 3;
           column-gap: 30px;
@@ -132,22 +150,44 @@ function Gallery2() {
 
         .masonry-content { position: relative; overflow: hidden; border: 1px solid var(--ink); background: #eee; }
         .masonry-content img { transition: 0.6s ease; }
-        .masonry-item:hover img { transform: scale(1.08); }
-
+        
+        /* ĐỒNG BỘ MÀU SẮC LỚP PHỦ HÌNH ẢNH (MASONRY OVERLAY) */
         .masonry-overlay {
           position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-          background: rgba(184, 71, 42, 0.4);
+          /* Sử dụng màu cam đậm hệ thống có độ trong suốt để nhìn thấy ảnh mờ phía sau */
+          background: rgba(184, 71, 42, 0.85); 
           display: flex; align-items: center; justify-content: center;
-          opacity: 0; transition: 0.3s;
+          opacity: 0; transition: all 0.3s ease;
         }
-        .masonry-item:hover .masonry-overlay { opacity: 1; }
-        .masonry-overlay span { color: white; border: 1px solid white; padding: 4px 10px; font-size: 10px; letter-spacing: 0.1em; }
+        
+        .masonry-item:hover .masonry-overlay { 
+          opacity: 1; 
+        }
+
+        /* ĐỒNG BỘ CHỮ PHÓNG LỚN */
+        .masonry-overlay span { 
+          color: var(--paper); /* Màu chữ trùng màu nền giấy của web */
+          border: 1.5px solid var(--paper); /* Viền tiệp màu chữ */
+          padding: 8px 16px; 
+          font-size: 11px; 
+          font-weight: bold;
+          letter-spacing: 0.15em; 
+          text-transform: uppercase;
+          background: transparent;
+          transition: all 0.2s ease;
+        }
+        
+        /* Hiệu ứng đảo màu nhẹ khi rê chuột trúng chữ Phóng lớn */
+        .masonry-item:hover .masonry-overlay span:hover {
+          background: var(--paper);
+          color: var(--accent);
+        }
 
         .masonry-meta { margin-top: 12px; text-align: center; }
         .m-caption { font-family: var(--font-serif); font-style: italic; font-size: 15px; color: var(--ink); }
         .m-date { font-size: 9px; color: var(--ink-soft); margin-top: 4px; }
 
-        /* Nút Xem thêm */
+        /* ĐỒNG BỘ NÚT XEM THÊM KỶ NIỆM GIỐNG NÚT ĐĂNG KÝ THAM DỰ */
         .load-more-btn {
           background: var(--accent);
           color: var(--paper);
@@ -176,7 +216,6 @@ function Gallery2() {
           box-shadow: 2px 2px 0 var(--ink);
         }
 
-        /* Lightbox CSS */
         .lb-overlay {
           position: fixed; top: 0; left: 0; width: 100%; height: 100%;
           background: rgba(20, 18, 16, 0.97);
@@ -214,6 +253,7 @@ function Gallery2() {
         @media (max-width: 600px) { 
           .masonry-grid { column-count: 1; } 
           .lb-close { top: 10px; right: 20px; font-size: 50px; }
+          .g-notice { padding: 12px 16px; font-size: 14px; }
         }
       `}</style>
     </section>
