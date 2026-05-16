@@ -65,7 +65,7 @@ function Hero() {
           </div>
           
         <div className="hero-right">
-            <div className="hero-photo" style={{aspectRatio: '1162/802'}}>
+            <div className="hero-photo" style={{aspectRatio: '1162/802', overflow: 'hidden', border: '1.5px solid var(--ink)'}}>
               <img 
       src="images/cuoinam12.jpg" alt="Ảnh kỷ yếu lớp 12A5 năm 2006"
       style={{
