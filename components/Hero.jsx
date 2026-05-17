@@ -19,6 +19,18 @@ function Hero() {
   const d = window.REUNION_DATA;
   const c = useCountdown(d.eventDate);
 
+  const [randomHeroQuote, setRandomHeroQuote] = React.useState("");
+  React.useEffect(() => {
+    if (d.heroQuotes && d.heroQuotes.length > 0) {
+      // Lấy ngẫu nhiên một câu nói từ data.js
+      const randomIndex = Math.floor(Math.random() * d.heroQuotes.length);
+      setRandomHeroQuote(d.heroQuotes[randomIndex]);
+    } else {
+      // Câu mặc định dự phòng nếu data.js chưa cập nhật
+      setRandomHeroQuote("Hai mươi năm — một chặng đường dài để đi, để trưởng thành, và để nhận ra không đâu ấm áp bằng nụ cười bạn bè thuở thanh xuân nông nổi dưới mái trường xưa.");
+    }
+  }, [d.heroQuotes]);
+
   return (
     <section className="hero" id="top">
       <div className="page hero-inner">
@@ -56,7 +68,7 @@ function Hero() {
           <div className="hero-left">
             <div className="hero-serif-block">
               <p className="drop-cap">
-                <span className="dc">M</span>ột buổi chiều tháng bảy, chúng ta lại gặp nhau dưới mái trường THPT Huỳnh Ngọc Huệ nơi đã giữ những tiếng cười, những trang vở, những lời hẹn còn dang dở của tuổi mười tám. Hai mươi năm đủ dài để tóc pha sương, nhưng chưa bao giờ đủ để quên nhau.
+                {randomHeroQuote}
               </p>
               <div className="hero-byline">
                 <span className="mono caps">Tập thể Lớp 12A5</span>
