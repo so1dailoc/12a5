@@ -27,7 +27,7 @@ function Hero() {
       setRandomHeroQuote(d.heroQuotes[randomIndex]);
     } else {
       // Câu mặc định dự phòng nếu data.js chưa cập nhật
-      setRandomHeroQuote("Hai mươi năm — một chặng đường dài để đi, để trưởng thành, và để nhận ra không đâu ấm áp bằng nụ cười bạn bè thuở thanh xuân nông nổi dưới mái trường xưa.");
+      setRandomHeroQuote("Một buổi chiều tháng bảy, chúng ta lại gặp nhau dưới mái trường THPT Huỳnh Ngọc Huệ nơi đã giữ những tiếng cười, những trang vở, những lời hẹn còn dang dở của tuổi mười tám. Hai mươi năm đủ dài để tóc pha sương, nhưng chưa bao giờ đủ để quên nhau.");
     }
   }, [d.heroQuotes]);
 
@@ -67,8 +67,15 @@ function Hero() {
         <div className="hero-grid">
           <div className="hero-left">
             <div className="hero-serif-block">
-              <p className="drop-cap">
-                {randomHeroQuote}
+              <p className="drop-cap" style={{ whiteSpace: 'pre-line' }}>
+                {randomHeroQuote ? (
+                <>
+                <span className="dc">{randomHeroQuote.charAt(0)}</span>
+                {randomHeroQuote.slice(1)}
+                </>
+                ) : (
+                "Một buổi sáng tháng Bảy, chúng ta lại gặp nhau dưới mái trường THPT Huỳnh Ngọc Huệ nơi đã giữ những tiếng cười, những trang vở, những lời hẹn còn dang dở của tuổi mười tám. Hai mươi năm đủ dài để tóc pha sương, nhưng chưa bao giờ đủ để quên nhau."
+                 )}
               </p>
               <div className="hero-byline">
                 <span className="mono caps">Tập thể Lớp 12A5</span>
