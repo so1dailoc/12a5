@@ -12,17 +12,17 @@ function Teachers() {
 
         <div className="t-head">
           <div className="section-number">§ 04</div>
-          <h2 className="section-title">Những người<br/><em>gieo chữ</em></h2>
+          <h2 className="section-title">Những người<br /><em>gieo chữ</em></h2>
           <p className="section-dek">
             "Nhất tự vi sư, bán tự vi sư." — Hai mươi năm sau, bảng đen đã lặng, nhưng từng lời dạy vẫn còn vang.
           </p>
         </div>
 
-        <div className=\"t-grid\">
+        <div className="t-grid">
           {d.teachers && d.teachers.map((t, i) => (
-            <article key={i} className=\"t-card reveal\">
+            <article key={i} className="t-card reveal">
               {/* KHU VỰC HIỂN THỊ HÌNH ẢNH THẦY CÔ */}
-              <div className=\"t-photo\">
+              <div className="t-photo">
                 {t.image ? (
                   <img 
                     src={t.image} 
@@ -31,29 +31,16 @@ function Teachers() {
                   />
                 ) : (
                   // Ô dự phòng nếu thầy cô đó chưa kịp cập nhật ảnh
-                  <div className=\"t-photo placeholder\" style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
-                    Chân dung<br/>{t.name.split(' ').slice(-2).join(' ')}
+                  <div className="t-photo placeholder" style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
+                    Chân dung<br />{t.name.split(' ').slice(-2).join(' ')}
                   </div>
                 )}
               </div>
 
-              <div className=\"t-body\">
-                <div className=\"mono caps\" style={{fontSize: 9, color: 'var(--accent)', marginBottom: 6}}>{String(i+1).padStart(2, '0')}</div>
-                <h3 className=\"display\" style={{fontSize: 22, marginBottom: 4}}>{t.name}</h3>
-                <div style={{fontStyle: 'italic', color: 'var(--ink-soft)', fontSize: 15}}>{t.subject || t.role || "Giáo viên"}</div>
-              </div>
-            </article>\n          ))}\n        </div>
-      </div>
-      
-        <div className="t-grid">
-          {d.teachers.map((t, i) => (
-            <article key={i} className="t-card reveal">
-              <div className="t-photo placeholder">Chân dung<br/>{t.name.split(' ').slice(-2).join(' ')}</div>
               <div className="t-body">
                 <div className="mono caps" style={{fontSize: 9, color: 'var(--accent)', marginBottom: 6}}>{String(i+1).padStart(2, '0')}</div>
                 <h3 className="display" style={{fontSize: 22, marginBottom: 4}}>{t.name}</h3>
-                <div style={{fontStyle: 'italic', color: 'var(--ink-soft)', fontSize: 15}}>{t.role}</div>
-                {t.years && <div className="mono" style={{fontSize: 11, color: 'var(--ink-faint)', marginTop: 6, letterSpacing: '0.1em'}}>{t.years}</div>}
+                <div style={{fontStyle: 'italic', color: 'var(--ink-soft)', fontSize: 15}}>{t.subject || t.role || "Giáo viên"}</div>
               </div>
             </article>
           ))}
@@ -73,44 +60,20 @@ function Teachers() {
       </div>
 
       <style>{`
-        .teachers { padding: 60px 0; }
-        .t-head { padding: 40px 0 32px; }
-        .t-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 32px;
-          margin-bottom: 64px;
+        /* CSS bổ sung để khung chứa ảnh Thầy Cô luôn vuông vắn, sắc nét */
+        .t-photo {
+          width: 100%;
+          aspect-ratio: 3 / 4; /* Tạo tỷ lệ khung ảnh chân dung chuẩn */
+          border: 1px solid var(--ink);
+          background: var(--paper-dark);
+          overflow: hidden;
+          margin-bottom: 16px;
         }
-        .t-card {
-          border: 1.5px solid var(--ink);
-          padding: 16px;
-          background: var(--paper);
-          box-shadow: 3px 3px 0 var(--ink);
-        }
-        .t-photo { aspect-ratio: 1; margin-bottom: 16px; font-size: 9px; }
-        .t-tribute {
-          max-width: 720px;
-          margin: 0 auto;
-          text-align: center;
-          position: relative;
-          padding: 48px 24px;
-          border-top: 0.5px solid var(--ink);
-          border-bottom: 0.5px solid var(--ink);
-        }
-        .quote-mark {
-          font-family: var(--font-display);
-          font-size: 120px;
-          line-height: 0.5;
-          color: var(--accent);
-          font-style: italic;
-          margin-bottom: -20px;
-        }
-        .t-tribute p { font-size: 20px; font-style: italic; line-height: 1.6; color: var(--ink); }
-        @media (max-width: 860px) {
-          .t-grid { grid-template-columns: 1fr 1fr; }
-        }
-        @media (max-width: 520px) {
-          .t-grid { grid-template-columns: 1fr; }
+        .t-photo.placeholder {
+          font-family: var(--font-mono);
+          font-size: 11px;
+          text-transform: uppercase;
+          color: var(--ink-faint);
         }
       `}</style>
     </section>
