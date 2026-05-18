@@ -247,13 +247,14 @@ function Messages() {
           </div>
         ) : (
           <>
+              
             <div className="m-wall">
               {msgs.slice(0, visibleCount).map((m, i) => (
                 <div key={i} className={"m-card m-var-" + (i % 4)}>
                   <div className="m-text">"{m.message || m.text}"</div>
                   <div className="m-meta">
                     <div>
-                      <div className="mono caps", style={{fontSize: 15, color: 'var(--ink-soft)'}}>{m.name}</div>
+                      <div className="mono caps" style={{fontSize: 12, color: 'var(--accent)'}}>{m.name}</div>
                     </div>
                     <div className="mono" style={{fontSize: 10, color: 'var(--ink-faint)'}}>{m.date || ""}</div>
                   </div>
