@@ -1,5 +1,18 @@
 // Fund, Messages, Contact, FAQ, Footer
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwfthy4T7rxgUUeYQRZFFISuampMV8zL-7hqB4fUaWdIgDkIoRsL9hbH6-p90C_JWL0oQ/exec";
+const fetchMessages = () => {
+  fetch(SCRIPT_URL)
+    .then(res => res.json()) // Yêu cầu phản hồi từ Script phải là định dạng JSON hợp lệ
+    .then(data => {
+      setMessages(data.reverse()); // data buộc phải là một Mảng (Array)
+      setFetching(false);
+    })
+    .catch(err => {
+      console.error("Lỗi tải lời nhắn:", err);
+      setFetching(false);
+    });
+};
+
 function Fund() {
   const d = window.REUNION_DATA;
   const pct = Math.round((d.fundRaised / d.fundGoal) * 100);
