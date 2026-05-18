@@ -242,13 +242,16 @@ function Messages() {
           </div>
         ) : (
           <div className="msg-grid">
-            {messages.map((m, i) => (
-              <div key={i} className="msg-card">
-                <div className="msg-body">“{m.message}”</div>
-                <div className="msg-author">— {m.name}</div>
-              </div>
-            ))}
-          </div>
+  {messages.map((m, i) => (
+    <div key={i} className="msg-card">
+      <div className="msg-body">“{m.message}”</div>
+      <div className="msg-author" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '4px' }}>
+        <span>— {m.name}</span>
+        {m.date && <span className="mono" style={{ fontSize: '10px', color: 'var(--ink-soft)', fontWeight: 'normal' }}>{m.date}</span>}
+      </div>
+    </div>
+  ))}
+</div>
         )}
       </div>
 
