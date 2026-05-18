@@ -135,19 +135,21 @@ function Alloc({ label, pct, color }) {
 }
 
 function Messages() {
-  const [msgs, setMsgs] = React.useState([]); 
-  const [visibleCount, setVisibleCount] = React.useState(6); 
+  const [messages, setMessages] = React.useState([]); // Danh sách lưu bút ngẫu nhiên
+  const [visibleCount, setVisibleCount] = React.useState(6); // Mặc định hiển thị 6 câu
   const [form, setForm] = React.useState({ name: "", class: "12A5", text: "" });
   const [loading, setLoading] = React.useState(false);
   const [fetching, setFetching] = React.useState(true);
 
+  // Lấy dữ liệu từ Google Sheets và trộn ngẫu nhiên (Random)
   const fetchMessages = () => {
     fetch(SCRIPT_URL)
       .then(res => res.json())
       .then(data => {
         if (data && data.length > 0) {
+          // Trộn ngẫu nhiên danh sách câu lưu bút ngay khi tải trang
           const shuffled = [...data].sort(() => Math.random() - 0.5);
-          setMsgs(shuffled);
+          setMessages(shuffled);
         }
         setFetching(false);
       })
@@ -162,7 +164,7 @@ function Messages() {
   }, []);
 
   const showMore = () => {
-    setVisibleCount(prev => prev + 6);
+    setVisibleCount(prev => prev + 6); // Xem thêm 6 câu tiếp theo
   };
 
   const post = (e) => {
@@ -203,6 +205,7 @@ function Messages() {
           <p className="section-dek">Để lại một dòng — cho bản thân, cho bạn cũ, cho thầy cô. Ai cũng sẽ đọc được.</p>
         </div>
 
+        {/* Khung soạn thảo lưu bút */}
         <div className="m-compose">
           <form onSubmit={post}>
             <div className="m-compose-row">
@@ -229,18 +232,19 @@ function Messages() {
           </form>
         </div>
 
+        {/* Bức tường hiển thị lời nhắn */}
         {fetching ? (
           <div style={{ textAlign: 'center', fontStyle: 'italic', color: 'var(--ink-soft)' }}>
             Đang mở trang lưu bút xưa...
           </div>
-        ) : msgs.length === 0 ? (
+        ) : messages.length === 0 ? (
           <div style={{ textAlign: 'center', fontStyle: 'italic', color: 'var(--ink-soft)', padding: '20px 0' }}>
             Chưa có lời nhắn nào. Hãy là người đầu tiên để lại dòng lưu bút!
           </div>
         ) : (
           <>
             <div className="m-wall">
-              {msgs.slice(0, visibleCount).map((m, i) => (
+              {messages.slice(0, visibleCount).map((m, i) => (
                 <div key={i} className={"m-card m-var-" + (i % 4)}>
                   <div className="m-text">"{m.message || m.text}"</div>
                   <div className="m-meta">
@@ -253,13 +257,17 @@ function Messages() {
               ))}
             </div>
 
-            {/* Nút Xem Thêm Đã Đồng Bộ Giao Diện */}
-            {visibleCount < msgs.length && (
-             <div style={{ textAlign: 'center', marginTop: '40px' }}>
-               <button type="submit" className="btn btn-accent" onClick={showMore} style={{marginTop: 12}}>
-              Xem thêm lưu bút
-            </button>
-  </div>
+            {/* Nút Xem Thêm: Phẳng, Font Mono Caps, Hiệu ứng Rê chuột đồng bộ */}
+            {visibleCount < messages.length && (
+              <div style={{ textAlign: 'center', marginTop: '40px' }}>
+                <button 
+                  className="btn btn-accent mono caps" 
+                  onClick={showMore} 
+                  style={{ padding: '12px 40px' }}
+                >
+                  Xem thêm lưu bút ↑
+                </button>
+              </div>
             )}
           </>
         )}
@@ -292,6 +300,8 @@ function Messages() {
           border-color: var(--accent);
         }
         .m-compose-row { display: grid; grid-template-columns: 1fr auto; gap: 16px; margin-bottom: 16px; }
+        
+        /* Bức tường lưu bút dạng cột báo nghiêng nghệ thuật */
         .m-wall {
           columns: 2;
           column-gap: 24px;
@@ -311,30 +321,28 @@ function Messages() {
         .m-text { font-size: 17px; font-style: italic; line-height: 1.6; margin-bottom: 16px; color: var(--ink); white-space: pre-line; }
         .m-meta { display: flex; justify-content: space-between; align-items: flex-end; padding-top: 12px; border-top: 0.5px solid var(--ink-faint); }
         
+        /* Định dạng CSS riêng cho nút Xem thêm (Không bóng đổ, Ép font Mono Caps, Hover đồng bộ) */
         .m-wall + div .btn-accent {
-  background: var(--accent) !important;
-  color: var(--paper) !important;
-  border: 1px solid var(--ink) !important;
-  font-family: var(--font-mono) !important;
-  font-size: 11px !important;
-  font-weight: normal !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.15em !important;
-  cursor: pointer;
-  box-shadow: none !important; /* Tắt bóng đổ theo yêu cầu trước */
-  
-  /* Thêm hiệu ứng chuyển đổi mượt mà khi rê chuột */
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
-}
+          background: var(--accent) !important;
+          color: var(--paper) !important;
+          border: 1px solid var(--ink) !important;
+          font-family: var(--font-mono) !important;
+          font-size: 11px !important;
+          font-weight: normal !important;
+          text-transform: uppercase !important;
+          letter-spacing: 0.15em !important;
+          cursor: pointer;
+          box-shadow: none !important;
+          transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
+        }
 
-/* Hiệu ứng RÊ CHUỘT (HOVER) - Giống hoàn toàn nút Để lại lời nhắn */
-.m-wall + div .btn-accent:hover {
-  background: var(--paper) !important;  /* Đổi nền sang màu giấy báo cũ */
-  color: var(--ink) !important;        /* Đổi chữ sang màu mực đậm */
-  border-color: var(--ink) !important; /* Giữ nguyên đường viền mực */
-  transform: none !important;          /* Không bị dịch chuyển vị trí */
-  box-shadow: none !important;         /* Đảm bảo không bị hiện lại bóng đổ */
-}
+        .m-wall + div .btn-accent:hover {
+          background: var(--paper) !important;
+          color: var(--ink) !important;
+          border-color: var(--ink) !important;
+          transform: none !important;
+          box-shadow: none !important;
+        }
 
         @media (max-width: 640px) {
           .m-wall { columns: 1; }
