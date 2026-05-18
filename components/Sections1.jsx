@@ -69,11 +69,15 @@ function Gallery2() {
 
         {/* Nút Xem thêm */}
         {visibleCount < shuffledImages.length && (
-          <div style={{ textAlign: 'center', marginTop: '50px' }}>
-            <button className="load-more-btn display" onClick={showMore}>
-              Xem thêm kỷ niệm ↑
-            </button>
-          </div>
+         <div style={{ textAlign: 'center', marginTop: '40px' }}>
+          <button 
+            className="btn btn-accent g-load-more mono caps" 
+            onClick={showMore}
+            style={{ padding: '12px 40px' }}
+          >
+            Xem thêm kỷ niệm
+          </button>
+        </div>
         )}
          
         {/* Khối lời nhắn gửi thành viên chia sẻ hình ảnh */}
@@ -255,6 +259,29 @@ function Gallery2() {
           .lb-close { top: 10px; right: 20px; font-size: 50px; }
           .g-notice { padding: 12px 16px; font-size: 14px; }
         }
+        
+        .g-load-more {
+          background: var(--accent) !important;
+          color: var(--paper) !important;
+          border: 1px solid var(--ink) !important;
+          font-family: var(--font-mono) !important;
+          font-size: 11px !important;
+          font-weight: normal !important;
+          text-transform: uppercase !important;
+          letter-spacing: 0.15em !important;
+          cursor: pointer;
+          box-shadow: none !important;
+          transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
+        }
+
+        .g-load-more:hover {
+          background: var(--paper) !important;
+          color: var(--ink) !important;
+          border-color: var(--ink) !important;
+          transform: none !important;
+          box-shadow: none !important;
+        }
+        
       `}</style>
     </section>
   );

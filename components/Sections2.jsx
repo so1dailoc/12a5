@@ -12,20 +12,34 @@ function Teachers() {
 
         <div className="t-head">
           <div className="section-number">§ 04</div>
-          <h2 className="section-title">Những người<br/><em>gieo chữ</em></h2>
+          <h2 className="section-title">Những người<br /><em>gieo chữ</em></h2>
           <p className="section-dek">
             "Nhất tự vi sư, bán tự vi sư." — Hai mươi năm sau, bảng đen đã lặng, nhưng từng lời dạy vẫn còn vang.
           </p>
         </div>
 
         <div className="t-grid">
-          {d.teachers.map((t, i) => (
+          {d.teachers && d.teachers.map((t, i) => (
             <article key={i} className="t-card reveal">
-              <div className="t-photo placeholder">Chân dung<br/>{t.name.split(' ').slice(-2).join(' ')}</div>
+              {/* Giữ nguyên cấu trúc ô tròn/ô vuông nguyên bản của anh */}
+              {t.image ? (
+                <div className="t-photo" style={{ overflow: 'hidden', background: 'var(--paper-dark)', border: '1px solid var(--ink)' }}>
+                  <img 
+                    src={t.image} 
+                    alt={t.name} 
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} 
+                  />
+                </div>
+              ) : (
+                <div className="t-photo placeholder">
+                  Chân dung<br/>{t.name.split(' ').slice(-2).join(' ')}
+                </div>
+              )}
+              
               <div className="t-body">
                 <div className="mono caps" style={{fontSize: 9, color: 'var(--accent)', marginBottom: 6}}>{String(i+1).padStart(2, '0')}</div>
                 <h3 className="display" style={{fontSize: 22, marginBottom: 4}}>{t.name}</h3>
-                <div style={{fontStyle: 'italic', color: 'var(--ink-soft)', fontSize: 15}}>{t.role}</div>
+                <div style={{fontStyle: 'italic', color: 'var(--ink-soft)', fontSize: 15}}>{t.subject || t.role || "Giáo viên"}</div>
                 {t.years && <div className="mono" style={{fontSize: 11, color: 'var(--ink-faint)', marginTop: 6, letterSpacing: '0.1em'}}>{t.years}</div>}
               </div>
             </article>
@@ -46,7 +60,7 @@ function Teachers() {
       </div>
 
       <style>{`
-        .teachers { padding: 60px 0; }
+       .teachers { padding: 60px 0; }
         .t-head { padding: 40px 0 32px; }
         .t-grid {
           display: grid;
