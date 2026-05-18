@@ -135,17 +135,22 @@ function Alloc({ label, pct, color }) {
 }
 
 function Messages() {
-  const [messages, setMessages] = React.useState([]);
-  const [name, setName] = React.useState("");
-  const [message, setMessage] = React.useState("");
+  const [msgs, setMsgs] = React.useState([]); // Toàn bộ tin nhắn đã được trộn ngẫu nhiên
+  const [visibleCount, setVisibleCount] = React.useState(6); // Số lượng hiển thị (mặc định 6)
+  const [form, setForm] = React.useState({ name: "", class: "12A5", text: "" });
   const [loading, setLoading] = React.useState(false);
   const [fetching, setFetching] = React.useState(true);
 
+  // 1. Hàm lấy dữ liệu từ Google Sheets và trộn ngẫu nhiên (Random)
   const fetchMessages = () => {
     fetch(SCRIPT_URL)
       .then(res => res.json())
       .then(data => {
-        setMessages(data.reverse());
+        if (data && data.length > 0) {
+          // Thực hiện thuật toán trộn ngẫu nhiên danh sách câu lưu bút khi tải trang
+          const shuffled = [...data].sort(() => Math.random() - 0.5);
+          setMsgs(shuffled);
+        }
         setFetching(false);
       })
       .catch(err => {
@@ -158,22 +163,30 @@ function Messages() {
     fetchMessages();
   }, []);
 
-  const handleSubmit = (e) => {
+  // 2. Hàm xử lý khi nhấn nút "Xem thêm"
+  const showMore = () => {
+    setVisibleCount(prev => prev + 6);
+  };
+
+  // 3. Hàm xử lý gửi lời nhắn từ Form lên Google Sheets
+  const post = (e) => {
     e.preventDefault();
-    if (!name.trim() || !message.trim()) return;
+    if (!form.name.trim() || !form.text.trim()) return;
 
     setLoading(true);
     fetch(SCRIPT_URL, {
       method: "POST",
       mode: "no-cors",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, message })
+      body: JSON.stringify({ name: form.name, class: form.class, message: form.text })
     })
     .then(() => {
-      setMessage("");
+      // Đặt lại ô nhập text sau khi gửi thành công
+      setForm({ ...form, text: "" });
       setLoading(false);
       setFetching(true);
-      setTimeout(fetchMessages, 1000); 
+      // Tải lại dữ liệu để cập nhật danh sách mới
+      setTimeout(fetchMessages, 1000);
     })
     .catch(err => {
       alert("Có lỗi xảy ra khi gửi lời nhắn, vui lòng thử lại!");
@@ -182,92 +195,108 @@ function Messages() {
   };
 
   return (
-    <section id="messages" className="messages-section">
+    <section id="messages" className="messages">
       <div className="page">
         <div className="index-bar">
-          <span>§ 04 — Lưu bút 12A5</span>
-          <span>Hai mươi năm — Những lời chưa nói</span>
-          <span>trang 05</span>
+          <span>§ 08 — Lưu bút</span>
+          <span>Lời nhắn của các bạn</span>
+          <span>trang 09</span>
         </div>
 
-        <div className="msg-header" style={{ marginBottom: '40px', paddingTop: '40px' }}>
-          <div className="section-number">§ 04</div>
-          <h2 className="section-title">Lưu bút<br /><em>ngày trở về</em></h2>
-          <p className="section-dek">
-            Hãy gửi lại những lời chúc, những dòng tâm sự hoặc những kỷ niệm dang dở của tuổi 18 dưới hộc bàn năm xưa tại đây nhé!
-          </p>
+        <div className="m-head">
+          <div className="section-number">§ 08</div>
+          <h2 className="section-title">Sổ <em>lưu bút</em><br/>ấn bản 2026</h2>
+          <p className="section-dek">Để lại một dòng — cho bản thân, cho bạn cũ, cho thầy cô. Ai cũng sẽ đọc được.</p>
         </div>
 
-        <div className="msg-form-wrapper">
-          <form onSubmit={handleSubmit} className="msg-form">
-            <div className="form-group">
-              <label className="mono caps">Tên của bạn:</label>
+        {/* Khung viết lưu bút */}
+        <div className="m-compose">
+          <form onSubmit={post}>
+            <div className="m-compose-row">
               <input 
                 type="text" 
-                value={name} 
-                onChange={e => setName(e.target.value)} 
-                placeholder="Ví dụ: Mỹ Dung, Thịnh Văn..." 
-                required 
+                placeholder="Tên của bạn" 
+                value={form.name} 
+                onChange={e => setForm({...form, name: e.target.value})}
+                required
+                disabled={loading}
+              />
+              <input 
+                type="text" 
+                placeholder="Lớp (VD 12A5)" 
+                value={form.class} 
+                onChange={e => setForm({...form, class: e.target.value})} 
+                style={{maxWidth: 160}}
+                required
                 disabled={loading}
               />
             </div>
-            <div className="form-group">
-              <label className="mono caps">Lời nhắn gửi:</label>
-              <textarea 
-                rows="4" 
-                value={message} 
-                onChange={e => setMessage(e.target.value)} 
-                placeholder="Viết những dòng tâm sự của bạn tại đây..." 
-                required
-                disabled={loading}
-              ></textarea>
-            </div>
-            <div style={{ textAlign: 'right' }}>
-              <button type="submit" className="msg-submit-btn" disabled={loading}>
-                {loading ? "Đang gửi..." : "Gửi vào Lưu Bút ↑"}
-              </button>
-            </div>
+            <textarea 
+              placeholder="Viết một lời nhắn…" 
+              value={form.text} 
+              onChange={e => setForm({...form, text: e.target.value})} 
+              rows={3}
+              required
+              disabled={loading}
+            />
+            <button type="submit" className="btn btn-accent" style={{marginTop: 12}} disabled={loading}>
+              {loading ? "Đang gửi đi..." : "Để lại lời nhắn"}
+            </button>
           </form>
         </div>
 
-        <div className="msg-board-title mono caps">Bức tường kỷ niệm ({messages.length})</div>
-        
+        {/* Bức tường hiển thị lời nhắn */}
         {fetching ? (
           <div style={{ textAlign: 'center', fontStyle: 'italic', color: 'var(--ink-soft)' }}>
             Đang mở trang lưu bút xưa...
           </div>
-        ) : messages.length === 0 ? (
-          <div style={{ textAlign: 'center', fontStyle: 'italic', color: 'var(--ink-soft)', padding: '40px 0' }}>
+        ) : msgs.length === 0 ? (
+          <div style={{ textAlign: 'center', fontStyle: 'italic', color: 'var(--ink-soft)', padding: '20px 0' }}>
             Chưa có lời nhắn nào. Hãy là người đầu tiên để lại dòng lưu bút!
           </div>
         ) : (
-          <div className="msg-grid">
-  {messages.map((m, i) => (
-    <div key={i} className="msg-card">
-      <div className="msg-body">“{m.message}”</div>
-      <div className="msg-author" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '4px' }}>
-        <span>— {m.name}</span>
-        {m.date && <span className="mono" style={{ fontSize: '10px', color: 'var(--ink-soft)', fontWeight: 'normal' }}>{m.date}</span>}
-      </div>
-    </div>
-  ))}
-</div>
+          <>
+            <div className="m-wall">
+              {msgs.slice(0, visibleCount).map((m, i) => (
+                <div key={i} className={"m-card m-var-" + (i % 4)}>
+                  <div className="m-text">"{m.message || m.text}"</div>
+                  <div className="m-meta">
+                    <div>
+                      <div className="display" style={{fontSize: 18}}>{m.name}</div>
+                      <div className="mono caps" style={{fontSize: 9, color: 'var(--accent)'}}>{m.class || "12A5"}</div>
+                    </div>
+                    <div className="mono" style={{fontSize: 10, color: 'var(--ink-faint)'}}>{m.date || ""}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Nút xem thêm thiết kế đồng bộ phong cách */}
+            {visibleCount < msgs.length && (
+              <div style={{ textAlign: 'center', marginTop: '40px' }}>
+                <button className="load-more-btn display" onClick={showMore}>
+                  Xem thêm lưu bút ↑
+                </button>
+              </div>
+            )}
+          </>
         )}
+
+        <div className="ornament">❋   ❋   ❋</div>
       </div>
 
       <style>{`
-        .messages-section { padding: 60px 0 80px; background: var(--paper); border-top: 1px solid var(--ink-faint); }
-        .msg-form-wrapper {
-          max-width: 600px;
-          margin: 0 auto 60px;
+        .messages { padding: 60px 0; background: var(--paper); }
+        .m-head { padding: 40px 0 32px; }
+        .m-compose {
           background: var(--paper-dark);
-          border: 1px solid var(--ink);
-          padding: 30px;
-          box-shadow: 6px 6px 0 var(--ink);
+          border: 1.5px solid var(--ink);
+          padding: 24px;
+          margin-bottom: 48px;
+          max-width: 720px;
+          box-shadow: 4px 4px 0 var(--ink);
         }
-        .form-group { margin-bottom: 20px; display: flex; flex-direction: column; gap: 8px; }
-        .form-group label { font-size: 11px; letter-spacing: 0.1em; color: var(--ink); font-weight: bold; }
-        .form-group input, .form-group textarea {
+        .m-compose input, .m-compose textarea {
           background: var(--paper);
           border: 1px solid var(--ink-soft);
           padding: 12px;
@@ -276,23 +305,52 @@ function Messages() {
           color: var(--ink);
           transition: border 0.2s;
         }
-        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); }
-        .msg-submit-btn {
-          background: var(--accent); color: var(--paper); border: 1px solid var(--ink);
-          padding: 12px 28px; font-family: var(--font-display); font-size: 15px;
-          font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em;
-          cursor: pointer; transition: all 0.2s ease; box-shadow: 4px 4px 0 var(--ink);
+        .m-compose input:focus, .m-compose textarea:focus {
+          outline: none;
+          border-color: var(--accent);
         }
-        .msg-submit-btn:hover { background: var(--paper); color: var(--ink); transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
-        .msg-submit-btn:disabled { background: var(--ink-faint); cursor: not-allowed; transform: none; box-shadow: none; }
-        .msg-board-title { font-size: 12px; border-bottom: 2px solid var(--ink); padding-bottom: 10px; margin-bottom: 30px; letter-spacing: 0.15em; font-weight: bold; }
-        .msg-grid { column-count: 3; column-gap: 24px; }
-        .msg-card { break-inside: avoid; display: inline-block; width: 100%; background: var(--paper-dark); border: 1px solid var(--ink-faint); padding: 20px; margin-bottom: 24px; box-shadow: 4px 4px 0 rgba(0,0,0,0.03); position: relative; }
-        .msg-card::before { content: "•"; position: absolute; top: 8px; left: 12px; color: var(--accent); font-size: 18px; }
-        .msg-body { font-family: var(--font-serif); font-style: italic; font-size: 16px; line-height: 1.6; color: var(--ink); white-space: pre-line; }
-        .msg-author { margin-top: 14px; text-align: right; font-family: var(--font-sans); font-size: 13px; font-weight: bold; color: var(--accent); letter-spacing: 0.05em; }
-        @media (max-width: 900px) { .msg-grid { column-count: 2; } }
-        @media (max-width: 600px) { .msg-grid { column-count: 1; } .msg-form-wrapper { padding: 20px; } }
+        .m-compose-row { display: grid; grid-template-columns: 1fr auto; gap: 16px; margin-bottom: 16px; }
+        .m-wall {
+          columns: 2;
+          column-gap: 24px;
+        }
+        .m-card {
+          break-inside: avoid;
+          padding: 20px 22px;
+          margin-bottom: 24px;
+          border: 1px solid var(--ink);
+          display: inline-block;
+          width: 100%;
+        }
+        .m-var-0 { background: var(--paper); transform: rotate(-0.5deg); box-shadow: 3px 3px 0 var(--ink); }
+        .m-var-1 { background: #f5e6c8; transform: rotate(0.4deg); box-shadow: 3px 3px 0 var(--ink); }
+        .m-var-2 { background: var(--paper-dark); transform: rotate(-0.3deg); box-shadow: 3px 3px 0 var(--ink); }
+        .m-var-3 { background: #efe4cb; transform: rotate(0.6deg); box-shadow: 3px 3px 0 var(--ink); }
+        .m-text { font-size: 17px; font-style: italic; line-height: 1.6; margin-bottom: 16px; color: var(--ink); white-space: pre-line; }
+        .m-meta { display: flex; justify-content: space-between; align-items: flex-end; padding-top: 12px; border-top: 0.5px solid var(--ink-faint); }
+        
+        /* CSS cho nút Xem Thêm đồng bộ phong cách báo cũ */
+        .load-more-btn {
+          background: transparent;
+          border: 1px solid var(--ink);
+          color: var(--ink);
+          padding: 12px 40px;
+          font-size: 20px;
+          cursor: pointer;
+          transition: all 0.3s;
+          box-shadow: 5px 5px 0 var(--ink);
+        }
+        .load-more-btn:hover {
+          background: var(--ink);
+          color: var(--paper);
+          box-shadow: 0px 0px 0 var(--ink);
+          transform: translate(3px, 3px);
+        }
+
+        @media (max-width: 640px) {
+          .m-wall { columns: 1; }
+          .m-compose-row { grid-template-columns: 1fr; }
+        }
       `}</style>
     </section>
   );
