@@ -1,4 +1,18 @@
 // Fund, Messages, Contact, FAQ, Footer
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwfthy4T7rxgUUeYQRZFFISuampMV8zL-7hqB4fUaWdIgDkIoRsL9hbH6-p90C_JWL0oQ/exec";
+const fetchMessages = () => {
+  fetch(SCRIPT_URL)
+    .then(res => res.json()) // Yêu cầu phản hồi từ Script phải là định dạng JSON hợp lệ
+    .then(data => {
+      setMessages(data.reverse()); // data buộc phải là một Mảng (Array)
+      setFetching(false);
+    })
+    .catch(err => {
+      console.error("Lỗi tải lời nhắn:", err);
+      setFetching(false);
+    });
+};
+
 function Fund() {
   const d = window.REUNION_DATA;
   const pct = Math.round((d.fundRaised / d.fundGoal) * 100);
@@ -121,21 +135,59 @@ function Alloc({ label, pct, color }) {
 }
 
 function Messages() {
-  const [msgs, setMsgs] = useState([
-    { name: 'Văn Dương Phúc Thịnh', class: '12A5', text: 'Về đi tụi bây! :D', date: '12 · 05 · 2026' },
-    { name: 'Võ Hồng Phúc', class: '12A5', text: '20 NĂM CHỈ 1 LẦN. TÔI KHÔNG CẦN LÍ DO. TÔI CHỈ CẦN ĐƯỢC GẶP & THẤY BẠN...', date: '12 · 05 · 2026' },
-    { name: 'Trần Thị Kim Dung', class: '12A5', text: 'Hẹn gặp lại các bạn.', date: '13 · 05 · 2026' },
-    { name: 'Lê Quốc Việt', class: '12A5', text: 'Tao sẽ về sớm nhất.', date: '13 · 05 · 2026' }
-  ]);
-  const [form, setForm] = useState({ name: '', class: '', text: '' });
+  const [msgs, setMsgs] = React.useState([]); 
+  const [visibleCount, setVisibleCount] = React.useState(6); 
+  const [form, setForm] = React.useState({ name: "", class: "12A5", text: "" });
+  const [loading, setLoading] = React.useState(false);
+  const [fetching, setFetching] = React.useState(true);
+
+  const fetchMessages = () => {
+    fetch(SCRIPT_URL)
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.length > 0) {
+          const shuffled = [...data].sort(() => Math.random() - 0.5);
+          setMsgs(shuffled);
+        }
+        setFetching(false);
+      })
+      .catch(err => {
+        console.error("Lỗi tải lời nhắn:", err);
+        setFetching(false);
+      });
+  };
+
+  React.useEffect(() => {
+    fetchMessages();
+  }, []);
+
+  const showMore = () => {
+    setVisibleCount(prev => prev + 6);
+  };
+
   const post = (e) => {
     e.preventDefault();
-    if (!form.name || !form.text) return;
-    const now = new Date();
-    const date = `${String(now.getDate()).padStart(2,'0')} · ${String(now.getMonth()+1).padStart(2,'0')} · ${now.getFullYear()}`;
-    setMsgs([{ ...form, date }, ...msgs]);
-    setForm({ name: '', class: '', text: '' });
+    if (!form.name.trim() || !form.text.trim()) return;
+
+    setLoading(true);
+    fetch(SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: form.name, class: form.class, message: form.text })
+    })
+    .then(() => {
+      setForm({ ...form, text: "" });
+      setLoading(false);
+      setFetching(true);
+      setTimeout(fetchMessages, 1000);
+    })
+    .catch(err => {
+      alert("Có lỗi xảy ra khi gửi lời nhắn, vui lòng thử lại!");
+      setLoading(false);
+    });
   };
+
   return (
     <section id="messages" className="messages">
       <div className="page">
@@ -154,34 +206,69 @@ function Messages() {
         <div className="m-compose">
           <form onSubmit={post}>
             <div className="m-compose-row">
-              <input type="text" placeholder="Tên của bạn" value={form.name} onChange={e => setForm({...form, name: e.target.value})}/>
-              <input type="text" placeholder="Lớp (VD 12A5)" value={form.class} onChange={e => setForm({...form, class: e.target.value})} style={{maxWidth: 160}}/>
+              <input 
+                type="text" 
+                placeholder="Tên của bạn" 
+                value={form.name} 
+                onChange={e => setForm({...form, name: e.target.value})}
+                required
+                disabled={loading}
+              />
             </div>
-            <textarea placeholder="Viết một lời nhắn…" value={form.text} onChange={e => setForm({...form, text: e.target.value})} rows={3}/>
-            <button type="submit" className="btn btn-accent" style={{marginTop: 12}}>Để lại lời nhắn</button>
+            <textarea 
+              placeholder="Viết một lời nhắn…" 
+              value={form.text} 
+              onChange={e => setForm({...form, text: e.target.value})} 
+              rows={3}
+              required
+              disabled={loading}
+            />
+            <button type="submit" className="btn btn-accent" style={{marginTop: 12}} disabled={loading}>
+              {loading ? "Đang gửi đi..." : "Để lại lời nhắn"}
+            </button>
           </form>
         </div>
 
-        <div className="m-wall">
-          {msgs.map((m, i) => (
-            <div key={i} className={"m-card m-var-" + (i % 4)}>
-              <div className="m-text">"{m.text}"</div>
-              <div className="m-meta">
-                <div>
-                  <div className="display" style={{fontSize: 18}}>{m.name}</div>
-                  <div className="mono caps" style={{fontSize: 9, color: 'var(--accent)'}}>{m.class}</div>
+        {fetching ? (
+          <div style={{ textAlign: 'center', fontStyle: 'italic', color: 'var(--ink-soft)' }}>
+            Đang mở trang lưu bút xưa...
+          </div>
+        ) : msgs.length === 0 ? (
+          <div style={{ textAlign: 'center', fontStyle: 'italic', color: 'var(--ink-soft)', padding: '20px 0' }}>
+            Chưa có lời nhắn nào. Hãy là người đầu tiên để lại dòng lưu bút!
+          </div>
+        ) : (
+          <>
+            <div className="m-wall">
+              {msgs.slice(0, visibleCount).map((m, i) => (
+                <div key={i} className={"m-card m-var-" + (i % 4)}>
+                  <div className="m-text">"{m.message || m.text}"</div>
+                  <div className="m-meta">
+                    <div>
+                      <div className="mono caps" style={{fontSize: 12, color: 'var(--accent)'}}>{m.name}</div>
+                    </div>
+                    <div className="mono" style={{fontSize: 10, color: 'var(--ink-faint)'}}>{m.date || ""}</div>
+                  </div>
                 </div>
-                <div className="mono" style={{fontSize: 10, color: 'var(--ink-faint)'}}>{m.date}</div>
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
+
+            {/* Nút Xem Thêm Đã Đồng Bộ Giao Diện */}
+            {visibleCount < msgs.length && (
+             <div style={{ textAlign: 'center', marginTop: '40px' }}>
+               <button type="submit" className="btn btn-accent" onClick={showMore} style={{marginTop: 12}}>
+              Xem thêm lưu bút
+            </button>
+  </div>
+            )}
+          </>
+        )}
 
         <div className="ornament">❋   ❋   ❋</div>
       </div>
 
       <style>{`
-        .messages { padding: 60px 0; }
+        .messages { padding: 60px 0; background: var(--paper); }
         .m-head { padding: 40px 0 32px; }
         .m-compose {
           background: var(--paper-dark);
@@ -189,6 +276,20 @@ function Messages() {
           padding: 24px;
           margin-bottom: 48px;
           max-width: 720px;
+          box-shadow: 4px 4px 0 var(--ink);
+        }
+        .m-compose input, .m-compose textarea {
+          background: var(--paper);
+          border: 1px solid var(--ink-soft);
+          padding: 12px;
+          font-family: var(--font-serif);
+          font-size: 16px;
+          color: var(--ink);
+          transition: border 0.2s;
+        }
+        .m-compose input:focus, .m-compose textarea:focus {
+          outline: none;
+          border-color: var(--accent);
         }
         .m-compose-row { display: grid; grid-template-columns: 1fr auto; gap: 16px; margin-bottom: 16px; }
         .m-wall {
@@ -207,8 +308,34 @@ function Messages() {
         .m-var-1 { background: #f5e6c8; transform: rotate(0.4deg); box-shadow: 3px 3px 0 var(--ink); }
         .m-var-2 { background: var(--paper-dark); transform: rotate(-0.3deg); box-shadow: 3px 3px 0 var(--ink); }
         .m-var-3 { background: #efe4cb; transform: rotate(0.6deg); box-shadow: 3px 3px 0 var(--ink); }
-        .m-text { font-size: 17px; font-style: italic; line-height: 1.6; margin-bottom: 16px; color: var(--ink); }
+        .m-text { font-size: 17px; font-style: italic; line-height: 1.6; margin-bottom: 16px; color: var(--ink); white-space: pre-line; }
         .m-meta { display: flex; justify-content: space-between; align-items: flex-end; padding-top: 12px; border-top: 0.5px solid var(--ink-faint); }
+        
+        .m-wall + div .btn-accent {
+  background: var(--accent) !important;
+  color: var(--paper) !important;
+  border: 1px solid var(--ink) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 11px !important;
+  font-weight: normal !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.15em !important;
+  cursor: pointer;
+  box-shadow: none !important; /* Tắt bóng đổ theo yêu cầu trước */
+  
+  /* Thêm hiệu ứng chuyển đổi mượt mà khi rê chuột */
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
+}
+
+/* Hiệu ứng RÊ CHUỘT (HOVER) - Giống hoàn toàn nút Để lại lời nhắn */
+.m-wall + div .btn-accent:hover {
+  background: var(--paper) !important;  /* Đổi nền sang màu giấy báo cũ */
+  color: var(--ink) !important;        /* Đổi chữ sang màu mực đậm */
+  border-color: var(--ink) !important; /* Giữ nguyên đường viền mực */
+  transform: none !important;          /* Không bị dịch chuyển vị trí */
+  box-shadow: none !important;         /* Đảm bảo không bị hiện lại bóng đổ */
+}
+
         @media (max-width: 640px) {
           .m-wall { columns: 1; }
           .m-compose-row { grid-template-columns: 1fr; }
