@@ -115,7 +115,7 @@ function Classmates() {
         <div className="c-head">
           <div className="section-number">§ 05</div>
           <h2 className="section-title">Tìm lại<br/><em>một người bạn</em></h2>
-          <p className="section-dek">Danh sách cựu học sinh đang cập nhật. Gõ tên hoặc nghề nghiệp để tìm.</p>
+          <p className="section-dek">Danh sách cựu học sinh đang cập nhật. Gõ tên hoặc địa chỉ để tìm.</p>
         </div>
 
         <div className="c-tools">
@@ -269,7 +269,7 @@ function RSVP() {
                 <div className="display" style={{fontSize: 64, color: 'var(--accent)'}}>✓</div>
                 <h3 className="display" style={{fontSize: 32, marginBottom: 12}}>Hẹn gặp lại, {form.name.split(' ').slice(-1)}!</h3>
                 <p style={{fontStyle: 'italic', color: 'var(--ink-soft)', marginBottom: 24}}>
-                  BTC đã nhận đăng ký của bạn. Chúng tôi sẽ gửi email xác nhận kèm hướng dẫn thanh toán trong vòng 48 giờ.
+                  Ban liên lạc đã nhận đăng ký của bạn. Chúng tôi sẽ gửi email xác nhận kèm hướng dẫn thanh toán trong vòng 48 giờ.
                 </p>
                 <button className="btn btn-ghost" onClick={() => setSubmitted(false)}>Đăng ký thêm người</button>
               </div>
