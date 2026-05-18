@@ -74,6 +74,20 @@ function Teachers() {
           text-transform: uppercase;
           color: var(--ink-faint);
         }
+        .t-grid {
+  display: grid;
+  /* Tự động chia thành 3 cột đều nhau trên máy tính (mỗi cột chiếm 1 phần bằng nhau) */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 40px 24px;
+}
+
+/* Thêm đoạn mã Responsive này để khi xem trên điện thoại nhỏ, danh sách tự xếp dọc thành 1 cột */
+@media (max-width: 768px) {
+  .t-grid {
+    grid-template-columns: 1fr; /* Về 1 cột trên điện thoại */
+    gap: 24px;
+  }
+}
       `}</style>
     </section>
   );
