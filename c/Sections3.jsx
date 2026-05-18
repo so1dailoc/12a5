@@ -259,12 +259,7 @@ function Messages() {
     <button 
       className="btn btn-accent mono caps" 
       onClick={showMore} 
-      style={{ 
-        padding: '12px 40px', 
-        fontSize: '11px', // Font mono caps chuẩn thường dùng kích thước nhỏ để tinh tế
-        letterSpacing: '0.15em', // Giãn chữ chuẩn hệ mono caps
-        cursor: 'pointer'
-      }}
+      style={{ padding: '12px 40px' }} // Chỉ giữ lại padding để tạo độ rộng cho nút
     >
       Xem thêm lưu bút ↑
     </button>
@@ -324,21 +319,25 @@ function Messages() {
   background: var(--accent) !important;
   color: var(--paper) !important;
   border: 1px solid var(--ink) !important;
-  font-family: var(--font-mono) !important; /* Ép về font Mono chuyên dụng */
-  font-size: 11px !important; /* Kích thước chữ mono nhỏ gọn */
-  font-weight: normal !important; /* Font mono caps thường đi nét mảnh thanh lịch */
-  text-transform: uppercase !important; /* Bắt buộc viết hoa */
-  letter-spacing: 0.15em !important; /* Độ giãn chữ rộng */
+  font-family: var(--font-mono) !important;
+  font-size: 11px !important;
+  font-weight: normal !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.15em !important;
   cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 4px 4px 0 var(--ink) !important;
+  box-shadow: none !important; /* Tắt bóng đổ theo yêu cầu trước */
+  
+  /* Thêm hiệu ứng chuyển đổi mượt mà khi rê chuột */
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
 }
 
+/* Hiệu ứng RÊ CHUỘT (HOVER) - Giống hoàn toàn nút Để lại lời nhắn */
 .m-wall + div .btn-accent:hover {
-  background: var(--paper) !important;
-  color: var(--ink) !important;
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 var(--ink) !important;
+  background: var(--paper) !important;  /* Đổi nền sang màu giấy báo cũ */
+  color: var(--ink) !important;        /* Đổi chữ sang màu mực đậm */
+  border-color: var(--ink) !important; /* Giữ nguyên đường viền mực */
+  transform: none !important;          /* Không bị dịch chuyển vị trí */
+  box-shadow: none !important;         /* Đảm bảo không bị hiện lại bóng đổ */
 }
 
         @media (max-width: 640px) {
