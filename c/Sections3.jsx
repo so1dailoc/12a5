@@ -135,19 +135,17 @@ function Alloc({ label, pct, color }) {
 }
 
 function Messages() {
-  const [msgs, setMsgs] = React.useState([]); // Toàn bộ tin nhắn đã được trộn ngẫu nhiên
-  const [visibleCount, setVisibleCount] = React.useState(6); // Số lượng hiển thị (mặc định 6)
+  const [msgs, setMsgs] = React.useState([]); 
+  const [visibleCount, setVisibleCount] = React.useState(6); 
   const [form, setForm] = React.useState({ name: "", class: "12A5", text: "" });
   const [loading, setLoading] = React.useState(false);
   const [fetching, setFetching] = React.useState(true);
 
-  // 1. Hàm lấy dữ liệu từ Google Sheets và trộn ngẫu nhiên (Random)
   const fetchMessages = () => {
     fetch(SCRIPT_URL)
       .then(res => res.json())
       .then(data => {
         if (data && data.length > 0) {
-          // Thực hiện thuật toán trộn ngẫu nhiên danh sách câu lưu bút khi tải trang
           const shuffled = [...data].sort(() => Math.random() - 0.5);
           setMsgs(shuffled);
         }
@@ -163,12 +161,10 @@ function Messages() {
     fetchMessages();
   }, []);
 
-  // 2. Hàm xử lý khi nhấn nút "Xem thêm"
   const showMore = () => {
     setVisibleCount(prev => prev + 6);
   };
 
-  // 3. Hàm xử lý gửi lời nhắn từ Form lên Google Sheets
   const post = (e) => {
     e.preventDefault();
     if (!form.name.trim() || !form.text.trim()) return;
@@ -181,11 +177,9 @@ function Messages() {
       body: JSON.stringify({ name: form.name, class: form.class, message: form.text })
     })
     .then(() => {
-      // Đặt lại ô nhập text sau khi gửi thành công
       setForm({ ...form, text: "" });
       setLoading(false);
       setFetching(true);
-      // Tải lại dữ liệu để cập nhật danh sách mới
       setTimeout(fetchMessages, 1000);
     })
     .catch(err => {
@@ -209,7 +203,6 @@ function Messages() {
           <p className="section-dek">Để lại một dòng — cho bản thân, cho bạn cũ, cho thầy cô. Ai cũng sẽ đọc được.</p>
         </div>
 
-        {/* Khung viết lưu bút */}
         <div className="m-compose">
           <form onSubmit={post}>
             <div className="m-compose-row">
@@ -218,6 +211,15 @@ function Messages() {
                 placeholder="Tên của bạn" 
                 value={form.name} 
                 onChange={e => setForm({...form, name: e.target.value})}
+                required
+                disabled={loading}
+              />
+              <input 
+                type="text" 
+                placeholder="Lớp (VD 12A5)" 
+                value={form.class} 
+                onChange={e => setForm({...form, class: e.target.value})} 
+                style={{maxWidth: 160}}
                 required
                 disabled={loading}
               />
@@ -236,7 +238,6 @@ function Messages() {
           </form>
         </div>
 
-        {/* Bức tường hiển thị lời nhắn */}
         {fetching ? (
           <div style={{ textAlign: 'center', fontStyle: 'italic', color: 'var(--ink-soft)' }}>
             Đang mở trang lưu bút xưa...
@@ -247,14 +248,14 @@ function Messages() {
           </div>
         ) : (
           <>
-              
             <div className="m-wall">
               {msgs.slice(0, visibleCount).map((m, i) => (
                 <div key={i} className={"m-card m-var-" + (i % 4)}>
                   <div className="m-text">"{m.message || m.text}"</div>
                   <div className="m-meta">
                     <div>
-                      <div className="mono caps" style={{fontSize: 12, color: 'var(--accent)'}}>{m.name}</div>
+                      <div className="display" style={{fontSize: 18}}>{m.name}</div>
+                      <div className="mono caps" style={{fontSize: 9, color: 'var(--accent)'}}>{m.class || "12A5"}</div>
                     </div>
                     <div className="mono" style={{fontSize: 10, color: 'var(--ink-faint)'}}>{m.date || ""}</div>
                   </div>
@@ -262,10 +263,10 @@ function Messages() {
               ))}
             </div>
 
-            {/* Nút xem thêm thiết kế đồng bộ phong cách */}
+            {/* Nút Xem Thêm Đã Đồng Bộ Giao Diện */}
             {visibleCount < msgs.length && (
               <div style={{ textAlign: 'center', marginTop: '40px' }}>
-                <button type="submit" className="btn btn-accent" onClick={showMore} style={{marginTop: 12}}>
+                <button className="btn btn-accent display" onClick={showMore} style={{ padding: '12px 40px', fontSize: '20px' }}>
                   Xem thêm lưu bút ↑
                 </button>
               </div>
@@ -320,22 +321,9 @@ function Messages() {
         .m-text { font-size: 17px; font-style: italic; line-height: 1.6; margin-bottom: 16px; color: var(--ink); white-space: pre-line; }
         .m-meta { display: flex; justify-content: space-between; align-items: flex-end; padding-top: 12px; border-top: 0.5px solid var(--ink-faint); }
         
-        /* CSS cho nút Xem Thêm đồng bộ phong cách báo cũ */
-        .load-more-btn {
-          background: transparent;
-          border: 1px solid var(--ink);
-          color: var(--ink);
-          padding: 12px 40px;
-          font-size: 20px;
+        .m-wall + div .btn-accent {
           cursor: pointer;
           transition: all 0.3s;
-          box-shadow: 5px 5px 0 var(--ink);
-        }
-        .load-more-btn:hover {
-          background: var(--ink);
-          color: var(--paper);
-          box-shadow: 0px 0px 0 var(--ink);
-          transform: translate(3px, 3px);
         }
 
         @media (max-width: 640px) {
