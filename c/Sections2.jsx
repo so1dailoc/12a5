@@ -336,13 +336,6 @@ function RSVP() {
                 </div>
                 <div className="r-row2">
                   <div className="r-field">
-                    <label>Lớp 12 *</label>
-                    <select value={form.class} onChange={e => update('class', e.target.value)} disabled={loading}>
-                      <option value="">— Chọn lớp —</option>
-                      {['10B11','11A5','12A5'].map(c => <option key={c}>{c}</option>)}
-                    </select>
-                  </div>
-                  <div className="r-field">
                     <label>Số điện thoại *</label>
                     <input type="tel" value={form.phone} onChange={e => update('phone', e.target.value)} required disabled={loading}/>
                   </div>
