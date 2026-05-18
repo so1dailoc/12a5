@@ -221,15 +221,6 @@ function Messages() {
                 required
                 disabled={loading}
               />
-              <input 
-                type="text" 
-                placeholder="Lớp (VD 12A5)" 
-                value={form.class} 
-                onChange={e => setForm({...form, class: e.target.value})} 
-                style={{maxWidth: 160}}
-                required
-                disabled={loading}
-              />
             </div>
             <textarea 
               placeholder="Viết một lời nhắn…" 
@@ -262,8 +253,7 @@ function Messages() {
                   <div className="m-text">"{m.message || m.text}"</div>
                   <div className="m-meta">
                     <div>
-                      <div className="display" style={{fontSize: 18}}>{m.name}</div>
-                      <div className="mono caps" style={{fontSize: 9, color: 'var(--accent)'}}>{m.class || "12A5"}</div>
+                      <div className="mono caps" style={{fontSize: 15}}>{m.name}</div>
                     </div>
                     <div className="mono" style={{fontSize: 10, color: 'var(--ink-faint)'}}>{m.date || ""}</div>
                   </div>
