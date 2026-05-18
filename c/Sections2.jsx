@@ -40,6 +40,7 @@ function Teachers() {
                 <div className="mono caps" style={{fontSize: 9, color: 'var(--accent)', marginBottom: 6}}>{String(i+1).padStart(2, '0')}</div>
                 <h3 className="display" style={{fontSize: 22, marginBottom: 4}}>{t.name}</h3>
                 <div style={{fontStyle: 'italic', color: 'var(--ink-soft)', fontSize: 15}}>{t.subject || t.role || "Giáo viên"}</div>
+                {t.years && <div className="mono" style={{fontSize: 11, color: 'var(--ink-faint)', marginTop: 6, letterSpacing: '0.1em'}}>{t.years}</div>}
               </div>
             </article>
           ))}
