@@ -1,0 +1,142 @@
+// Dữ liệu cho trang Hội Ngộ 20 Năm
+window.REUNION_DATA = {
+  eventDate: "2026-07-12T18:00:00+07:00",
+  eventName: "Hội Ngộ 20 Năm",
+  classYear: "Khoá 2003-2006",
+  school: "Trường THPT Huỳnh Ngọc Huệ",
+  city: "TP. Đà Nẵng",
+  fundGoal: 125000000, // 125 triệu
+  fundRaised: 27900000, // đã gây quỹ
+
+  heroQuotes: [
+    "Một buổi sáng tháng Bảy, chúng ta lại gặp nhau dưới mái trường THPT Huỳnh Ngọc Huệ nơi đã giữ những tiếng cười, những trang vở, những lời hẹn còn dang dở của tuổi mười tám. Hai mươi năm đủ dài để tóc pha sương, nhưng chưa bao giờ đủ để quên nhau.",
+    "Một buổi sáng tháng Bảy rực nắng, chúng ta sẽ lại trở về, đứng dưới mái trường THPT Huỳnh Ngọc Huệ thân thương — nơi từng ôm ấp trọn vẹn những nụ cười giòn tan, những trang vở thanh xuân và cả những lời hẹn ước tuổi 18 còn dang dở. Hai mươi năm... một cái chớp mắt đủ để thanh xuân hóa trưởng thành, đủ để mái đầu lấm tấm sương sương, nhưng chưa bao giờ — và sẽ không bao giờ đủ để chúng ta quên nhau. Thanh xuân ơi, tiếng gọi thiêng liêng ấy đang thôi thúc chúng ta trở về. Hãy về bên nhau, để viết tiếp khúc ca thanh xuân còn mãi!",
+    "Bạn có nghe tiếng tiếng ve gọi hè và tiếng lòng mình đang rạo rực? Tháng Bảy này, một cuộc hẹn lịch sử đang chờ đón chúng ta dưới mái trường THPT Huỳnh Ngọc Huệ! 20 năm bôn ba ngược xuôi, tóc có thể đã nhuốm màu sương gió, nhưng ngọn lửa tuổi 18 năm ấy chưa từng tắt. Nơi góc sân trường xưa, những trang vở cũ, những lời thề nguyền dang dở đang chờ chúng ta về thắp sáng lại. Gác lại mọi lo toan, chúng ta đi tìm lại chính mình của những năm tháng rực rỡ nhất. Chờ ngày hội ngộ, chờ ngày chúng ta lại ôm nhau và cười vang!",
+    "Tháng Bảy này, có một chuyến tàu đặc biệt mang số hiệu 'Thanh Xuân' sẽ đưa chúng ta trở lại mái trường THPT Huỳnh Ngọc Huệ. Nơi góc sân ấy, gốc phượng ấy, từng giữ lại tiếng cười giòn tan, những trang lưu bút lấm lem mực tím và cả những lời hẹn tình khôi của tuổi mười tám năm nào. 20 năm trôi qua, bão giông cuộc đời có thể làm mái đầu pha sương, nhưng chưa một giây phút nào làm phai mờ đi ký ức về nhau. Hãy để tháng Bảy này gom hết những thương nhớ, viết tiếp chương rực rỡ nhất của ngày hội ngộ!",
+    "Hai mươi năm — Một hành trình, một tình bạn, một lối về! Tháng Bảy này, chúng ta có một cuộc hẹn không thể bỏ lỡ dưới mái nhà chung THPT Huỳnh Ngọc Huệ. Đã bao lâu rồi bạn chưa nghe lại tiếng trống trường? Đã bao lâu rồi chưa gặp lại những tri kỷ tuổi 18? Dẫu thời gian có nhuộm sương lên mái tóc, dẫu cuộc sống có cuốn ta đi xa, thì tình bạn năm ấy vẫn luôn là điều thiêng liêng nhất. Gác lại mọi lo toan, sạc đầy năng lượng và trở về thôi các bạn ơi! Thanh xuân đang réo gọi chúng ta rồi!",
+    "Người ta nói, thanh xuân của mỗi người chỉ đến một lần, nhưng với chúng tôi, thanh xuân ấy là mãi mãi dưới mái trường THPT Huỳnh Ngọc Huệ. Một ngày tháng Bảy tới, chúng ta sẽ lại ngồi bên nhau, nhìn vào mắt nhau và mỉm cười. 20 năm dài đằng đẵng, ai trong chúng ta cũng đã khác, tóc đã điểm sương, vai đã nặng gánh lo toan. Nhưng chỉ cần đứng dưới khoảng trời năm ấy, chúng ta lại là những cô cậu học trò vô tư, cùng nhặt lại những lời hẹn ước còn dang dở của tuổi 18. Nhất định phải có mặt nhé, vì thanh xuân không thể trọn vẹn nếu thiếu bạn!",
+    "Giữ lời hẹn ước tuổi 18, tháng Bảy này chúng ta về nhà thôi! 20 năm bôn ba, tóc có thể pha sương nhưng tình bạn THPT Huỳnh Ngọc Huệ thì chưa bao giờ cũ. Những tiếng cười giòn tan, những trang vở thanh xuân đang chờ chúng ta về lật mở. Bạn đã sẵn sàng cho cuộc hội ngộ xúc động và bùng nổ nhất sau hai thập kỷ chưa?",
+    "Có một lối về mà suốt 20 năm qua, lòng ta vẫn luôn thổn thức. Một buổi sáng tháng Bảy tới đây, dưới mái hiên trường THPT Huỳnh Ngọc Huệ, những gương mặt thân quen sẽ lại xuất hiện. Hai mươi năm trôi qua, cuộc đời cuốn ta đi, mái đầu đã pha sương, nhưng nụ cười tuổi 18, tiếng phấn bảng, và những lời hẹn ước năm xưa vẫn vẹn nguyên như vừa mới hôm qua. Thời gian có thể già đi, nhưng tình bạn của chúng ta thì bất tử. Hãy trở về, để thấy mình vẫn là những cô cậu học trò vô tư dưới khoảng trời năm ấy."
+  ],
+
+  schedule: [
+    { time: "7:00", title: "Đón tiếp & check-in", desc: "Nhận kỷ yếu, huy hiệu, chụp ảnh lưu niệm tại khu welcome" },
+    { time: "8:00", title: "Khai mạc", desc: "Phát biểu khai mạc, Văn nghệ chào mừng" },
+    { time: "9:00", title: "Tri ân thầy cô", desc: "Tặng hoa và kỷ vật cho thầy cô giáo cũ" },
+    { time: "9:30", title: "Học bổng", desc: "Tặng học bổng cho Học sinh" },
+    { time: "10:30", title: "Văn nghệ", desc: "Những bài hát thời học trò, vòng tay bè bạn" },
+    { time: "11:00", title: "Tham quan trường xưa", desc: "Đi lại hành lang, lớp học cũ, sân trường — nghe thầy cô kể chuyện" },
+    { time: "11:30", title: "Chụp ảnh tập thể", desc: "Ảnh kỷ yếu phiên bản 2026 — toàn khoá và từng lớp" },
+    { time: "12:00", title: "Tiệc", desc: "Dùng bữa, văn nghệ cây nhà lá vườn, trình chiếu video kỷ niệm" },
+    { time: "12:30", title: "Giao lưu & chia sẻ", desc: "Mỗi người một câu chuyện 20 năm — mic mở cho ai muốn nói" }
+  ],
+
+  teachers: [
+    { name: "Thầy Trịnh Hoàng", role: "Chủ nhiệm 10B11", years: "2003–2004" },
+    { name: "Thầy Nguyễn Hồng Sinh", role: "Chủ nhiệm 11A5", years: "2004-2005" },
+    { name: "Thầy Nguyễn Văn Cấp", role: "Chủ nhiệm 12A5", years: "2005-2006" }
+  ],
+
+  classmates: [ 
+    { name: "Nguyễn Thị Xuân Diệu", class: "12A5", now: "Úc", confirmed: false },
+    { name: "Trần Thị Kim Dung", class: "12A5", now: "Sài Gòn", confirmed: true },
+    { name: "Huỳnh Thị Mỹ Dung", class: "12A5", now: "-", confirmed: false },
+    { name: "Dương Thị Thùy Dung", class: "12A5", now: "Mỹ", confirmed: false },
+    { name: "Nguyễn Văn Đạt", class: "12A5", now: "Đà Nẵng", confirmed: false },
+    { name: "Nguyễn Trường Giang", class: "12A5", now: "Đà Nẵng", confirmed: true },
+    { name: "Huỳnh Thị Thu Hà", class: "12A5", now: "Sài Gòn", confirmed: false },
+    { name: "Huỳnh Tấn Hiệp", class: "12A5", now: "Đà Nẵng", confirmed: true },
+    { name: "Nguyễn Thị Bích Hồng", class: "12A5", now: "Đà Nẵng", confirmed: false },
+    { name: "Nguyễn Văn Kiên", class: "12A5", now: "Đà Nẵng", confirmed: true },
+    { name: "Bạc Cầm Thị Thái Kiều", class: "12A5", now: "Sài Gòn", confirmed: false },
+    { name: "Nguyễn Đắc Kỳ", class: "11A5", now: "Đà Nẵng", confirmed: true },
+    { name: "Phan Hoàng Lân", class: "10B11", now: "-", confirmed: false },
+    { name: "Lê Thị Như Lệ", class: "12A5", now: "Đà Nẵng", confirmed: true },
+    { name: "Hồ Thị Lược", class: "12A5", now: "-", confirmed: false },
+    { name: "Mai Thị Ánh Ly", class: "12A5", now: "Đà Nẵng", confirmed: true },
+    { name: "Trần Thị Ánh Nga", class: "12A5", now: "Đà Nẵng", confirmed: true },
+    { name: "Nguyễn Thị Kim Ngân", class: "12A5", now: "Hàn Quốc", confirmed: true },
+    { name: "Trần Thị Yến Ngọc", class: "12A5", now: "Đà Nẵng", confirmed: true },
+    { name: "Lê Nguyễn Trinh Nguyên", class: "12A5", now: "Đà Nẵng", confirmed: false },
+    { name: "Huỳnh Thị Minh Nguyệt", class: "12A5", now: "Đà Nẵng", confirmed: false },
+    { name: "Đoàn Thị Yến Nhi", class: "12A5", now: " - Đà Nẵng", confirmed: false },
+    { name: "Huỳnh Nuôi", class: "10B11", now: " - ", confirmed: false },
+    { name: "Nguyễn Thị Bích Oanh", class: "12A5", now: "Sài Gòn", confirmed: true },
+    { name: "Võ Hồng Phúc", class: "12A5", now: "Sài Gòn", confirmed: true },
+    { name: "Trương Đình Phương", class: "10B11", now: "Đà Nẵng", confirmed: true },
+    { name: "Nguyễn Thị Phương", class: "12A5", now: "Đà Lạt", confirmed: true },
+    { name: "Phùng Thái Quang", class: "12A5", now: "Đà Nẵng", confirmed: true },
+    { name: "Nguyễn Văn Quốc", class: "12A5", now: "Bình Thuận", confirmed: true },
+    { name: "Lê Thị Minh Sang", class: "12A5", now: "Đà Nẵng", confirmed: true },
+    { name: "Phan Thị Sen", class: "12A5", now: " - Đà Nẵng", confirmed: false },
+    { name: "Lê Viết Sony", class: "12A5", now: "Đà Nẵng", confirmed: true },
+    { name: "Nguyễn Thị Thanh", class: "12A5", now: " - ", confirmed: true },
+    { name: "Đỗ Nguyên Thạnh", class: "12A5", now: "Đà Nẵng", confirmed: true },
+    { name: "Lê Thị Phương Thảo", class: "12A5", now: "Đà Nẵng", confirmed: true },
+    { name: "Lê Xuân Thảo", class: "12A5", now: " - ", confirmed: false },
+    { name: "Văn Dương Phúc Thịnh", class: "12A5", now: "Đà Nẵng", confirmed: true },
+    { name: "Trương Thọ", class: "12A5", now: "Đà Nẵng", confirmed: true },
+    { name: "Tô Thị Thủy", class: "12A5", now: "Phú Quốc", confirmed: false },
+    { name: "Trần Tín", class: "12A5", now: "Đà Nẵng", confirmed: true },
+    { name: "Võ Thị Thanh Tịnh", class: "12A5", now: "Đà Nẵng", confirmed: true },
+    { name: "Trần Thị Tịnh", class: "12A5", now: "Bình Dương", confirmed: false },
+    { name: "Phạm Thị Thùy Trang", class: "12A5", now: "Đà Nẵng", confirmed: true },
+    { name: "Nguyễn Huy Trung", class: "10B11", now: "Đà Nẵng", confirmed: false },
+    { name: "Nguyễn Văn Tú", class: "12A5", now: "Sài Gòn", confirmed: false },
+    { name: "Nguyễn Văn Tuấn", class: "11A5", now: "Đà Nẵng", confirmed: false },
+    { name: "Cao Tấn Tuy", class: "12A5", now: "Sài Gòn", confirmed: true },
+    { name: "Nguyễn Thị Thanh Tuyền", class: "12A5", now: "Đà Nẵng", confirmed: false },
+    { name: "Lê Thị Thùy Vân", class: "12A5", now: "Đà Nẵng", confirmed: true },
+    { name: "Đoàn Viên", class: "12A5", now: "Đà Nẵng", confirmed: true },
+    { name: "Lê Quốc Việt", class: "12A5", now: "Sài Gòn", confirmed: true },
+    { name: "Trần Công Vũ", class: "12A5", now: "Đà Nẵng", confirmed: true },
+    { name: "Cao Hoàng Vũ", class: "12A5", now: "Đà Nẵng", confirmed: false },
+    { name: "Trần Thanh Vương", class: "12A5", now: "Đà Nẵng", confirmed: true },
+    { name: "Trần Thị Kim Yến", class: "12A5", now: "Đà Nẵng", confirmed: false }
+  ],
+
+  faqs: [
+    { q: "Sự kiện diễn ra ở đâu?", a: "Địa điểm chính: Khuôn viên trường THPT Huỳnh Ngọc Huệ." },
+    { q: "Tôi có cần đóng phí tham dự không?", a: "Có — phí tham dự 600.000đ/người (đã bao gồm tiệc, áo, kỷ yếu, huy hiệu và ảnh kỷ niệm). Trẻ em dưới 10 tuổi miễn phí. Bạn có thể đóng góp thêm vào Quỹ." },
+    { q: "Tôi có thể dẫn theo vợ/chồng/con không?", a: "Rất hoan nghênh! Khi đăng ký Hội khóa, vui lòng điền số lượng người đi cùng và độ tuổi trẻ em (nếu có) để BTC sắp xếp chỗ ngồi." },
+    { q: "Nếu tôi ở xa, có hỗ trợ chỗ ở không?", a: "Lớp chúng mình sẽ không bỏ ai ở lại, chúng mình đã sắp xếp hơn 10 phòng Khách sạn gần Trường, các bạn hãy liên hệ trực tiếp với Ban liên lạc của Lớp, liên hệ số hotline: 0935229992" },
+    { q: "Nếu tôi ở xa, có hỗ trợ phương tiện di chuyển về không?", a: "Chắc chắn là có rồi! Các bạn nhanh tay liên hệ với Bạn liên lạc để hỗ trợ xe (còn xăng thì tụi mình chưa chắc ^`^), các bạn hãy liên hệ trực tiếp với Ban liên lạc của Lớp, liên hệ số hotline: 0935229992" },
+    { q: "Dress code là gì?", a: "Buổi sáng: áo sơ mi/áo dài trắng (gợi nhớ đồng phục học sinh). Buổi tiệc trưa: Áo in Hội Khóa. BTC Hội khóa sẽ phát áo và huy hiệu khoá để đeo suốt sự kiện." },
+    { q: "Tôi muốn đóng góp nhưng không tham dự được?", a: "Cảm ơn bạn rất nhiều! Bạn chắc chắn sẽ nhận được tận tay những phần quà (Áo, huy hiệu, ấn phẩm kỷ niệm của Trường và Lớp...). Bạn có thể chuyển khoản vào tài khoản quỹ lớp (xem mục 'Liên hệ Ban liên lạc của Lớp') và ghi rõ tên. Danh sách đóng góp sẽ được công bố minh bạch trên trang này và Zalo nhóm lớp." }
+  ],
+
+  organizers: [
+    { name: "Võ Hồng Phúc", role: "Lớp Trưởng", phone: "Đã che", email: "----" },
+    { name: "Trần Thị Kim Dung", role: "Bí thư", phone: "Đã che", email: "----" },
+    { name: "Huỳnh Thị Minh Nguyệt", role: "Thủ quỹ", phone: "Đã che", email: "----" },
+    { name: "Cao Tấn Tuy", role: "Tiếp rượu", phone: "Đã che", email: "----" },
+    { name: "Lê Quốc Việt", role: "Pháp chế", phone: "Đã che", email: "----" },
+    { name: "Văn Dương Phúc Thịnh", role: "Truyền thông & Gallery", phone: "0935229992", email: "13.phucthinh@gmail.com" }
+  ],
+  
+    gallery2: [
+   { url: "images/vannghe.jpg", caption: "Văn nghệ Lời ca dâng Đảng", date: "Tháng 02/2006", tag: "Sự kiện" },
+   { url: "images/ht1.jpg", caption: "Hội trại 26/3 Lớp 11 năm 2005", date: "Tháng 02/2006", tag: "Sự kiện" },
+   { url: "images/ht2.jpg", caption: "Hội trại 26/3 Lớp 11 năm 2005", date: "Tháng 03/2005", tag: "Sự kiện" },
+   { url: "images/ht3.jpg", caption: "Hội trại 26/3 Lớp 11 năm 2005", date: "Tháng 03/2006", tag: "Sự kiện" },
+   { url: "images/ht4.jpg", caption: "Hội trại 26/3 Lớp 11 năm 2005", date: "Tháng 03/2006", tag: "Sự kiện" },
+   { url: "images/ht5.jpg", caption: "Hội trại 26/3 Lớp 11 năm 2005", date: "Tháng 03/2006", tag: "Sự kiện" },
+   { url: "images/kn4.jpg", caption: "Hội trại 26/3 Lớp 11 năm 2005", date: "Tháng 03/2006", tag: "Sự kiện" },
+   { url: "images/kn8.jpg", caption: "Hội trại 26/3 Lớp 11 năm 2005", date: "Tháng 03/2006", tag: "Sự kiện" },
+   { url: "images/cuoinam12.jpg", caption: "Tổng kết năm học 2006", date: "Tháng 05/2006", tag: "Sự kiện" },
+   { url: "images/11.jpg", caption: "Liên hoan lớp 10 tại nhà Tuy", date: "Tháng 05/2004", tag: "Sự kiện" },
+   { url: "images/k1.jpg", caption: "Kỷ niệm Lớp 12", date: "Tháng 03/2006", tag: "Kỷ niệm" },  
+   { url: "images/lop3.jpg", caption: "Kỷ niệm Lớp 12", date: "Tháng 03/2006", tag: "Kỷ niệm" },
+   { url: "images/kn2.jpg", caption: "Kỷ niệm Lớp 12", date: "Tháng 03/2006", tag: "Kỷ niệm" },
+   { url: "images/kn3.jpg", caption: "Kỷ niệm Lớp 12", date: "Tháng 03/2006", tag: "Kỷ niệm" },
+   { url: "images/kn5.jpg", caption: "Kỷ niệm Lớp 12", date: "Tháng 03/2006", tag: "Kỷ niệm" },
+   { url: "images/kn6.jpg", caption: "Kỷ niệm Lớp 12", date: "Tháng 03/2006", tag: "Kỷ niệm" },
+   { url: "images/kn7.jpg", caption: "Kỷ niệm Lớp 12", date: "Tháng 03/2006", tag: "Kỷ niệm" },
+   { url: "images/kn9.jpg", caption: "Gặp mặt tại Sài Gòn", date: "Tháng 02/2024", tag: "Kỷ niệm" },
+   { url: "images/kn10.jpg", caption: "Gặp mặt tại Đà Nẵng", date: "Tháng 01/2026", tag: "Kỷ niệm" },
+   { url: "images/lop1.jpg", caption: "Kỷ niệm Lớp 11", date: "Tháng 02/2005", tag: "Kỷ niệm" },
+   { url: "images/lop2.jpg", caption: "Kỷ niệm Lớp 11", date: "Tháng 02/2005", tag: "Kỷ niệm" },
+   { url: "images/thihat.jpg", caption: "Dung và Ly cùng Thi Giọng hát hay Lớp 12", date: "Tháng 03/2006", tag: "Sự kiện" }
+],
+
+};
