@@ -59,35 +59,45 @@ function Teachers() {
       </div>
 
       <style>{`
-        /* CSS bổ sung để khung chứa ảnh Thầy Cô luôn vuông vắn, sắc nét */
-        .t-photo {
-          width: 100%;
-          aspect-ratio: 3 / 4; /* Tạo tỷ lệ khung ảnh chân dung chuẩn */
-          border: 1px solid var(--ink);
-          background: var(--paper-dark);
-          overflow: hidden;
-          margin-bottom: 16px;
-        }
-        .t-photo.placeholder {
-          font-family: var(--font-mono);
-          font-size: 11px;
-          text-transform: uppercase;
-          color: var(--ink-faint);
-        }
+       .teachers { padding: 60px 0; }
+        .t-head { padding: 40px 0 32px; }
         .t-grid {
-  display: grid;
-  /* Tự động chia thành 3 cột đều nhau trên máy tính (mỗi cột chiếm 1 phần bằng nhau) */
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 40px 24px;
-}
-
-/* Thêm đoạn mã Responsive này để khi xem trên điện thoại nhỏ, danh sách tự xếp dọc thành 1 cột */
-@media (max-width: 768px) {
-  .t-grid {
-    grid-template-columns: 1fr; /* Về 1 cột trên điện thoại */
-    gap: 24px;
-  }
-}
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 32px;
+          margin-bottom: 64px;
+        }
+        .t-card {
+          border: 1.5px solid var(--ink);
+          padding: 16px;
+          background: var(--paper);
+          box-shadow: 3px 3px 0 var(--ink);
+        }
+        .t-photo { aspect-ratio: 1; margin-bottom: 16px; font-size: 9px; }
+        .t-tribute {
+          max-width: 720px;
+          margin: 0 auto;
+          text-align: center;
+          position: relative;
+          padding: 48px 24px;
+          border-top: 0.5px solid var(--ink);
+          border-bottom: 0.5px solid var(--ink);
+        }
+        .quote-mark {
+          font-family: var(--font-display);
+          font-size: 120px;
+          line-height: 0.5;
+          color: var(--accent);
+          font-style: italic;
+          margin-bottom: -20px;
+        }
+        .t-tribute p { font-size: 20px; font-style: italic; line-height: 1.6; color: var(--ink); }
+        @media (max-width: 860px) {
+          .t-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 520px) {
+          .t-grid { grid-template-columns: 1fr; }
+        }
       `}</style>
     </section>
   );
