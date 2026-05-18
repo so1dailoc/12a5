@@ -231,16 +231,52 @@ function Classmates() {
 }
 
 function RSVP() {
-  const [form, setForm] = useState({
+  // Quản lý dữ liệu form động bằng State theo phom cũ của anh
+  const [form, setForm] = React.useState({
     name: '', class: '', phone: '', email: '', guests: 0, message: '', attend: 'yes'
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = React.useState(false);
+  const [loading, setLoading] = React.useState(false); // Trạng thái đợi lưu data
+
   const update = (k, v) => setForm(p => ({...p, [k]: v}));
+
+  // Hàm xử lý gửi dữ liệu RSVP lên Google Sheets (Chạy ngầm, giữ nguyên giao diện)
   const submit = (e) => {
     e.preventDefault();
     if (!form.name || !form.phone) return;
-    setSubmitted(true);
+
+    setLoading(true);
+
+    // Đường dẫn Google Apps Script lấy từ file Sections3 của anh
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwfthy4T7rxgUUeYQRZFFISuampMV8zL-7hqB4fUaWdIgDkIoRsL9hbH6-p90C_JWL0oQ/exec";
+
+    fetch(SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        type: "rsvp", // Định danh để file Google Script phân biệt với Lời nhắn
+        name: form.name,
+        class: form.class || "12A5", // Nếu không chọn mặc định là 12A5
+        phone: form.phone,
+        email: form.email,
+        guests: form.guests,
+        status: form.attend === 'yes' ? 'Có, tôi sẽ đến' : (form.attend === 'maybe' ? 'Đang thu xếp' : 'Không thể, gửi lời chúc'),
+        note: form.message
+      })
+    })
+    .then(() => {
+      // Chuyển sang màn hình thông báo thành công sau khi gửi xong
+      setSubmitted(true);
+      setLoading(false);
+    })
+    .catch(err => {
+      console.error("Lỗi gửi RSVP:", err);
+      alert("Có lỗi xảy ra khi gửi đăng ký, vui lòng thử lại sau!");
+      setLoading(false);
+    });
   };
+
   return (
     <section id="rsvp" className="rsvp">
       <div className="page">
@@ -285,30 +321,28 @@ function RSVP() {
                 <p style={{fontStyle: 'italic', color: 'var(--ink-soft)', marginBottom: 24}}>
                   Ban liên lạc đã nhận đăng ký của bạn. Chúng tôi sẽ gửi email xác nhận kèm hướng dẫn thanh toán trong vòng 48 giờ.
                 </p>
-                <button className="btn btn-ghost" onClick={() => setSubmitted(false)}>Đăng ký thêm người</button>
+                <button className="btn btn-ghost" onClick={() => {
+                  setSubmitted(false);
+                  setForm({ name: '', class: '', phone: '', email: '', guests: 0, message: '', attend: 'yes' });
+                }}>
+                  Đăng ký thêm người
+                </button>
               </div>
             ) : (
               <form onSubmit={submit} className="r-form">
                 <div className="r-field">
                   <label>Họ và tên *</label>
-                  <input type="text" value={form.name} onChange={e => update('name', e.target.value)} required/>
+                  <input type="text" value={form.name} onChange={e => update('name', e.target.value)} required disabled={loading}/>
                 </div>
                 <div className="r-row2">
                   <div className="r-field">
-                    <label>Lớp 12 *</label>
-                    <select value={form.class} onChange={e => update('class', e.target.value)}>
-                      <option value="">— Chọn lớp —</option>
-                      {['10B11','11A5','12A5'].map(c => <option key={c}>{c}</option>)}
-                    </select>
-                  </div>
-                  <div className="r-field">
                     <label>Số điện thoại *</label>
-                    <input type="tel" value={form.phone} onChange={e => update('phone', e.target.value)} required/>
+                    <input type="tel" value={form.phone} onChange={e => update('phone', e.target.value)} required disabled={loading}/>
                   </div>
                 </div>
                 <div className="r-field">
                   <label>Email</label>
-                  <input type="email" value={form.email} onChange={e => update('email', e.target.value)}/>
+                  <input type="email" value={form.email} onChange={e => update('email', e.target.value)} disabled={loading}/>
                 </div>
                 <div className="r-field">
                   <label>Tham dự</label>
@@ -319,7 +353,7 @@ function RSVP() {
                       {v: 'no', l: 'Không thể, gửi lời chúc'}
                     ].map(opt => (
                       <label key={opt.v} className="r-radio">
-                        <input type="radio" name="attend" checked={form.attend === opt.v} onChange={() => update('attend', opt.v)}/>
+                        <input type="radio" name="attend" checked={form.attend === opt.v} onChange={() => update('attend', opt.v)} disabled={loading}/>
                         <span>{opt.l}</span>
                       </label>
                     ))}
@@ -327,13 +361,15 @@ function RSVP() {
                 </div>
                 <div className="r-field">
                   <label>Số người đi cùng (vợ/chồng/con)</label>
-                  <input type="number" min="0" max="6" value={form.guests} onChange={e => update('guests', e.target.value)}/>
+                  <input type="number" min="0" max="6" value={form.guests} onChange={e => update('guests', e.target.value)} disabled={loading}/>
                 </div>
                 <div className="r-field">
                   <label>Lời nhắn cho BTC</label>
-                  <textarea value={form.message} onChange={e => update('message', e.target.value)} placeholder="Dị ứng thức ăn, yêu cầu đặc biệt, bạn mong gặp ai…"/>
+                  <textarea value={form.message} onChange={e => update('message', e.target.value)} placeholder="Dị ứng thức ăn, yêu cầu đặc biệt, bạn mong gặp ai…" disabled={loading}/>
                 </div>
-                <button type="submit" className="btn btn-accent" style={{width: '100%', marginTop: 16}}>Gửi xác nhận</button>
+                <button type="submit" className="btn btn-accent" style={{width: '100%', marginTop: 16}} disabled={loading}>
+                  {loading ? "Đang lưu thông tin..." : "Gửi xác nhận"}
+                </button>
               </form>
             )}
           </div>
@@ -383,7 +419,6 @@ function RSVP() {
     </section>
   );
 }
-
 window.Teachers = Teachers;
 window.Classmates = Classmates;
 window.RSVP = RSVP;
