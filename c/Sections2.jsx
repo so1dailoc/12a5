@@ -21,22 +21,21 @@ function Teachers() {
         <div className="t-grid">
           {d.teachers && d.teachers.map((t, i) => (
             <article key={i} className="t-card reveal">
-              {/* KHU VỰC HIỂN THỊ HÌNH ẢNH THẦY CÔ */}
-              <div className="t-photo">
-                {t.image ? (
+              {/* Giữ nguyên cấu trúc ô tròn/ô vuông nguyên bản của anh */}
+              {t.image ? (
+                <div className="t-photo" style={{ overflow: 'hidden', background: 'var(--paper-dark)', border: '1px solid var(--ink)' }}>
                   <img 
                     src={t.image} 
                     alt={t.name} 
                     style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} 
                   />
-                ) : (
-                  // Ô dự phòng nếu thầy cô đó chưa kịp cập nhật ảnh
-                  <div className="t-photo placeholder" style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
-                    Chân dung<br />{t.name.split(' ').slice(-2).join(' ')}
-                  </div>
-                )}
-              </div>
-
+                </div>
+              ) : (
+                <div className="t-photo placeholder">
+                  Chân dung<br/>{t.name.split(' ').slice(-2).join(' ')}
+                </div>
+              )}
+              
               <div className="t-body">
                 <div className="mono caps" style={{fontSize: 9, color: 'var(--accent)', marginBottom: 6}}>{String(i+1).padStart(2, '0')}</div>
                 <h3 className="display" style={{fontSize: 22, marginBottom: 4}}>{t.name}</h3>
