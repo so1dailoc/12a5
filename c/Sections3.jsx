@@ -255,11 +255,20 @@ function Messages() {
 
             {/* Nút Xem Thêm Đã Đồng Bộ Giao Diện */}
             {visibleCount < msgs.length && (
-              <div className="mono caps" style={{ textAlign: 'center', marginTop: '40px' }}>
-                <button type="submit" className="btn btn-accent" onClick={showMore} style={{marginTop: 12}}>
-                  Xem thêm lưu bút ↑
-                </button>
-              </div>
+             <div style={{ textAlign: 'center', marginTop: '40px' }}>
+    <button 
+      className="btn btn-accent mono caps" 
+      onClick={showMore} 
+      style={{ 
+        padding: '12px 40px', 
+        fontSize: '11px', // Font mono caps chuẩn thường dùng kích thước nhỏ để tinh tế
+        letterSpacing: '0.15em', // Giãn chữ chuẩn hệ mono caps
+        cursor: 'pointer'
+      }}
+    >
+      Xem thêm lưu bút ↑
+    </button>
+  </div>
             )}
           </>
         )}
@@ -312,13 +321,25 @@ function Messages() {
         .m-meta { display: flex; justify-content: space-between; align-items: flex-end; padding-top: 12px; border-top: 0.5px solid var(--ink-faint); }
         
         .m-wall + div .btn-accent {
-          cursor: pointer;
-          transition: all 0.3s;
-            font-family: var(--font-display) !important; /* Ép nhận font chữ của hệ thống */
-            font-weight: bold !important;
-            text-transform: none; /* Hoặc 'uppercase' nếu anh muốn viết hoa toàn bộ giống nút trên */
-            letter-spacing: 0.05em;
-          }
+  background: var(--accent) !important;
+  color: var(--paper) !important;
+  border: 1px solid var(--ink) !important;
+  font-family: var(--font-mono) !important; /* Ép về font Mono chuyên dụng */
+  font-size: 11px !important; /* Kích thước chữ mono nhỏ gọn */
+  font-weight: normal !important; /* Font mono caps thường đi nét mảnh thanh lịch */
+  text-transform: uppercase !important; /* Bắt buộc viết hoa */
+  letter-spacing: 0.15em !important; /* Độ giãn chữ rộng */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 4px 4px 0 var(--ink) !important;
+}
+
+.m-wall + div .btn-accent:hover {
+  background: var(--paper) !important;
+  color: var(--ink) !important;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--ink) !important;
+}
 
         @media (max-width: 640px) {
           .m-wall { columns: 1; }
