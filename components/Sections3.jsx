@@ -176,7 +176,13 @@ function Messages() {
       method: "POST",
       mode: "no-cors",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name: form.name, class: form.class, message: form.text })
+      // ĐÃ CẬP NHẬT: Thêm type: "messages" để đồng bộ rẽ nhánh trên Google Apps Script
+      body: JSON.stringify({ 
+        type: "messages", 
+        name: form.name, 
+        class: form.class, 
+        message: form.text 
+      })
     })
     .then(() => {
       setForm({ ...form, text: "" });
@@ -321,7 +327,7 @@ function Messages() {
         .m-text { font-size: 17px; font-style: italic; line-height: 1.6; margin-bottom: 16px; color: var(--ink); white-space: pre-line; }
         .m-meta { display: flex; justify-content: space-between; align-items: flex-end; padding-top: 12px; border-top: 0.5px solid var(--ink-faint); }
         
-        /* Định dạng CSS riêng cho nút Xem thêm (Không bóng đổ, Ép font Mono Caps, Hover đồng bộ) */
+        /* Định dạng CSS riêng cho nút Xem thêm */
         .m-wall + div .btn-accent {
           background: var(--accent) !important;
           color: var(--paper) !important;
