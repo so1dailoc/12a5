@@ -1,4 +1,5 @@
 // Fund, Messages, Contact, FAQ, Footer
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwfthy4T7rxgUUeYQRZFFISuampMV8zL-7hqB4fUaWdIgDkIoRsL9hbH6-p90C_JWL0oQ/exec";
 function Fund() {
   const d = window.REUNION_DATA;
   const pct = Math.round((d.fundRaised / d.fundGoal) * 100);
@@ -121,98 +122,161 @@ function Alloc({ label, pct, color }) {
 }
 
 function Messages() {
-  const [msgs, setMsgs] = useState([
-    { name: 'Văn Dương Phúc Thịnh', class: '12A5', text: 'Về đi tụi bây! :D', date: '12 · 05 · 2026' },
-    { name: 'Võ Hồng Phúc', class: '12A5', text: '20 NĂM CHỈ 1 LẦN. TÔI KHÔNG CẦN LÍ DO. TÔI CHỈ CẦN ĐƯỢC GẶP & THẤY BẠN...', date: '12 · 05 · 2026' },
-    { name: 'Trần Thị Kim Dung', class: '12A5', text: 'Hẹn gặp lại các bạn.', date: '13 · 05 · 2026' },
-    { name: 'Lê Quốc Việt', class: '12A5', text: 'Tao sẽ về sớm nhất.', date: '13 · 05 · 2026' }
-  ]);
-  const [form, setForm] = useState({ name: '', class: '', text: '' });
-  const post = (e) => {
-    e.preventDefault();
-    if (!form.name || !form.text) return;
-    const now = new Date();
-    const date = `${String(now.getDate()).padStart(2,'0')} · ${String(now.getMonth()+1).padStart(2,'0')} · ${now.getFullYear()}`;
-    setMsgs([{ ...form, date }, ...msgs]);
-    setForm({ name: '', class: '', text: '' });
+  const [messages, setMessages] = React.useState([]);
+  const [name, setName] = React.useState("");
+  const [message, setMessage] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
+  const [fetching, setFetching] = React.useState(true);
+
+  const fetchMessages = () => {
+    fetch(SCRIPT_URL)
+      .then(res => res.json())
+      .then(data => {
+        setMessages(data.reverse());
+        setFetching(false);
+      })
+      .catch(err => {
+        console.error("Lỗi tải lời nhắn:", err);
+        setFetching(false);
+      });
   };
+
+  React.useEffect(() => {
+    fetchMessages();
+  }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!name.trim() || !message.trim()) return;
+
+    setLoading(true);
+    fetch(SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, message })
+    })
+    .then(() => {
+      setMessage("");
+      setLoading(false);
+      setFetching(true);
+      setTimeout(fetchMessages, 1000); 
+    })
+    .catch(err => {
+      alert("Có lỗi xảy ra khi gửi lời nhắn, vui lòng thử lại!");
+      setLoading(false);
+    });
+  };
+
   return (
-    <section id="messages" className="messages">
+    <section id="messages" className="messages-section">
       <div className="page">
         <div className="index-bar">
-          <span>§ 08 — Lưu bút</span>
-          <span>Lời nhắn của các bạn</span>
-          <span>trang 09</span>
+          <span>§ 04 — Lưu bút 12A5</span>
+          <span>Hai mươi năm — Những lời chưa nói</span>
+          <span>trang 05</span>
         </div>
 
-        <div className="m-head">
-          <div className="section-number">§ 08</div>
-          <h2 className="section-title">Sổ <em>lưu bút</em><br/>ấn bản 2026</h2>
-          <p className="section-dek">Để lại một dòng — cho bản thân, cho bạn cũ, cho thầy cô. Ai cũng sẽ đọc được.</p>
+        <div className="msg-header" style={{ marginBottom: '40px', paddingTop: '40px' }}>
+          <div className="section-number">§ 04</div>
+          <h2 className="section-title">Lưu bút<br /><em>ngày trở về</em></h2>
+          <p className="section-dek">
+            Hãy gửi lại những lời chúc, những dòng tâm sự hoặc những kỷ niệm dang dở của tuổi 18 dưới hộc bàn năm xưa tại đây nhé!
+          </p>
         </div>
 
-        <div className="m-compose">
-          <form onSubmit={post}>
-            <div className="m-compose-row">
-              <input type="text" placeholder="Tên của bạn" value={form.name} onChange={e => setForm({...form, name: e.target.value})}/>
-              <input type="text" placeholder="Lớp (VD 12A5)" value={form.class} onChange={e => setForm({...form, class: e.target.value})} style={{maxWidth: 160}}/>
+        <div className="msg-form-wrapper">
+          <form onSubmit={handleSubmit} className="msg-form">
+            <div className="form-group">
+              <label className="mono caps">Tên của bạn:</label>
+              <input 
+                type="text" 
+                value={name} 
+                onChange={e => setName(e.target.value)} 
+                placeholder="Ví dụ: Mỹ Dung, Thịnh Văn..." 
+                required 
+                disabled={loading}
+              />
             </div>
-            <textarea placeholder="Viết một lời nhắn…" value={form.text} onChange={e => setForm({...form, text: e.target.value})} rows={3}/>
-            <button type="submit" className="btn btn-accent" style={{marginTop: 12}}>Để lại lời nhắn</button>
+            <div className="form-group">
+              <label className="mono caps">Lời nhắn gửi:</label>
+              <textarea 
+                rows="4" 
+                value={message} 
+                onChange={e => setMessage(e.target.value)} 
+                placeholder="Viết những dòng tâm sự của bạn tại đây..." 
+                required
+                disabled={loading}
+              ></textarea>
+            </div>
+            <div style={{ textAlign: 'right' }}>
+              <button type="submit" className="msg-submit-btn" disabled={loading}>
+                {loading ? "Đang gửi..." : "Gửi vào Lưu Bút ↑"}
+              </button>
+            </div>
           </form>
         </div>
 
-        <div className="m-wall">
-          {msgs.map((m, i) => (
-            <div key={i} className={"m-card m-var-" + (i % 4)}>
-              <div className="m-text">"{m.text}"</div>
-              <div className="m-meta">
-                <div>
-                  <div className="display" style={{fontSize: 18}}>{m.name}</div>
-                  <div className="mono caps" style={{fontSize: 9, color: 'var(--accent)'}}>{m.class}</div>
-                </div>
-                <div className="mono" style={{fontSize: 10, color: 'var(--ink-faint)'}}>{m.date}</div>
+        <div className="msg-board-title mono caps">Bức tường kỷ niệm ({messages.length})</div>
+        
+        {fetching ? (
+          <div style={{ textAlign: 'center', fontStyle: 'italic', color: 'var(--ink-soft)' }}>
+            Đang mở trang lưu bút xưa...
+          </div>
+        ) : messages.length === 0 ? (
+          <div style={{ textAlign: 'center', fontStyle: 'italic', color: 'var(--ink-soft)', padding: '40px 0' }}>
+            Chưa có lời nhắn nào. Hãy là người đầu tiên để lại dòng lưu bút!
+          </div>
+        ) : (
+          <div className="msg-grid">
+            {messages.map((m, i) => (
+              <div key={i} className="msg-card">
+                <div className="msg-body">“{m.message}”</div>
+                <div className="msg-author">— {m.name}</div>
               </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="ornament">❋   ❋   ❋</div>
+            ))}
+          </div>
+        )}
       </div>
 
       <style>{`
-        .messages { padding: 60px 0; }
-        .m-head { padding: 40px 0 32px; }
-        .m-compose {
+        .messages-section { padding: 60px 0 80px; background: var(--paper); border-top: 1px solid var(--ink-faint); }
+        .msg-form-wrapper {
+          max-width: 600px;
+          margin: 0 auto 60px;
           background: var(--paper-dark);
-          border: 1.5px solid var(--ink);
-          padding: 24px;
-          margin-bottom: 48px;
-          max-width: 720px;
-        }
-        .m-compose-row { display: grid; grid-template-columns: 1fr auto; gap: 16px; margin-bottom: 16px; }
-        .m-wall {
-          columns: 2;
-          column-gap: 24px;
-        }
-        .m-card {
-          break-inside: avoid;
-          padding: 20px 22px;
-          margin-bottom: 24px;
           border: 1px solid var(--ink);
-          display: inline-block;
-          width: 100%;
+          padding: 30px;
+          box-shadow: 6px 6px 0 var(--ink);
         }
-        .m-var-0 { background: var(--paper); transform: rotate(-0.5deg); box-shadow: 3px 3px 0 var(--ink); }
-        .m-var-1 { background: #f5e6c8; transform: rotate(0.4deg); box-shadow: 3px 3px 0 var(--ink); }
-        .m-var-2 { background: var(--paper-dark); transform: rotate(-0.3deg); box-shadow: 3px 3px 0 var(--ink); }
-        .m-var-3 { background: #efe4cb; transform: rotate(0.6deg); box-shadow: 3px 3px 0 var(--ink); }
-        .m-text { font-size: 17px; font-style: italic; line-height: 1.6; margin-bottom: 16px; color: var(--ink); }
-        .m-meta { display: flex; justify-content: space-between; align-items: flex-end; padding-top: 12px; border-top: 0.5px solid var(--ink-faint); }
-        @media (max-width: 640px) {
-          .m-wall { columns: 1; }
-          .m-compose-row { grid-template-columns: 1fr; }
+        .form-group { margin-bottom: 20px; display: flex; flex-direction: column; gap: 8px; }
+        .form-group label { font-size: 11px; letter-spacing: 0.1em; color: var(--ink); font-weight: bold; }
+        .form-group input, .form-group textarea {
+          background: var(--paper);
+          border: 1px solid var(--ink-soft);
+          padding: 12px;
+          font-family: var(--font-serif);
+          font-size: 16px;
+          color: var(--ink);
+          transition: border 0.2s;
         }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); }
+        .msg-submit-btn {
+          background: var(--accent); color: var(--paper); border: 1px solid var(--ink);
+          padding: 12px 28px; font-family: var(--font-display); font-size: 15px;
+          font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em;
+          cursor: pointer; transition: all 0.2s ease; box-shadow: 4px 4px 0 var(--ink);
+        }
+        .msg-submit-btn:hover { background: var(--paper); color: var(--ink); transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+        .msg-submit-btn:disabled { background: var(--ink-faint); cursor: not-allowed; transform: none; box-shadow: none; }
+        .msg-board-title { font-size: 12px; border-bottom: 2px solid var(--ink); padding-bottom: 10px; margin-bottom: 30px; letter-spacing: 0.15em; font-weight: bold; }
+        .msg-grid { column-count: 3; column-gap: 24px; }
+        .msg-card { break-inside: avoid; display: inline-block; width: 100%; background: var(--paper-dark); border: 1px solid var(--ink-faint); padding: 20px; margin-bottom: 24px; box-shadow: 4px 4px 0 rgba(0,0,0,0.03); position: relative; }
+        .msg-card::before { content: "•"; position: absolute; top: 8px; left: 12px; color: var(--accent); font-size: 18px; }
+        .msg-body { font-family: var(--font-serif); font-style: italic; font-size: 16px; line-height: 1.6; color: var(--ink); white-space: pre-line; }
+        .msg-author { margin-top: 14px; text-align: right; font-family: var(--font-sans); font-size: 13px; font-weight: bold; color: var(--accent); letter-spacing: 0.05em; }
+        @media (max-width: 900px) { .msg-grid { column-count: 2; } }
+        @media (max-width: 600px) { .msg-grid { column-count: 1; } .msg-form-wrapper { padding: 20px; } }
       `}</style>
     </section>
   );
