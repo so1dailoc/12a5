@@ -18,6 +18,33 @@ function Teachers() {
           </p>
         </div>
 
+        <div className=\"t-grid\">
+          {d.teachers && d.teachers.map((t, i) => (
+            <article key={i} className=\"t-card reveal\">
+              {/* KHU VỰC HIỂN THỊ HÌNH ẢNH THẦY CÔ */}
+              <div className=\"t-photo\">
+                {t.image ? (
+                  <img 
+                    src={t.image} 
+                    alt={t.name} 
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} 
+                  />
+                ) : (
+                  // Ô dự phòng nếu thầy cô đó chưa kịp cập nhật ảnh
+                  <div className=\"t-photo placeholder\" style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
+                    Chân dung<br/>{t.name.split(' ').slice(-2).join(' ')}
+                  </div>
+                )}
+              </div>
+
+              <div className=\"t-body\">
+                <div className=\"mono caps\" style={{fontSize: 9, color: 'var(--accent)', marginBottom: 6}}>{String(i+1).padStart(2, '0')}</div>
+                <h3 className=\"display\" style={{fontSize: 22, marginBottom: 4}}>{t.name}</h3>
+                <div style={{fontStyle: 'italic', color: 'var(--ink-soft)', fontSize: 15}}>{t.subject || t.role || "Giáo viên"}</div>
+              </div>
+            </article>\n          ))}\n        </div>
+      </div>
+      
         <div className="t-grid">
           {d.teachers.map((t, i) => (
             <article key={i} className="t-card reveal">
