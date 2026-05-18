@@ -253,7 +253,7 @@ function Messages() {
                   <div className="m-text">"{m.message || m.text}"</div>
                   <div className="m-meta">
                     <div>
-                      <div className="mono caps" style={{fontSize: 15}}>{m.name}</div>
+                      <div className="mono caps", style={{fontSize: 15, color: 'var(--ink-soft)'}}>{m.name}</div>
                     </div>
                     <div className="mono" style={{fontSize: 10, color: 'var(--ink-faint)'}}>{m.date || ""}</div>
                   </div>
