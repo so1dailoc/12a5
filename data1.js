@@ -32,9 +32,9 @@ window.REUNION_DATA = {
   ],
 
   teachers: [
-    { name: "Thầy Trịnh Hoàng", role: "Chủ nhiệm 10B11", years: "2003–2004" },
-    { name: "Thầy Nguyễn Hồng Sinh", role: "Chủ nhiệm 11A5", years: "2004-2005" },
-    { name: "Thầy Nguyễn Văn Cấp", role: "Chủ nhiệm 12A5", years: "2005-2006" }
+    { name: "Thầy Trịnh Hoàng", image: "images/thay-hoang.jpg", role: "Chủ nhiệm 10B11", years: "2003–2004" },
+    { name: "Thầy Nguyễn Hồng Sinh", image: "images/thay-sinh.jpg", role: "Chủ nhiệm 11A5", years: "2004-2005" },
+    { name: "Thầy Nguyễn Văn Cấp", image: "images/thay-cap.jpg", role: "Chủ nhiệm 12A5", years: "2005-2006" }
   ],
 
   classmates: [ 
