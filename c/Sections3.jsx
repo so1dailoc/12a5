@@ -214,15 +214,6 @@ function Messages() {
                 required
                 disabled={loading}
               />
-              <input 
-                type="text" 
-                placeholder="Lớp (VD 12A5)" 
-                value={form.class} 
-                onChange={e => setForm({...form, class: e.target.value})} 
-                style={{maxWidth: 160}}
-                required
-                disabled={loading}
-              />
             </div>
             <textarea 
               placeholder="Viết một lời nhắn…" 
@@ -254,8 +245,7 @@ function Messages() {
                   <div className="m-text">"{m.message || m.text}"</div>
                   <div className="m-meta">
                     <div>
-                      <div className="display" style={{fontSize: 18}}>{m.name}</div>
-                      <div className="mono caps" style={{fontSize: 9, color: 'var(--accent)'}}>{m.class || "12A5"}</div>
+                      <div className="mono caps" style={{fontSize: 12, color: 'var(--accent)'}}>{m.name}</div>
                     </div>
                     <div className="mono" style={{fontSize: 10, color: 'var(--ink-faint)'}}>{m.date || ""}</div>
                   </div>
@@ -266,7 +256,7 @@ function Messages() {
             {/* Nút Xem Thêm Đã Đồng Bộ Giao Diện */}
             {visibleCount < msgs.length && (
               <div style={{ textAlign: 'center', marginTop: '40px' }}>
-                <button className="btn btn-accent display" onClick={showMore} style={{ padding: '12px 40px', fontSize: '20px' }}>
+                <button className="btn btn-accent" onClick={showMore} style={{ padding: '12px 40px', fontSize: '20px' }}>
                   Xem thêm lưu bút ↑
                 </button>
               </div>
@@ -324,7 +314,11 @@ function Messages() {
         .m-wall + div .btn-accent {
           cursor: pointer;
           transition: all 0.3s;
-        }
+            font-family: var(--font-display) !important; /* Ép nhận font chữ của hệ thống */
+            font-weight: bold !important;
+            text-transform: none; /* Hoặc 'uppercase' nếu anh muốn viết hoa toàn bộ giống nút trên */
+            letter-spacing: 0.05em;
+          }
 
         @media (max-width: 640px) {
           .m-wall { columns: 1; }
