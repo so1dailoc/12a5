@@ -121,7 +121,7 @@ function Classmates() {
         <div className="c-tools">
           <div className="c-search">
             <label>Tìm kiếm</label>
-            <input type="text" value={q} onChange={e => setQ(e.target.value)} placeholder="Tên, nghề, thành phố…"/>
+            <input type="text" value={q} onChange={e => setQ(e.target.value)} placeholder="Tên, thành phố…"/>
           </div>
           <div className="c-filter">
             <label>Lọc theo lớp</label>
