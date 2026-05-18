@@ -255,8 +255,8 @@ function Messages() {
 
             {/* Nút Xem Thêm Đã Đồng Bộ Giao Diện */}
             {visibleCount < msgs.length && (
-              <div style={{ textAlign: 'center', marginTop: '40px' }}>
-                <button className="btn btn-accent" onClick={showMore} style={{ padding: '12px 40px', fontFamily: 'var(--font-display)', fontSize: '20px' }}>
+              <div className="page" style={{ textAlign: 'center', marginTop: '40px' }}>
+                <button type="submit" className="btn btn-accent" onClick={showMore} style={{marginTop: 12}}>
                   Xem thêm lưu bút ↑
                 </button>
               </div>
