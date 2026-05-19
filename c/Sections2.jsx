@@ -21,7 +21,6 @@ function Teachers() {
         <div className="t-grid">
           {d.teachers && d.teachers.map((t, i) => (
             <article key={i} className="t-card reveal">
-              {/* Giữ nguyên cấu trúc ô tròn/ô vuông nguyên bản của anh */}
               {t.image ? (
                 <div className="t-photo" style={{ overflow: 'hidden', background: 'var(--paper-dark)', border: '1px solid var(--ink)' }}>
                   <img 
@@ -60,7 +59,7 @@ function Teachers() {
       </div>
 
       <style>{`
-       .teachers { padding: 60px 0; }
+        .teachers { padding: 60px 0; }
         .t-head { padding: 40px 0 32px; }
         .t-grid {
           display: grid;
@@ -106,8 +105,9 @@ function Teachers() {
 
 function Classmates() {
   const d = window.REUNION_DATA;
-  const [q, setQ] = useState('');
-  const [filterClass, setFilterClass] = useState('all');
+  // SỬA LỖI: Chuyển về React.useState để tránh crash app
+  const [q, setQ] = React.useState('');
+  const [filterClass, setFilterClass] = React.useState('all');
 
   const classes = ['all', ...new Set(d.classmates.map(m => m.class))];
   const filtered = d.classmates.filter(m => {
@@ -231,23 +231,19 @@ function Classmates() {
 }
 
 function RSVP() {
-  // Quản lý dữ liệu form động bằng State theo phom cũ của anh
   const [form, setForm] = React.useState({
     name: '', class: '', phone: '', email: '', guests: 0, message: '', attend: 'yes'
   });
   const [submitted, setSubmitted] = React.useState(false);
-  const [loading, setLoading] = React.useState(false); // Trạng thái đợi lưu data
+  const [loading, setLoading] = React.useState(false);
 
   const update = (k, v) => setForm(p => ({...p, [k]: v}));
 
-  // Hàm xử lý gửi dữ liệu RSVP lên Google Sheets (Chạy ngầm, giữ nguyên giao diện)
   const submit = (e) => {
     e.preventDefault();
     if (!form.name || !form.phone) return;
 
     setLoading(true);
-
-    // Đường dẫn Google Apps Script lấy từ file Sections3 của anh
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwfthy4T7rxgUUeYQRZFFISuampMV8zL-7hqB4fUaWdIgDkIoRsL9hbH6-p90C_JWL0oQ/exec";
 
     fetch(SCRIPT_URL, {
@@ -255,9 +251,9 @@ function RSVP() {
       mode: "no-cors",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        type: "rsvp", // Định danh để file Google Script phân biệt với Lời nhắn
+        type: "rsvp", // Phân loại rẽ nhánh chuẩn tab RSVP trên Apps Script
         name: form.name,
-        class: form.class || "12A5", // Nếu không chọn mặc định là 12A5
+        class: form.class || "12A5",
         phone: form.phone,
         email: form.email,
         guests: form.guests,
@@ -266,7 +262,6 @@ function RSVP() {
       })
     })
     .then(() => {
-      // Chuyển sang màn hình thông báo thành công sau khi gửi xong
       setSubmitted(true);
       setLoading(false);
     })
@@ -296,11 +291,11 @@ function RSVP() {
             <div className="r-info">
               <div className="r-info-row">
                 <div className="mono caps">Phí tham dự</div>
-                <div className="display" style={{fontSize: 28}}>600.000đ<span style={{fontSize: 14, color: 'var(--ink-soft)', fontStyle: 'italic', marginLeft: 8}}>/người</span></div>
+                <div className="display f-total-price">600.000đ<span style={{fontSize: 14, color: 'var(--ink-soft)', fontStyle: 'italic', marginLeft: 8}}>/người</span></div>
               </div>
               <div className="r-info-row">
                 <div className="mono caps"> </div>
-                <div className="display" style={{fontSize: 28}}>6.000.000đ<span style={{fontSize: 14, color: 'var(--ink-soft)', fontStyle: 'italic', marginLeft: 8}}>/lớp</span></div>
+                <div className="display f-total-price">6.000.000đ<span style={{fontSize: 14, color: 'var(--ink-soft)', fontStyle: 'italic', marginLeft: 8}}>/lớp</span></div>
               </div>
               <div className="r-info-row">
                 <div className="mono caps">Bao gồm</div>
@@ -319,7 +314,7 @@ function RSVP() {
                 <div className="display" style={{fontSize: 64, color: 'var(--accent)'}}>✓</div>
                 <h3 className="display" style={{fontSize: 32, marginBottom: 12}}>Hẹn gặp lại, {form.name.split(' ').slice(-1)}!</h3>
                 <p style={{fontStyle: 'italic', color: 'var(--ink-soft)', marginBottom: 24}}>
-                  Ban liên lạc đã nhận đăng ký của bạn. Chúng tôi sẽ gửi email xác nhận kèm hướng dẫn thanh toán trong vòng 48 giờ.
+                  Ban liên lạc đã nhận đăng ký của bạn.
                 </p>
                 <button className="btn btn-ghost" onClick={() => {
                   setSubmitted(false);
@@ -334,11 +329,9 @@ function RSVP() {
                   <label>Họ và tên *</label>
                   <input type="text" value={form.name} onChange={e => update('name', e.target.value)} required disabled={loading}/>
                 </div>
-                <div className="r-row2">
-                  <div className="r-field">
-                    <label>Số điện thoại *</label>
-                    <input type="tel" value={form.phone} onChange={e => update('phone', e.target.value)} required disabled={loading}/>
-                  </div>
+                <div className="r-field">
+                  <label>Số điện thoại *</label>
+                  <input type="tel" value={form.phone} onChange={e => update('phone', e.target.value)} required disabled={loading}/>
                 </div>
                 <div className="r-field">
                   <label>Email</label>
@@ -365,7 +358,7 @@ function RSVP() {
                 </div>
                 <div className="r-field">
                   <label>Lời nhắn cho BTC</label>
-                  <textarea value={form.message} onChange={e => update('message', e.target.value)} placeholder="Dị ứng thức ăn, yêu cầu đặc biệt, bạn mong gặp ai…" disabled={loading}/>
+                  <textarea value={form.message} onChange={e => update('message', e.target.value)} placeholder="Yêu cầu đặc biệt..." disabled={loading}/>
                 </div>
                 <button type="submit" className="btn btn-accent" style={{width: '100%', marginTop: 16}} disabled={loading}>
                   {loading ? "Đang lưu thông tin..." : "Gửi xác nhận"}
@@ -406,19 +399,21 @@ function RSVP() {
           box-shadow: 6px 6px 0 var(--ink);
         }
         .r-field { margin-bottom: 20px; }
-        .r-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .r-radios { display: flex; flex-direction: column; gap: 8px; padding-top: 8px; }
         .r-radio { display: flex; align-items: center; gap: 10px; font-size: 15px; cursor: pointer; }
         .r-radio input { accent-color: var(--accent); }
         .r-success { background: var(--paper); border: 1.5px solid var(--ink); padding: 48px 32px; text-align: center; box-shadow: 6px 6px 0 var(--ink); }
+        
         @media (max-width: 860px) {
           .r-grid { grid-template-columns: 1fr; gap: 32px; }
-          .r-row2 { grid-template-columns: 1fr; }
+          .f-total-price { font-size: 22px !important; }
+          .r-form { padding: 20px; }
         }
       `}</style>
     </section>
   );
 }
+
 window.Teachers = Teachers;
 window.Classmates = Classmates;
 window.RSVP = RSVP;
