@@ -29,22 +29,22 @@ function Fund() {
         <div className="f-grid">
           <div>
             <div className="section-number">§ 07</div>
-            <h2 className="section-title">Một phần<br/><em>nhỏ bé</em></h2>
+            <h2 className="section-title f-title">Một phần<br/><em>nhỏ bé</em></h2>
             <p className="section-dek">
-             - Phần Nội dung Chuyển khoản [Nop tien Hoi Khoa] sẽ được tổng hợp và chuyển khoản về Quỹ Hội Khóa 20 của Trường.
-             - Phần Nội dung Chuyển khoản [Nop tien Quy] sẽ được lưu ở Quỹ lớp và sử dụng vào Mục đích CHI đã thông qua (Thăm viếng Thầy cô và các Bậc phụ huynh, các hoàn cảnh khó khăn - hoàn cảnh đặc biệt của lớp chúng ta...)`
- `           </p>
+             - Phần Nội dung Chuyển khoản [Nop tien Hoi Khoa] sẽ được tổng hợp và chuyển khoản về Quỹ Hội Khóa 20 của Trường.<br/>
+             - Phần Nội dung Chuyển khoản [Nop tien Quy] sẽ được lưu ở Quỹ lớp và sử dụng vào Mục đích CHI đã thông qua (Thăm viếng Thầy cô và các Bậc phụ huynh, các hoàn cảnh khó khăn - hoàn cảnh đặc biệt của lớp chúng ta...)
+            </p>
           </div>
 
           <div className="f-meter">
             <div className="f-meter-head">
               <div>
                 <div className="mono caps" style={{fontSize: 10, color: 'var(--ink-soft)'}}>Đã gây quỹ</div>
-                <div className="display" style={{fontSize: 44, color: 'var(--accent)', fontWeight: 900}}>{fmt(d.fundRaised)}</div>
+                <div className="display f-raised-text" style={{fontSize: 44, color: 'var(--accent)', fontWeight: 900}}>{fmt(d.fundRaised)}</div>
               </div>
               <div style={{textAlign: 'right'}}>
                 <div className="mono caps" style={{fontSize: 10, color: 'var(--ink-soft)'}}>Mục tiêu</div>
-                <div className="display" style={{fontSize: 28}}>{fmt(d.fundGoal)}</div>
+                <div className="display f-goal-text" style={{fontSize: 28}}>{fmt(d.fundGoal)}</div>
               </div>
             </div>
             <div className="f-bar">
@@ -61,7 +61,7 @@ function Fund() {
               <div className="mono" style={{fontSize: 14, lineHeight: 1.8}}>
                 Vietcombank · 7775664346<br/>
                 HUYNH THI MINH NGUYET<br/>
-                <span style={{color: 'var(--ink-soft)'}}>Nội dung: [Ten]+[Nop tien Hoi Khoa] hoặc [Ten]+[Nop tien Quy]</span>
+                <span style={{color: 'var(--ink-soft)', fontSize: 12}}>Nội dung: [Ten]+[Nop tien Hoi Khoa] hoặc [Ten]+[Nop tien Quy]</span>
               </div>
             </div>
           </div>
@@ -111,14 +111,23 @@ function Fund() {
         }
         .f-allocs { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 24px; padding-top: 16px; border-top: 0.5px solid var(--ink-faint); }
         .alloc { text-align: center; padding: 8px; }
-        .alloc-pct { font-family: var(--font-display); font-size: 32px; font-weight: 700; line-height: 1; }
-        .alloc-label { font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--ink-soft); margin-top: 4px; }
+        .alloc-pct { font-family: var(--font-display); font-size: 26px; font-weight: 700; line-height: 1; }
+        .alloc-label { font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-soft); margin-top: 4px; }
         .f-bank {
           border-top: 2px solid var(--ink);
           padding-top: 16px;
         }
+        
+        /* --- ĐOẠN CSS RESPONSIVE ĐÃ SỬA LỖI TRÀN KHUNG TRÊN MOBILE --- */
         @media (max-width: 860px) {
           .f-grid { grid-template-columns: 1fr; gap: 32px; }
+          .f-meter { padding: 16px; }
+          .f-raised-text { font-size: 32px !important; }
+          .f-goal-text { font-size: 20px !important; }
+          .f-allocs { grid-template-columns: 1fr; gap: 16px; }
+          .alloc { border-bottom: 1px dashed var(--ink-faint); padding-bottom: 12px; }
+          .alloc:last-child { border-bottom: none; }
+          .alloc-pct { font-size: 28px; }
         }
       `}</style>
     </section>
