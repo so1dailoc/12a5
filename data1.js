@@ -23,7 +23,7 @@ window.REUNION_DATA = {
     { time: "7:00", title: "Đón tiếp & check-in", desc: "Nhận kỷ yếu, huy hiệu, chụp ảnh lưu niệm tại khu welcome" },
     { time: "8:00", title: "Khai mạc", desc: "Phát biểu khai mạc, Văn nghệ chào mừng" },
     { time: "9:00", title: "Tri ân thầy cô", desc: "Tặng hoa và kỷ vật cho thầy cô giáo cũ" },
-    { time: "9:30", title: "Học bổng", desc: "Tặng học bổng cho Học sinh" },
+    { time: "9:30", title: "Khuyến học", desc: "Tặng quà khuyến học cho Học sinh" },
     { time: "10:30", title: "Văn nghệ", desc: "Những bài hát thời học trò, vòng tay bè bạn" },
     { time: "11:00", title: "Tham quan trường xưa", desc: "Đi lại hành lang, lớp học cũ, sân trường — nghe thầy cô kể chuyện" },
     { time: "11:30", title: "Chụp ảnh tập thể", desc: "Ảnh kỷ yếu phiên bản 2026 — toàn khoá và từng lớp" },
