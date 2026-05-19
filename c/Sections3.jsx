@@ -140,21 +140,27 @@ function Messages() {
 
   // SỬA LỖI: Đưa hàm fetchMessages vào trong Component để đọc được State đúng cách
   const fetchMessages = () => {
-    fetch(SCRIPT_URL)
-      .then(res => res.json())
-      .then(data => {
-        if (data && data.length > 0) {
-          // Trộn ngẫu nhiên danh sách câu lưu bút ngay khi tải trang
-          const shuffled = [...data].sort(() => Math.random() - 0.5);
-          setMessages(shuffled);
-        }
-        setFetching(false);
-      })
-      .catch(err => {
-        console.error("Lỗi tải lời nhắn:", err);
-        setFetching(false);
-      });
-  };
+  fetch(SCRIPT_URL, {
+    method: "GET",
+    redirect: "follow", // Ép trình duyệt tự bám sát luồng chuyển hướng liên kết của Google để lấy dữ liệu sạch
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (data && data.length > 0) {
+        // Trộn ngẫu nhiên câu chữ lưu bút tạo cảm giác sinh động mỗi lần tải trang
+        const shuffled = [...data].sort(() => Math.random() - 0.5);
+        setMessages(shuffled);
+      }
+      setFetching(false);
+    })
+    .catch(err => {
+      console.error("Lỗi tải lời nhắn mạng:", err);
+      setFetching(false);
+    });
+};
 
   React.useEffect(() => {
     fetchMessages();
