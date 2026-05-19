@@ -133,10 +133,16 @@ function Alloc({ label, pct, color }) {
 
 function Messages() {
   const [messages, setMessages] = React.useState([]);
-  const [visibleCount, setVisibleCount] = React.useState(6);
-  const [form, setForm] = React.useState({ name: "", class: "12A5", text: "" });
-  const [loading, setLoading] = React.useState(false);
   const [fetching, setFetching] = React.useState(true);
+  const [name, setName] = React.useState("");
+  const [message, setMessage] = React.useState("");
+  const [submitting, setSubmitting] = React.useState(false);
+  const [visibleCount, setVisibleCount] = React.useState(6);
+
+  // Truyền kèm state vào hàm fetch mỗi khi tải trang
+  React.useEffect(() => {
+    fetchMessages(setMessages, setFetching);
+  }, []);
 
   // SỬA LỖI: Đưa hàm fetchMessages vào trong Component để đọc được State đúng cách
   const fetchMessages = () => {
@@ -252,7 +258,7 @@ function Messages() {
             <div className="m-wall">
               {messages.slice(0, visibleCount).map((m, i) => (
                 <div key={i} className={"m-card m-var-" + (i % 4)}>
-                  <div className="m-text">"{m.message || m.text}"</div>
+                  <div className="m-text">"{m.message || m.text || "Lời nhắn trống"}"</div>
                   <div className="m-meta">
                     <div>
                       <div className="mono caps" style={{fontSize: 12, color: 'var(--accent)'}}>{m.name}</div>
