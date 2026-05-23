@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://12a5hnh.id.vn/sitemap.xml
