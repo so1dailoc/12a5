@@ -33,7 +33,18 @@ window.__INITIAL_TWEAKS = /*EDITMODE-BEGIN*/{
 <script src="data1.js"></script>
 <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin></script>
-<script data-no-boilerplate="true" src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script>
+  if (window.Babel) {
+    Babel.disableBabelLog = true; 
+    console.warn = (function(oldWarn) {
+      return function(msg) {
+        if (typeof msg === 'string' && msg.includes('in-browser Babel transformer')) return;
+        oldWarn.apply(console, arguments);
+      };
+    })(console.warn);
+  }
+</script>
 <script type="text/babel" src="components/Hero.jsx"></script>
 <script type="text/babel" src="components/Sections1.jsx"></script>
 <script type="text/babel" src="components/Sections2.jsx"></script>
