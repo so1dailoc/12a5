@@ -300,7 +300,7 @@ function RSVP() {
               </div>
               <div className="r-info-row">
                 <div className="mono caps"> </div>
-                <div className="display" style={{fontSize: 28}}>6.000.000đ<span style={{fontSize: 14, color: 'var(--ink-soft)', fontStyle: 'italic', marginLeft: 8}}>/lớp</span></div>
+                <div className="display" style={{fontSize: 28}}>+6.000.000đ<span style={{fontSize: 14, color: 'var(--ink-soft)', fontStyle: 'italic', marginLeft: 8}}>/lớp</span></div>
               </div>
               <div className="r-info-row">
                 <div className="mono caps">Bao gồm</div>
