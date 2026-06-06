@@ -6,7 +6,7 @@ window.REUNION_DATA = {
   school: "Trường THPT Huỳnh Ngọc Huệ",
   city: "TP. Đà Nẵng",
   fundGoal: 125000000, // 125 triệu
-  fundRaised: 62500000, // đã gây quỹ
+  fundRaised: 63100000, // đã gây quỹ
 
   heroQuotes: [
     "Một buổi sáng tháng Bảy, chúng ta lại gặp nhau dưới mái trường THPT Huỳnh Ngọc Huệ nơi đã giữ những tiếng cười, những trang vở, những lời hẹn còn dang dở của tuổi mười tám. Hai mươi năm đủ dài để tóc pha sương, nhưng chưa bao giờ đủ để quên nhau.",
