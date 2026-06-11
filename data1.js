@@ -1,6 +1,6 @@
 // Dữ liệu cho trang Hội Ngộ 20 Năm
 window.REUNION_DATA = {
-  eventDate: "2026-07-12T18:00:00+07:00",
+  eventDate: "2026-07-12T07:00:00+07:00",
   eventName: "Hội Ngộ 20 Năm",
   classYear: "Khoá 2003-2006",
   school: "Trường THPT Huỳnh Ngọc Huệ",
