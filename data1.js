@@ -42,7 +42,7 @@ window.REUNION_DATA = {
     { name: "Trần Thị Kim Dung", class: "12A5", now: "Sài Gòn", confirmed: true },
     { name: "Huỳnh Thị Mỹ Dung", class: "12A5", now: "-", confirmed: false },
     { name: "Dương Thị Thùy Dung", class: "12A5", now: "Mỹ", confirmed: false },
-    { name: "Nguyễn Văn Đạt", class: "12A5", now: "Đà Nẵng", confirmed: false },
+    { name: "Trần Vũ Đạt", class: "12A5", now: "Đà Nẵng", confirmed: false },
     { name: "Nguyễn Trường Giang", class: "12A5", now: "Đà Nẵng", confirmed: true },
     { name: "Huỳnh Thị Thu Hà", class: "12A5", now: "Sài Gòn", confirmed: false },
     { name: "Huỳnh Tấn Hiệp", class: "12A5", now: "Đà Nẵng", confirmed: true },
